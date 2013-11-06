@@ -1,0 +1,50 @@
+﻿Build started 11/5/2013 4:40:09 PM.
+     1>Project "\\VBOXSVR\Shared\OpenMugenSCR\OpenMugen\VC project\OpenMugen\OpenMugen.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\AirManager.cpp ..\..\CmdManager.cpp ..\..\ControllerExecuter.cpp ..\..\Input.cpp ..\..\MemManager.cpp ..\..\SDLManager.cpp ..\..\SDL_framerate.cpp ..\..\SffManager.cpp ..\..\Stack.cpp ..\..\StateManager.cpp ..\..\StateParser.cpp ..\..\VM.cpp ..\..\VideoSystem.cpp ..\..\engine.cpp ..\..\game.cpp ..\..\global.cpp ..\..\main.cpp ..\..\player.cpp ..\..\scale2xSDL.cpp ..\..\tokenizer.cpp
+         tokenizer.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         scale2xSDL.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\scale2xsdl.cpp(13): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+         player.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         main.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         global.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         game.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         engine.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         VideoSystem.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         VM.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         StateParser.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         StateManager.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         Stack.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         SffManager.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         SDL_framerate.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\sdl_framerate.h(14): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+         SDLManager.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         MemManager.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         Input.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         ControllerExecuter.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         CmdManager.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         AirManager.cpp
+     1>\\vboxsvr\shared\openmugenscr\openmugen\global.h(8): fatal error C1083: Cannot open include file: 'sdl.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "\\VBOXSVR\Shared\OpenMugenSCR\OpenMugen\VC project\OpenMugen\OpenMugen.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.46

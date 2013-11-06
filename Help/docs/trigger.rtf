@@ -1,0 +1,3164 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\nowidctlpar\f0\fs20 Trigger reference\par
+=================\par
+M.U.G.E.N, (c) Elecbyte 2002\par
+Documentation for version 2002.04.14\par
+\par
+Beta-release documentation\par
+Updated 2 March 2002\par
+\par
+\par
+\par
+====================================================================\par
+\par
+This is an alphabetical index of function-type triggers. For details on use of function-type triggers in expressions, see the expression documentation. Unless otherwise specified, we will use P1 to represent the player who is evaluating the trigger, and P2 to represent his opponent (usually the closest opponent when in team mode).\par
+\par
+Some triggers are nonstandard and cannot take expressions as their arguments. These are marked with a (*) in the index. Some triggers are deprecated; these are marked with a (**). Use of these triggers is not encouraged, as support for them may be removed in future versions of the engine. \par
+\par
+Old-style triggers, marked (***), appear only in clauses of the form (trigger) (relational operator) (value). See section 8 of exp.doc for more details.\par
+\par
+For all triggers, SFalse will be returned if the trigger is redirected to a nonexistent destination, or if the ID number for the redirection evaluates to SFalse. This is not listed in the error conditions for each trigger.\par
+\par
+\par
+Alphabetical Trigger Index\par
+--------------------------\par
+\pard\nowidctlpar\fi240   - Abs\par
+  - Acos\par
+  - Alive\par
+  - Anim\par
+  - AnimElem(*,***)\par
+  - AnimElemNo\par
+  - AnimElemTime\par
+  - AnimExist\par
+  - AnimTime\par
+  - Asin\par
+  - Atan\par
+  - AuthorName(*,***)\par
+  - BackEdgeBodyDist\par
+  - BackEdgeDist\par
+  - CanRecover\par
+  - Ceil\par
+  - Command (*,***)\par
+  - Const (*)\par
+  - Cos\par
+  - Ctrl\par
+  - DrawGame\par
+  - E\par
+  - Exp\par
+  - Facing\par
+  - Floor\par
+  - FrontEdgeBodyDist\par
+  - FrontEdgeDist\par
+  - FVar\par
+  - GameTime\par
+  - GetHitVar(*)\par
+  - HitCount\par
+  - HitDefAttr(*,***)\par
+  - HitFall\par
+  - HitOver\par
+  - HitPauseTime\par
+  - HitShakeOver\par
+  - HitVel\par
+  - ID\par
+  - IfElse\par
+  - InGuardDist\par
+  - IsHelper\par
+  - IsHomeTeam\par
+  - Life\par
+  - LifeMax\par
+  - Log\par
+  - Ln\par
+  - Lose\par
+  - MatchNo\par
+  - MatchOver\par
+  - MoveContact\par
+  - MoveGuarded\par
+  - MoveHit\par
+  - MoveType(*,***)\par
+  - MoveReversed\par
+  - Name(*,***)\par
+  - NumEnemy\par
+  - NumExplod\par
+  - NumHelper\par
+  - NumPartner\par
+  - NumProj\par
+  - NumProjID\par
+  - NumTarget\par
+  - P1Name(*,***)\par
+  - P2BodyDist\par
+  - P2Dist\par
+  - P2Life\par
+  - P2MoveType\par
+  - P2Name(*,***)\par
+  - P2StateNo\par
+  - P2StateType\par
+  - P3Name(*,***)\par
+  - P4Name(*,***)\par
+  - PalNo\par
+  - ParentDist\par
+  - Pi\par
+  - Pos\par
+  - Power\par
+  - PowerMax\par
+  - PlayerIDExist\par
+  - PrevStateNo\par
+  - ProjCancelTime\par
+  - ProjContact(*,***)\par
+  - ProjContactTime\par
+  - ProjGuarded(*,***)\par
+  - ProjGuardedTime\par
+  - ProjHit(*,***)\par
+  - ProjHitTime\par
+  - Random\par
+  - RootDist\par
+  - RoundNo\par
+  - RoundsExisted\par
+  - RoundState\par
+  - ScreenPos\par
+  - SelfAnimExist\par
+  - Sin\par
+  - StateNo\par
+  - StateType\par
+  - SysFVar\par
+  - SysVar\par
+  - Tan\par
+  - TeamMode(*,***)\par
+  - TeamSide\par
+  - TicksPerSecond\par
+  - Time\par
+  - TimeMod(*,**,***)\par
+  - UniqHitCount\par
+  - Var\par
+  - Vel\par
+  - Win\par
+\par
+\pard\nowidctlpar List of math triggers: (a subset of the above)\par
+----------------------\par
+  - abs\par
+  - acos\par
+  - asin\par
+  - atan\par
+  - ceil\par
+  - cos\par
+  - e\par
+  - exp\par
+  - floor\par
+  - IfElse\par
+  - ln\par
+  - log\par
+  - pi\par
+  - sin\par
+  - tan\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Abs\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Computes the absolute value of its argument.\par
+\par
+Format:\par
+  abs(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the absolute value of.\par
+\par
+Return type:\par
+  Same as the type of exprn.\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Acos\par
+\cf1 ------------------------------------------------------------\par
+\par
+Computes the arccosine (in radians) of the specified argument.\par
+\par
+Format:\par
+  acos(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the arccosine of (float).\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn is not in\par
+  the domain of arccosine (which is [-1.0,1.0]).\par
+\par
+Example:\par
+  value = acos(1)\par
+    Sets value to the arccosine of 1, which is approximately 0.0\par
+    (possibly with some rounding error.)\par
+\par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Alive\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns 1 if the player is still able to fight, 0 if the player has been KOed.\par
+\par
+Format:\par
+  alive\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = alive = 0\par
+    Triggers if the player has been KOed.\par
+\cf0\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Anim\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the current animation action number of the player.\par
+\par
+Format:\par
+  Anim\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Anim = 200\par
+    Triggers if the player is currently in action 200.\par
+\par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+\cf0 AnimElem(*,***)\par
+\cf1 ------------------------------------------------------------\par
+\par
+Gets the animation-time elapsed since the start of a specified element of the current animation action. Useful for synchronizing events to elements of an animation action.\par
+(reminder: first element of an action is element 1, not 0)\par
+\par
+AnimElemTime has similar functionality to AnimElem, but can take expressions as its argument.\par
+\par
+Format:\par
+  1.  AnimElem = value1\par
+  2.  AnimElem = value1, [oper] value2\par
+\par
+Arguments:\par
+  [oper]\par
+    =, !=, <, >, <=, >=\par
+  value1 (int)\par
+    Element number to check.\par
+  value2 (int)\par
+    Value of animation-time to compare with.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  Returns SFalse if the specified element number is invalid for this\par
+  action (e.g., it's too large or too small).\par
+\par
+Details:\par
+  Trigger in Format 1 is true if the player's animation is\par
+  at the start of the element number specified by value1.\par
+  In other words, if value1 is equal to n, it is true on the\par
+  first game-tick of the nth element of the animation.\par
+  Trigger in Format 2 compares the player's animation-time\par
+  to t+value2, where t is time of the start of the element\par
+  number specified by value1.\par
+\par
+Notes:\par
+  AnimElem will not trigger on the first game-tick of the second or\par
+  later loop of an animation with a finite looptime. For example, \par
+  "AnimElem = 1" will trigger the first tick a player changes to an\par
+  animation, but will not trigger on the tick that it loops. You may\par
+  get it to trigger each time using "AnimElem = 1 || AnimTime = 0".\par
+\par
+Examples:\par
+  trigger1 = AnimElem = 2\par
+    True on the first game-tick that the player's animation\par
+    is on element 2. Is equivalent to saying:\par
+      trigger1 = AnimElem = 2, = 0\par
+\par
+  trigger1 = AnimElem = 2, = 4\par
+    True 4 game-ticks after the start of the player's\par
+    second animation element.\par
+\par
+  trigger1 = AnimElem = 2, >= 0\par
+  trigger1 = AnimElem = 3, < 0\par
+    True for the whole of the second element of the player's\par
+    animation, assuming there is a third element. If a\par
+    third element does not exist, the second line should\par
+    read,\par
+      trigger1 = AnimTime <= 0\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 AnimElemNo\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the number of the animation element in the current action\par
+that would be displayed at the specified time. The argument to AnimElemNo represents the time to check, expressed in game ticks, relative to the present.\par
+\par
+Format:\par
+  AnimElemNo(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression that evaluates to the time offset (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if you try to check a time that would fall before the \par
+  start of the current action. \par
+\par
+Notes:\par
+  If the action is currently within its looping portion, then it is \par
+  assumed to have been looping forever. That is, no matter how far into\par
+  the past you check, AnimElemNo will always return an element number\par
+  that lies within the looping portion of the action.\par
+\par
+Examples:\par
+  trigger1 = AnimElemNo(0) = 2\par
+    True when the animation element to be displayed 0 ticks in the \par
+    future (i.e., now) is element 2. This is equivalent to:\par
+      trigger1 = AnimElem = 2, >= 0\par
+      trigger1 = AnimElem = 3, < 0\par
+\par
+  trigger1 = AnimElemNo(2) = 4\par
+    True when the animation element that will be displayed two ticks     \par
+    from now is element 4. This is equivalent to:\par
+      trigger1 = AnimElem = 4, >= -2\par
+      trigger1 = AnimElem = 5, < -2\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 AnimElemTime\par
+\cf1 ------------------------------------------------------------\par
+\par
+Gets the animation-time elapsed since the start of a specified element of the current animation action. Useful for synchronizing events to elements of an animation action.\par
+(reminder: first element of an action is element 1, not 0)\par
+\par
+Format:\par
+  AnimElemTime(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression that evaluates to the element number to check (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn evaluates \par
+  to an element number that is not valid for the current action.\par
+\par
+Notes:\par
+\pard\nowidctlpar\li240 AnimElemTime will not trigger on the first game-tick of the second or later loop of an animation with a finite looptime. For example, "AnimElemTime(1) = 0" will trigger the first tick a player changes to an animation, but will not trigger on the tick that it loops. You may get it to trigger each time using "AnimElemTime(1) = 0 || AnimTime = 0".\par
+\pard\nowidctlpar\par
+Examples:\par
+  trigger1 = AnimElemTime(2) = 0\par
+    True on the first game-tick that the player's animation\par
+    is on element 2. Is equivalent to saying:\par
+      trigger1 = AnimElem = 2\par
+\par
+  trigger1 = AnimElemTime(2) = 4\par
+    True 4 game-ticks after the start of the player's\par
+    second animation element.\par
+\par
+  trigger1 = AnimElemTime(2) >= 0\par
+  trigger1 = AnimElemTime(3) < 0\par
+    True for the whole of the second element of the player's\par
+    animation, assuming there is a third element. If a\par
+    third element does not exist, the second line will evaluate\par
+    to SFalse and hence trigger1 will never trigger. In this case,\par
+    the second line should read,\par
+      trigger1 = AnimTime <= 0\par
+\par
+\par
+------------------------------------------------------------\par
+AnimExist\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the specified animation action exists for the player.\par
+The result of this trigger is undefined if the player has been placed in a custom state by a successful hit. In this situation, use SelfAnimExist.\par
+\par
+Format:\par
+  AnimExist(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    An expression evaluating to an animation number (int).\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  trigger1 = !AnimExist(200)\par
+    Triggers if the player is missing action 200.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 AnimTime\par
+\cf1 ------------------------------------------------------------\par
+\par
+Gives the difference between the looptime of the current animation action and the player's animation-time. Useful for knowing when the end of the animation has been reached. (Animation-time is the time in game-ticks that the player has spent within the current animation action.)\par
+The name may be confusing. Try to think of it as "time from the end of the animation". During the animation, AnimTime will always return a non-positive number.\par
+\par
+Format:\par
+  AnimTime\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = AnimTime = 0\par
+    Triggers when the animation-time is equal to the animation\par
+    action's looptime, ie. the end of the action has been\par
+    reached.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 Asin\par
+\cf1 ------------------------------------------------------------\par
+\par
+Computes the arcsine (in radians) of the specified argument.\par
+\par
+Format:\par
+  asin(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the arcsine of (float).\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn is not in\par
+  the domain of arcsine (which is [-1.0,1.0]).\par
+\par
+Example:\par
+  value = asin(1)\par
+    Sets value to the arcsine of 1, which is approximately pi/2\par
+    (possibly with some rounding error.)\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 Atan\par
+\cf1 ------------------------------------------------------------\par
+\par
+Computes the arctangent (in radians) of the specified argument.\par
+\par
+Format:\par
+  atan(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the arctangent of (float).\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  value = atan(1)\par
+    Sets value to the arccosine of 1, which is approximately pi/4\par
+    (possibly with some rounding error.)\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 AuthorName(*,***)\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the player's author's name (specified in the .DEF file). This may also be useful for telling apart characters with the same name but different authors.\par
+\par
+Format:\par
+  AuthorName [oper] "name"\par
+\par
+Arguments:\par
+  [oper]\par
+    =, != (other operators not valid)\par
+  "name" (string)\par
+    Name to compare against. Must be in double quotes.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Authorname = "Suika"\par
+    Returns true if the character's author is named Suika.\par
+\par
+\par
+------------------------------------------------------------\par
+BackEdgeBodyDist\par
+------------------------------------------------------------\par
+\par
+BackEdgeBodyDist gives the distance from the back of the player, as determined by the end of his width bar, to the back edge of the screen.\par
+\par
+Format:\par
+  BackEdgeBodyDist\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = BackEdgeBodyDist < 30\par
+    Triggers if the back of the player\rquote s width bar is within 30 pixels\par
+    of the edge of the screen in back of him.\par
+\par
+\par
+------------------------------------------------------------\par
+BackEdgeDist\par
+------------------------------------------------------------\par
+\par
+BackEdgeDist gives the distance between the x-axis of the player and the edge of the screen behind of the player.\par
+\cf0\par
+Format:\par
+  BackEdgeDist\par
+\cf1\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = BackEdgeBodyDist < 30\par
+    Triggers if the x-axus of the player is within 30 pixels\par
+    of the edge of the screen in back of him.\par
+\par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+\cf0 CanRecover\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+If the player is currently in a falling state, returns 1 if he is currently able to recover, and 0 if he is not currently able to recover. If the player is not currently falling, the output of this trigger is undefined. \par
+\par
+Format:\par
+  CanRecover\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Ceil\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Implements the "ceiling" function. Returns the least integer which is greater than or equal to the specified argument.\par
+\par
+Format:\par
+  ceil(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the ceil of.\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  1. value = ceil(5.5)\par
+    Sets value to 6.\par
+  2. value = ceil(-2)\par
+    Sets value to -2.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Command (*,***)\par
+\cf1 ------------------------------------------------------------\par
+\par
+Triggers if the user has input the specified command.\par
+\par
+Format:\par
+  Command [oper] "command_name"\par
+\par
+Arguments:\par
+  [oper]\par
+    =, != (other operators not valid)\par
+  "command_name" (string)\par
+    Name of the command. Commands are defined in the\par
+    player's CMD file, and are case-sensitive.\par
+    If the CMD has multiple commands with the same name,\par
+    then any one of those commands will work. Command names \par
+    must appear within double quotes.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Command = "fireball motion"\par
+    True if the user inputs the command corresponding to the\par
+    command name "fireball motion".\par
+\par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+Const (*)\par
+------------------------------------------------------------\par
+\par
+Returns the value of one of the player's constants.\par
+\par
+Format:\par
+  Const(param_name)\par
+\par
+Arguments:\par
+  param_name\par
+    The name of the constant to check. Valid values are:\par
+      \par
+\par
+Return type:\par
+  Depends on specified hit parameter. See Details.\par
+\par
+Error conditions:\par
+none\par
+\par
+Details:\par
+  The following values of param_name return values specified in the\par
+  [Data] group in the player's constants.\par
+\par
+  data.life: Returns value of the "life" parameter. (int)\par
+  data.attack: Returns value of the "attack" parameter. (int)\par
+  data.defence: Returns value of the "defence" parameter. (int)\par
+  data.fall.defence_mul: Returns value of the defence multiplier,\par
+           calculated as 100/(f+100), where f is the "fall.defence_up"\par
+           parameter. (float)\par
+  data.liedown.time: Returns value of the "liedown.time" parameter.\par
+           (int)\par
+  data.airjuggle: Returns value of the "airjuggle" parameter. (int)\par
+  data.sparkno: Returns value of the "sparkno" parameter. (int)\par
+  data.guard.sparkno: Returns value of the "guard.sparkno" parameter.\par
+\tab      (int)\par
+  data.KO.echo: Returns value of the "ko.echo" parameter. (int)\par
+  data.IntPersistIndex: Returns value of the "IntPersistIndex"\par
+           parameter. (int)\par
+  data.FloatPersistIndex: Returns value of the "FloatPersistIndex"\par
+           parameter. (int)\par
+\par
+  The following values of param_name return values specified in the\par
+  [Size] group in the player's constants.\par
+\par
+  size.xscale: Returns value of the "xscale" parameter. (float)\par
+  size.yscale: Returns value of the "yscale" parameter. (float)\par
+  size.ground.back: Returns value of the "ground.back" parameter. (int)\par
+  size.ground.front: Returns value of the "ground.front" parameter.\par
+           (int)\par
+  size.air.back: Returns value of the "air.back" parameter. (int)\par
+  size.air.front: Returns value of the "air.front" parameter. (int)\par
+  size.height: Returns value of the "height" parameter. (int)\par
+  size.attack.dist: Returns value of the "attack.dist" parameter. (int)\par
+  size.proj.attack.dist: Returns value of the "proj.attack.dist"\par
+           parameter. (int)\par
+  size.proj.doscale: Returns value of the "proj.doscale" parameter.\par
+           (int)\par
+  size.head.pos.x: Returns x-component of the "head.pos" parameter.\par
+           (int)\par
+  size.head.pos.y: Returns y-component of the "head.pos" parameter.\par
+           (int)\par
+  size.mid.pos.x: Returns x-component of the "mid.pos" parameter.\par
+           (int)\par
+  size.mid.pos.y: Returns y-component of the "mid.pos" parameter.\par
+           (int)\par
+  size.shadowoffset: Returns value of the "shadowoffset" parameter.\par
+           (int)\par
+  size.draw.offset.x: Returns x-component of the "draw.offset"\par
+           parameter. (int)\par
+  size.draw.offset.y: Returns y-component of the "draw.offset"\par
+           parameter. (int)\par
+\par
+  The following values of param_name return values specified in the\par
+  [Velocity] group in the player's constants.\par
+\par
+  velocity.walk.fwd.x: Returns value of the "walk.fwd" parameter.\par
+           (float)\par
+  velocity.walk.back.x: Returns value of the "walk.back" parameter.\par
+           (float)\par
+  velocity.run.fwd.x: Returns x-component of the "run.fwd" parameter.\par
+           (float)\par
+  velocity.run.fwd.y: Returns y-component of the "run.fwd" parameter.\par
+           (float)\par
+  velocity.run.back.x: Returns x-component of the "run.back" parameter.\par
+           (float)\par
+  velocity.run.back.y: Returns y-component of the "run.back" parameter.\par
+           (float)\par
+  velocity.jump.y: Returns y-component of the "jump.neu" parameter.\par
+           Note: this is NOT "velocity.jump.neu.y". Only the "neu"\par
+           parameters take a y-component value. (float)\par
+  velocity.jump.neu.x: Returns x-component of the "jump.neu" parameter.\par
+           (float)\par
+  velocity.jump.back.x: Returns value of the "jump.back" paramamter.  \par
+           (float)\par
+  velocity.jump.fwd.x: Returns value of the "jump.fwd" parameter.\par
+           (float)\par
+  velocity.runjump.back.x: Returns value of the "runjump.back"\par
+           paramamter. (float)\par
+  velocity.runjump.fwd.x: Returns value of the "runjump.fwd" parameter.\par
+           (float)\par
+  velocity.airjump.y: Returns y-component of the "airjump.neu"\par
+           parameter. Note: this is NOT "velocity.airjump.neu.y".\par
+           (float)\par
+  velocity.airjump.neu.x: Returns x-component of the "airjump.neu"\par
+           parameter. (float)\par
+  velocity.airjump.back.x: Returns value of the "airjump.back"\par
+           paramamter. (float)\par
+  velocity.airjump.fwd.x: Returns value of the "airjump.fwd" parameter.\par
+           (float)\par
+\par
+  The following values of param_name return values specified in the\par
+  [Movement] group in the player's constants.\par
+\par
+  movement.airjump.num: Returns value of the "airjump.num" parameter.\par
+           (int)\par
+  movement.airjump.height: Returns value of the "airjump.height"\par
+           parameter. (int)\par
+  movement.yaccel: Returns value of the "yaccel" parameter. (float)\par
+  movement.stand.friction: Returns value of the "stand.friction"\par
+           parameter. (float)\par
+  movement.crouch.friction: Returns value of the "crouch.friction"\par
+           parameter. (float)\par
+\par
+Example:\par
+  trigger1 = Const(velocity.walk.fwd.x) > 4\par
+    Triggers if the forward walking velocity is greater than 4.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 Cos\par
+\cf1 ------------------------------------------------------------\par
+\par
+Computes the cosine of the specified argument (in radians.)\par
+\par
+Format:\par
+  cos(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the cosine of. (float)\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  value = cos(0)\par
+    Sets value to the cosine of 0, which is approximately 1.0\par
+    (possibly with some rounding error.)\par
+\cf0\par
+\par
+\cf1 ------------------------------------------------------------\par
+Ctrl\par
+------------------------------------------------------------\par
+\par
+Returns the control flag of p1.\par
+\par
+Format:\par
+  Ctrl\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Ctrl\par
+    Triggers if the player has control.\par
+\par
+\par
+------------------------------------------------------------\par
+DrawGame\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the player (or the player's team, in team mode) has ended the round in a draw, 0 otherwise.\par
+\par
+Format:\par
+  Draw\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Examples:\par
+  trigger1 = DrawGame\par
+    Triggers if the player (or team) ended round in a draw.\par
+\par
+\par
+------------------------------------------------------------\par
+E\par
+------------------------------------------------------------\par
+\par
+Returns the value of e (2.718281828...)\par
+\par
+Format:\par
+  e\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Exp\par
+------------------------------------------------------------\par
+\par
+Computes the exponential of the argument (e raised to the power of \par
+the argument.) This produces slightly more accurate results than the \par
+equivalent expression e**(argument).\par
+\par
+Format:\par
+  exp(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the exponential of (float).\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  value = exp(4-var(0))\par
+    Sets value to e raised to the quantity 4-var(0).\par
+\par
+\par
+------------------------------------------------------------\par
+Facing\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the player is facing to the right, and -1 if the player is facing to the left.\par
+\par
+Format:\par
+  Facing\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  Trigger = Facing = -1\par
+    Triggers if the player is facing toward the left of the screen.\par
+\par
+\par
+------------------------------------------------------------\par
+Floor\par
+------------------------------------------------------------\par
+\par
+Implements the floor function. Returns the greatest integer less than or equal to its argument.\par
+\par
+Format:\par
+  floor(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the floor of.\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Examples:\par
+  1. value=floor(5.5)\par
+    Sets value to 5.\par
+  2. value=floor(-2)\par
+    Sets value to -2.\par
+\par
+\par
+------------------------------------------------------------\par
+FrontEdgeBodyDist\par
+------------------------------------------------------------\par
+\par
+FrontEdgeBodyDist gives the distance between the front of the player (as determined by the front edge of his width bar) and the edge of the screen.\par
+\par
+Format:\par
+  FrontEdgeBodyDist\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = FrontEdgeBodyDist < 30\par
+    Triggers if the front of the player is within 30 pixels\par
+    of the edge of the screen in front of him.\par
+\par
+\par
+------------------------------------------------------------\par
+FrontEdgeDist\par
+------------------------------------------------------------\par
+\par
+FrontEdgeDist gives the distance between the x-axis of the player and the edge of the screen in front of the player.\par
+\par
+Format:\par
+  FrontEdgeDist\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = FrontEdgeDist < 30\par
+    Triggers if the x-axis of the player is within 30 pixels\par
+    of the edge of the screen in front of him.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 FVar\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+This trigger takes a mandatory variable number as an argument. It returns the value of the player's specified float variable.\par
+\par
+Format:\par
+  FVar(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+\cf1     An expression evaluating to a variable number. Valid numbers\par
+    at this time are 0-39.\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn evaluates\par
+  to an invalid variable index.\par
+\par
+\cf0 Example:\par
+  trigger1 = FVar(5) = -1.23\par
+    Triggers if the value of float variable 5 is -1.23.\par
+\cf1\par
+\par
+------------------------------------------------------------\par
+\cf0 GameTime\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the total number of ticks that have elapsed in the game so far.\par
+\par
+Format:\par
+  GameTime\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = (GameTime%27)=0\par
+    Triggers every 27th game tick.\par
+\par
+\par
+------------------------------------------------------------\par
+GetHitVar(*)\par
+------------------------------------------------------------\par
+\par
+When the player is in a gethit state, returns the value of the specified hit parameter.\par
+\par
+Format:\par
+  GetHitVar(param_name)\par
+\par
+Arguments:\par
+  param_name\par
+    The name of the hit parameter to check. Valid values are:\par
+      xveladd, yveladd, type, animtype, airtype, groundtype, damage,\par
+      hitcount, fallcount, hitshaketime, hittime, slidetime, ctrltime,\par
+      recovertime, xoff, yoff, zoff, xvel, yvel, yaccel, hitid, \par
+      chainid, guarded, fall, fall.damage, fall.xvel, fall.yvel,\par
+      fall.recover, fall.time, fall.recovertime.\par
+\par
+Return type:\par
+  Depends on specified hit parameter. See Details.\par
+\par
+Error conditions:\par
+none\par
+\par
+Details:\par
+  xveladd: Returns the additional x-velocity that is added to the\par
+           player's own when he is KOed. (float)\par
+  yveladd: Returns the additional y-velocity that is added to the\par
+           player's own when he is KOed. (float)\par
+  type: Returns the type of the hit: 0 for none, 1 for high, 2 for\par
+        low, 3 for trip (ground only). \par
+  animtype: Returns the animation type of the hit. (0 for light, 1 for\par
+            medium, 2 for hard, 3 for back, 4 for up, 5 for diag-up)\par
+  airtype: Returns the type specified in the HitDef for an air hit.\par
+  groundtype: Returns the type specified in the HitDef for a ground \par
+              hit.\par
+  damage: Returns the damage given by the hit. (int)\par
+  hitcount: Returns the number of hits taken by the player in current\par
+            combo. (int)\par
+  fallcount: Returns the number of times player has hit the ground in \par
+             the current combo. (int)\par
+  hitshaketime: Returns time player is "frozen" during the hit. This\par
+                number counts down by 1 for each game tick, and stops\par
+                when it reaches zero. (int)\par
+  hittime: Returns time before player regains control and returns to\par
+           an idle state after being hit.\par
+           This counts down by 1 per game tick, as long as hitshaketime\par
+           (see above) is greater than 0. It stops counting down when\par
+           the value reaches -1. (int)\par
+           "GetHitVar(hittime) < 0" is equivalent to the HitOver\par
+           trigger.\par
+  slidetime: Returns time that player slides backwards (on the ground)\par
+             after the hit. (int)\par
+  ctrltime: Returns time before player regains control after guarding \par
+            the hit. (int)\par
+  recovertime: Returns time before player gets up from liedown state\par
+               This number counts down to 0 for each game tick, and\par
+               will count down faster if buttons are hit. (int)\par
+  xoff: "Snap" x offset when hit (deprecated)\par
+  yoff: "Snap" y offset when hit (deprecated)\par
+  zoff: "Snap" z offset when hit (deprecated)\par
+  xvel: Fixed x-velocity imparted by hit. (float)\par
+  yvel: Fixed y-velocity imparted by hit. (float)\par
+  yaccel: y acceleration set by the hit. (float)\par
+  chainid: Player-assigned chainID for last hit taken. (int)\par
+  guarded: True if the last hit was guarded, false otherwise.\par
+  isbound: True if the player is the subject of an attacker's\par
+           TargetBind controller. Useful to prevent being stuck in\par
+           thrown states. (int)\par
+  fall: True if falling, false otherwise (int)\par
+  fall.damage: Damage taken upon fall (int)\par
+  fall.xvel: x velocity after bouncing off ground (float)\par
+  fall.yvel: y velocity after bouncing off ground (float)\par
+  fall.recover: True if player can recover, false otherwise.\par
+  fall.recovertime: time before player can recover. (int)\par
+  fall.kill: value of fall.kill parameter in attacker's hitdef. (int)\par
+  fall.envshake.time: See below. (int)\par
+  fall.envshake.freq: See below. (float)\par
+  fall.envshake.ampl: See below. (int)\par
+  fall.envshake.phase: Returns values set by the fall.envshake.*\par
+                       parameters in an attacker's hitdef. (float)\par
+\par
+Example:\par
+  trigger1 = GetHitVar(yvel) < -5.5\par
+    Triggers if the hit's specified y velocity is less than -5.5. \par
+\par
+\par
+------------------------------------------------------------\par
+HitCount\par
+------------------------------------------------------------\par
+\par
+Returns the number times the player's current attack move has hit one or more opponents. This value is valid only for a single state; after any state change, it resets to 0. To prevent it from resetting to 0, set hitcountpersist in the StateDef (see cns documentation for details). The HitCount and UniqHitCount triggers differ only when the player is hitting more than one opponent. In the case where the player is hitting two opponents with the same attack, HitCount will increase by 1 for every hit, while UniqHitCount increases by 2.\par
+\par
+Format:\par
+  HitCount\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = HitCount > 8\par
+    Triggers when more than 8 hits have been dealt to the\par
+    opponent since the start of the player's attack move.\par
+\par
+------------------------------------------------------------\par
+HitDefAttr(*,***)\par
+------------------------------------------------------------\par
+\par
+Gets the attribute parameter of the player's currently-active HitDef. If the player is not in an attack state, then the condition does not trigger.\par
+Can be used for simple move-interrupts from weaker to stronger attacks in the CMD file.\par
+\par
+Format:\par
+  HitDefAttr [oper] value1, value2\par
+\par
+Arguments:\par
+  [oper]\par
+    =, !=\par
+  value1\par
+    A string that has at least one of the letters "S", "C"\par
+    and "A" for standing, crouching and aerial attacks\par
+    respectively. For example, "SA" is for standing and\par
+    aerial attacks.\par
+  value2\par
+    A set of 2-character strings, separated by commas.\par
+    Each 2-character string must be of the form described:\par
+    The first character is either "N" for "normal", "S" for\par
+    "special", or "H" for "hyper". The second character must\par
+    be either "A" for "attack" (a normal hit attack) or "T"\par
+    for "throw". For example, "NA, ST" is for normal attacks\par
+    and special throws.\par
+\par
+    Assuming the attribute of the player's HitDef is in the\par
+    form:\par
+      arg1, arg2\par
+    then the trigger condition is determined to be true only\par
+    if arg1 is a subset of value1, AND arg2 is a subset of\par
+    value2.\par
+\par
+    See the "attr" parameter of the HitDef controller in\par
+    Appendix B for details.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = A, HA\par
+    Triggers when the player is in an attack state, where\par
+    the current HitDef has the following attributes:\par
+        1. is an aerial attack\par
+    and 2. is a hyper (super) attack\par
+\par
+  trigger1 = SC, NA, SA\par
+    Triggers when the player is in an attack state, where\par
+    the current HitDef has the following attributes:\par
+        1. is either a standing or a crouching attack\par
+    and 2. is either a normal attack or a special attack\par
+\par
+------------------------------------------------------------\par
+HitFall\par
+------------------------------------------------------------\par
+\par
+If the player is currently in a gethit state, returns the fall flag of the hit. The output of this trigger is undefined if the player is not in a gethit state. For an explanation of the fall flag, see the HitDef documentation.\par
+\par
+Format:\par
+  HitFall\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = !HitFall\par
+    Triggers if the hit did not put the player into a fall state. \par
+\par
+\par
+------------------------------------------------------------\par
+HitOver\par
+------------------------------------------------------------\par
+\par
+If the player is in a gethit state, returns 1 when the hittime has expired, and 0 otherwise. For an explanation of hittime, see the HitDef documentation.\par
+\par
+Format:\par
+  HitOver\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = HitOver = 1\par
+    Triggers when the player\rquote s hittime has expired. \par
+\par
+\par
+------------------------------------------------------------\par
+HitPauseTime\par
+------------------------------------------------------------\par
+\par
+Returns the time until the player's hitpause expires. The player enters a hitpause when his attack comes in contact with an opponent. The initial hitpause time is equal to the first value of the \i pausetime\i0  parameter in the player's HitDef. If \i ignorehitpause\i0  is not set, this will always return 0.\par
+\par
+Format:\par
+  HitPauseTime\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = HitPauseTime = 0\par
+    Triggers when the player is not paused for a hit.\par
+\par
+\par
+------------------------------------------------------------\par
+HitShakeOver\par
+------------------------------------------------------------\par
+\par
+If the player is in a gethit state, returns 1 if the hit shake (the period when he is shaking in place) has ended, and 0 otherwise. \par
+\par
+Format:\par
+  HitShakeOver\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = HitShakeOver = 0\par
+    Triggers if the player is still shaking from the hit. \par
+\par
+\par
+------------------------------------------------------------\par
+HitVel\par
+------------------------------------------------------------\par
+\par
+Gets the value of the velocity imparted to the player by a hit. \par
+You must specify the component that you want to check, eg.\par
+"HitVel Y" to check the vertical velocity component.\par
+\par
+Format:\par
+  HitVel [component]\par
+ \par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  A positive HitVel Y means that the player is moving upward on the \par
+  screen. A positive HitVel X means that the player is moving  \par
+  backward. Note that the HitVel X trigger behaves in the opposite\par
+  manner to the Vel X trigger.\par
+\par
+Example:\par
+  trigger1 = HitVel X > 0.5\par
+    True when the player's gethit x-velocity is greater than 0.5\par
+    pixels per tick.\par
+\par
+\par
+------------------------------------------------------------\par
+ID\par
+------------------------------------------------------------\par
+\par
+Returns the ID number of the player. The ID number is unique for every player throughout the course of a match. Any helper that is created during this time will also receive its own unique ID number. This trigger may be useful for getting opponents' ID numbers, to be later used with the "playerID" redirection keyword (see exp docs). Do not confuse playerID with targetID.\par
+\par
+Format:\par
+  ID\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  value = ID\par
+    This sets value to the ID number of the current player.\par
+  value = EnemyNear, ID\par
+    This sets value to the ID number of the nearest opponent.\par
+\par
+\par
+------------------------------------------------------------\par
+IfElse\par
+------------------------------------------------------------\par
+\par
+This trigger takes three arguments. If the first is nonzero, IfElse returns the value of the second argument. Else, it returns the value of the third argument. All arguments are evaluated prior to execution of ifelse.\par
+\par
+Format:\par
+  IfElse(exp_cond,exp_true,exp_false)\par
+\par
+Arguments:\par
+  exp_cond\par
+    Expression to test.\par
+  exp_true\par
+    Expression specifying value to return if exp_cond is nonzero.\par
+  exp_false\par
+    Expression specifying value to return if exp_false is zero.\par
+\par
+Return type:\par
+  Type of exp_true or exp_false, whichever is returned.\par
+\par
+Error conditions:\par
+  Returns SFalse if any of the arguments evaluate to SFalse.\par
+\par
+Example:\par
+  value = ifelse(var(3),1,2)\par
+    Sets value to 1 if var(3) is not zero, and sets value to 2 if\par
+    var(3) is 0.\par
+\par
+\par
+------------------------------------------------------------\par
+InGuardDist\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the player is within guarding distance of an opponent's physical or projectile attack. The guarding distance is the value of the guard.dist parameter of the opponent's HitDef. Returns 0 if out of guard distance, or the opponent is not attacking.\par
+\par
+Format:\par
+\pard\nowidctlpar\fi-360\li600\tx600 InGuardDist\par
+\pard\nowidctlpar\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+IsHelper\par
+------------------------------------------------------------\par
+\par
+This trigger takes an optional ID number as an argument. If the ID number is omitted, IsHelper returns 1 if the player is a helper character, and 0 otherwise. If the ID number is included, then IsHelper returns 1 if the player is a helper character with the specified ID number, and 0 otherwise.\par
+\par
+Format:\par
+\pard\nowidctlpar\fi-360\li600\tx600 IsHelper\par
+IsHelper(exprn) \par
+\pard\nowidctlpar\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Examples:\par
+  1. trigger1 = !IsHelper\par
+    Triggers if the player is not a helper-type character.\par
+  2. trigger1 = IsHelper(1234)\par
+    Triggers if the player is a helper character with ID number 1234.\par
+\par
+\par
+------------------------------------------------------------\par
+IsHomeTeam\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the player's team is considered the "home team". In arcade modes, the computer is always considered the home team. In versus modes, P1's side (left) is the home team.\par
+\par
+Format:\par
+  IsHomeTeam\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Life\par
+------------------------------------------------------------\par
+\par
+Returns the player's life.\par
+\par
+Format:\par
+  Life\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = life <= 10\par
+    Triggers if the player has 10 or less life points remaining.  \par
+    \par
+\par
+------------------------------------------------------------\par
+LifeMax\par
+------------------------------------------------------------\par
+\par
+Returns the maximum amount of life the player can have. This is normally the value of the "life" parameter in the [Data] group of the player variables, but may be different in situations such as team modes.\par
+\par
+Format:\par
+  LifeMax\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = life < lifemax / 4\par
+    Triggers if the player has less than 1/4 of his maximum life.\par
+    \par
+\par
+------------------------------------------------------------\par
+Log\par
+------------------------------------------------------------\par
+\par
+Takes two arguments a and b, and returns the base-a logarithm of b.\par
+\par
+Format:\par
+  Log(exp1,exp2)\par
+\par
+Arguments:\par
+  exp1\par
+    Expression giving the base of the logarithm. Must be positive.\par
+  exp2\par
+    Expression giving the value to take the logarithm of. Must be\par
+    positive.\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if either of exp1 or exp2 evaluates to SFalse, or if \par
+  either of exp1 or exp2 is not positive.\par
+\par
+Example:\par
+  value=log(2,64)\par
+    Sets value to the base 2 log of 64, which is 6.0.\par
+\par
+\par
+------------------------------------------------------------\par
+Ln\par
+------------------------------------------------------------\par
+\par
+Returns the natural logarithm of its argument. This produces slightly more accurate results than the otherwise equivalent expression log(e,(argument)).\par
+\par
+Format:\par
+  ln(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the natural logarithm of (float).\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn is not \par
+  positive.\par
+\par
+Example:\par
+  value = ln(time)\par
+    Sets value to the natural logarithm of the player's statetime.\par
+\par
+\par
+------------------------------------------------------------\par
+Lose\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the player (or the player's team, in team mode) has lost the round, 0 otherwise. Can be suffixed with "KO" or "Time" to return 1 only when the round has been lost by a KO or by time expiring, respectively.\par
+\par
+Format:\par
+  1. Lose\par
+  2. LoseKO\par
+  3. LoseTime\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Examples:\par
+  1. trigger1 = Lose\par
+    Triggers if the player (or his team) has lost the round.\par
+  2. trigger1 = !LoseKO\par
+    Triggers if the player (or his team) has not lost the round by \par
+    a KO. For example, this will trigger if the player's team has\par
+    not yet lost the round, or if they have lost the round by time\par
+    over.\par
+\par
+\par
+------------------------------------------------------------\par
+MatchNo\par
+------------------------------------------------------------\par
+\par
+Returns the current match number.\par
+\par
+Format:\par
+  MatchNo\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Details:\par
+\pard\nowidctlpar\li240 The current match number is always 1 in versus-type modes. In Arcade and Team Arcade modes, the match number starts at 1 and increments every time a new match starts (does not increment on continue). If you finish the arcade mode and start a new game, the match number reverts to 1.\par
+\pard\nowidctlpar\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+MatchOver\par
+------------------------------------------------------------\par
+\par
+Returns 1 if the match has ended. (For example, in the case of a best-of-three match, this will return true when one of the players or teams has won two rounds.)\par
+\par
+Format:\par
+  MatchOver\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  Currently, MatchOver does not return true until the players start\par
+  their win poses (state 180). This behavior may be subject to change\par
+  in future releases.\par
+\par
+Example:\par
+  trigger1 = matchover\par
+    Triggers if the match is not over. For instance, the current round\par
+    may not yet have ended, or it may have ended without deciding the\par
+    match.\par
+\par
+\par
+------------------------------------------------------------\par
+MoveContact\par
+------------------------------------------------------------\par
+\par
+This trigger is valid only when the player is in an attack state.\par
+MoveContact gives a non-zero value if P2 has either been hit, or has guarded P1's attack. It gives 0 otherwise. P1 is the player, and P2 is his opponent.\par
+Typically used with the "StateNo" and "Command" triggers for detecting move-interrupts in the CMD file.\par
+\par
+Format:\par
+  MoveContact\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+\pard\nowidctlpar\li240 On attack contact, MoveContact returns 1. After contact, MoveContact's return value will increase by 1 for each game tick that P1 is not paused (P1 gets paused on contact; see pausetime parameter in HitDef controller). The values of MoveGuarded, MoveHit and MoveReversed increment in the same fashion.\par
+Note 1: the values of MoveContact, MoveGuarded, MoveHit and MoveReversed are set simultaneously. For example, if one HitDef in a move hits successfully, MoveHit will return non-zero. If a following HitDef in the same move is guarded, MoveGuarded will return non-zero, and the other three triggers will return 0.\par
+Note 2: the values of the four Move* triggers reset to 0 and stop incrementing after a state transition. See "movehitpersist" parameter for StateDefs (CNS docs) for how to override this behavior.\par
+\pard\nowidctlpar\par
+Examples:\par
+  trigger1 = MoveContact\par
+    True if P1's attack did not miss P2.\par
+\par
+\pard\nowidctlpar\fi240 trigger1 = MoveContact = 1\par
+\pard\nowidctlpar\li480 True from the time P1's attack came in contact with P2, until just after P1's pausetime wears off.\par
+\pard\nowidctlpar\par
+\par
+------------------------------------------------------------\par
+MoveGuarded\par
+------------------------------------------------------------\par
+\par
+This trigger is valid only when the player is in an attack state.\par
+MoveGuarded gives a non-zero value if P2 is guarding, or has guarded, P1's attack. It gives 0 otherwise. P1 is the player, and P2 is his opponent.\par
+Typically used with the "StateNo" and "Command" triggers for detecting move-interrupts in the CMD file.\par
+\par
+Format:\par
+  MoveGuarded\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+\pard\nowidctlpar\fi240 int\par
+\par
+\pard\nowidctlpar Error conditions:\par
+\pard\nowidctlpar\fi240 none\par
+\pard\nowidctlpar\par
+Details:\par
+  See Details section for MoveContact trigger.\par
+\par
+Example:\par
+  trigger1 = MoveGuarded\par
+    True if P1's attack was guarded by P2.\par
+\par
+\par
+------------------------------------------------------------\par
+MoveHit\par
+------------------------------------------------------------\par
+\par
+This trigger is valid only when the player is in an attack state.\par
+MoveHit gives a non-zero value if P2 has been hit by P1's attack. It gives 0 otherwise.\par
+Typically used with the "StateNo" and "Command" triggers for detecting move-interrupts in the CMD file.\par
+\par
+Format:\par
+  MoveHit\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  See Details section for MoveContact trigger.\par
+\par
+Example:\par
+  trigger1 = MoveHit\par
+    True if P1's attack connected successfully with P2.\par
+\par
+\par
+------------------------------------------------------------\par
+MoveType(*,***)\par
+------------------------------------------------------------\par
+\par
+MoveType gives the player's move-type. Refer to the section\par
+on StateDef in the CNS documentation for more details on MoveType.\par
+Useful for "move interrupts" in the CMD file.\par
+\par
+Format:\par
+  MoveType [oper] move_type\par
+\par
+Arguments:\par
+  [oper]\par
+    =, !=   (other operators not valid)\par
+  move_type (char)\par
+    A, I, H\par
+    Attack, Idle and GetHit move-types.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = movetype != H\par
+    Triggers if the player is not currently in a gethit-type state.\par
+\par
+\par
+------------------------------------------------------------\par
+MoveReversed\par
+------------------------------------------------------------\par
+\par
+This trigger is valid only when the player is in an attack state.\par
+MoveReversed gives a non-zero value if P1's attack has been reversed by P2. It gives 0 otherwise.\par
+\par
+Format:\par
+  MoveReversed\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  See Details section for MoveContact trigger.\par
+\par
+Example:\par
+  trigger1 = MoveReversed\par
+    True if P1's attack was reversed by P2.\par
+\par
+\par
+------------------------------------------------------------\par
+Name(*,***)\par
+------------------------------------------------------------\par
+\par
+Returns the player's name (the internal name specified in the .DEF file, which may not be the same as the displayed name).\par
+\par
+Format:\par
+  Name [oper] "name"\par
+\par
+Arguments:\par
+  [oper]\par
+    =, != (other operators not valid)\par
+  "name" (string)\par
+    Name to compare against. Must be in double quotes.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Name = "Kumquat"\par
+    Returns true if the player is named Kumquat. \par
+\par
+\par
+------------------------------------------------------------\par
+NumEnemy\par
+------------------------------------------------------------\par
+\par
+NumEnemy returns the number of opponents that exist. Neutral players and normal helpers are not considered opponents. \par
+\par
+Format:\par
+  NumEnemy\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Examples:\par
+  trigger1 = NumEnemy = 2\par
+  trigger1 = enemynear(1), name = "Squash"\par
+    Triggers if there are 2 opponents, and the second-closest one is\par
+    named Squash.\par
+\par
+\par
+------------------------------------------------------------\par
+NumExplod\par
+------------------------------------------------------------\par
+\par
+This trigger takes an ID number as an optional argument. If the ID number is omitted, NumExplod returns the number of explods owned by the player. If the ID number is included, then NumExplod returns the number of explods with that ID number that are owned by the player. The ID number must be greater than -1. An ID number of -1 or less will give the same behavior as if the ID number is omitted.\par
+\par
+Format:\par
+  1. NumExplod\par
+  2. NumExplod(exprn)\par
+\par
+Arguments:\par
+  exprn \par
+    Expression evaluating to an ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Examples:\par
+  1. trigger1 = NumExplod >= 4\par
+    Triggers if the player currently owns 4 or more explods.\par
+  2. trigger1 = NumExplod(1234) >= 4\par
+    Triggers if the player currently owns 4 or more explods with ID\par
+    1234.\par
+\par
+\par
+------------------------------------------------------------\par
+NumHelper\par
+------------------------------------------------------------\par
+\par
+This trigger takes an ID number as an optional argument. If the ID number is omitted, then NumHelper returns the total number of helpers currently owned by the player. If the ID number is included, then NumHelper returns the total number of helpers with that ID number owned by the player. The ID number must be greater than 0. If the ID\par
+number is 0 or less, then all helpers are counted.\par
+\par
+Format:\par
+  1. NumHelper\par
+  2. NumHelper(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression evaluating to an ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Examples:\par
+  1. trigger1 = NumHelper < 2\par
+    Triggers if the player now has less than 2 helpers.\par
+  2. trigger1 = NumHelper(1234) < 2\par
+    Triggers if the player now has less than 2 helpers with ID 1234.\par
+\par
+\par
+------------------------------------------------------------\par
+NumPartner\par
+------------------------------------------------------------\par
+\par
+NumPartner returns the number of partners that exist. Neutral players and normal helpers are not considered partners.\par
+\par
+Format:\par
+  NumPartner\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Examples:\par
+  trigger1 = NumPartner = 1\par
+  trigger1 = partner, life < 200\par
+    Triggers if the player has a partner with less than 200 life\par
+\par
+\par
+------------------------------------------------------------\par
+NumProj\par
+------------------------------------------------------------\par
+\par
+Returns the total number of projectiles currently owned by the player.\par
+\par
+Format:\par
+  NumProj\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = NumProj = 0\par
+    Triggers if the player has no currently active projectiles.\par
+\par
+\par
+------------------------------------------------------------\par
+NumProjID\par
+------------------------------------------------------------\par
+\par
+This trigger takes an ID number as a required argument. It returns the number of projectiles currently owned by the player and having the specified ID number.\par
+\par
+Format:\par
+  NumProjID(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression evaluating to an ID number.\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  If a negative ID is specified, then the ID defaults to 0. Returns\par
+  SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  trigger1 = NumProjID(1234) = 1\par
+    Triggers if there the player currently owns exactly 1 projectile\par
+    with the ID number 1234.\par
+\par
+\par
+------------------------------------------------------------\par
+NumTarget\par
+------------------------------------------------------------\par
+\par
+This trigger takes an ID number as an optional argument. If the ID number is omitted, NumTarget returns the current number of targets for the player. If the ID number is included, then NumTarget returns the number of targets for the player which have that target ID number. The ID number must be greater than -1. An ID number of -1 or less will give the same behavior as if the ID number is omitted.\par
+\par
+Format:\par
+  1. NumTarget\par
+  2. NumTarget(exprn)\par
+\par
+Arguments:\par
+  exprn \par
+    Expression evaluating to an ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Examples:\par
+  1. trigger1 = NumExplod >= 4\par
+    Triggers if the player currently owns 4 or more explods.\par
+  2. trigger1 = NumExplod(1234) >= 4\par
+    Triggers if the player currently owns 4 or more explods with ID\par
+    1234.\par
+\par
+\par
+------------------------------------------------------------\par
+P1Name(*,***)\par
+------------------------------------------------------------\par
+\par
+This is an alias for the Name trigger. See "Name".\par
+\par
+\par
+------------------------------------------------------------\par
+P2BodyDist\par
+------------------------------------------------------------\par
+\par
+Returns the distance of P2 from P1, where P1 is the player, and P2 is his opponent. P2BodyDist is useful in the CMD for cases where P1 has an attack that is different when performed close to P2.\par
+\par
+Format:\par
+   P2BodyDist [component]\par
+\par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  For comparing the Y-distance, P2BodyDist gives the difference in the\par
+  heights of the players' Y-axes. A negative value means that P2 is\par
+  above P1.  \par
+  For comparing the X-distance, P2BodyDist gives the\par
+  X-distance of P2's front from P1's front. So, if the\par
+  players are standing right next to each other, then\par
+  P2BodyDist is 0. Remember that you can set the width of\par
+  the player in "front.width", etc. under [Size] in the\par
+  player variables.\par
+  See also P2Dist.\par
+\par
+Example:\par
+  trigger1 = P2BodyDist X < 30\par
+    Triggers if the front of P2 is within 30 pixels of the front of\par
+    P1.  \par
+\par
+------------------------------------------------------------\par
+P2Dist\par
+------------------------------------------------------------\par
+\par
+Returns the distance of P2 from P1, where P1 is the player, and P2 is his opponent.\par
+\par
+Format:\par
+  P2Dist [component]\par
+\par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  For comparing the Y-distance, P2Dist gives the difference in the\par
+  heights of the players' Y-axes. A negative value means that P2 is\par
+  above P1.  \par
+  For comparing the X-distance, P2Dist gives the X-distance\par
+  of P2's axis from P1's axis. A positive value indicates P2\par
+  is in front of P1.\par
+  See also P2BodyDist.\par
+\par
+Example:\par
+  trigger1 = P2Dist Y <= -12\par
+    True if P2 is at least 12 pixels higher up than P1.\par
+\par
+\par
+------------------------------------------------------------\par
+P2Life\par
+------------------------------------------------------------\par
+\par
+Same as Life, except that this returns the opponent's life.\par
+\par
+\par
+------------------------------------------------------------\par
+P2MoveType\par
+------------------------------------------------------------\par
+\par
+Same as MoveType, except that this returns the opponent's movetype.\par
+\par
+\par
+------------------------------------------------------------\par
+P2Name(*,***)\par
+------------------------------------------------------------\par
+\par
+Same as P1Name, except that this returns the name of the primary opponent (the opponent in versus mode, or the first opponent in team mode).\par
+\par
+If there is no primary opponent, then p2name = "name" returns 0 no\par
+matter what name is specified. Similarly, p2name != "name" will return 1 no matter what name is specified.\par
+\par
+\par
+------------------------------------------------------------\par
+P2StateNo\par
+------------------------------------------------------------\par
+\par
+Same as StateNo, except that this returns the opponent's state number.\par
+\par
+Error conditions:\par
+  Returns SFalse if p2 does not exist. (For instance, if the round\par
+  has been won.)\par
+\par
+\par
+------------------------------------------------------------\par
+P2StateType\par
+------------------------------------------------------------\par
+\par
+Same as StateType, except that this returns the opponent's state type.\par
+\par
+Error conditions:\par
+  Returns SFalse if p2 does not exist. (For instance, if the round\par
+  has been won.)\par
+\par
+\par
+------------------------------------------------------------\par
+P3Name(*,***)\par
+------------------------------------------------------------\par
+\par
+Same as P1Name, except that this returns the name of the player's teammate, if present.\par
+\par
+If there is no teammate, then p3name = "name" returns 0 no matter what name is specified. Similarly, p3name != "name" will return 1 no matter what name is specified.\par
+\par
+\par
+------------------------------------------------------------\par
+P4Name(*,***)\par
+------------------------------------------------------------\par
+\par
+Same as P1Name, except that this returns the name of the secondary opponent, if present.\par
+\par
+If there is no secondary opponent, then p4name = "name" returns 0 no matter what name is specified. Similarly, p4name != "name" will return 1 no matter what name is specified.\par
+\par
+\par
+------------------------------------------------------------\par
+PalNo\par
+------------------------------------------------------------\par
+\par
+Returns the palette number of the player (i.e., the color scheme chosen for the character during character select.) \par
+\par
+Format:\par
+  PalNo\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  The palette ordering is:\par
+  X Y Z\par
+  4 5 6\par
+  A B C\par
+  1 2 3\par
+  Holding start while selecting will add 6 to the palette number.\par
+\par
+Example:\par
+  trigger1 = PalNo = 5\par
+    Returns true if the current palette number is 5.\par
+\par
+\par
+------------------------------------------------------------\par
+ParentDist\par
+------------------------------------------------------------\par
+\par
+This trigger is only valid for helper-type characters.\par
+ParentDist returns the distance from the helper to its parent. It works similarly to P2Dist.\par
+\par
+Format:\par
+  ParentDist [component]\par
+\par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if the player does not have a parent (e.g., if the \par
+  parent was destroyed or KO'd).\par
+\par
+Details:\par
+  For comparing the Y-distance, ParentDist gives the difference in the\par
+  heights of the players' Y-axes. A negative value means that the\par
+  parent is above its child.  \par
+  For comparing the X-distance, ParentDist gives the X-distance\par
+  of the parent's axis from the child's axis. A positive value\par
+  indicates the parent is in front of the child.\par
+\par
+Example:\par
+  trigger1 = ParentDist X != 0\par
+    Triggers if the parent is not at the exact same x-position as the\par
+    helper character.\par
+\par
+\par
+------------------------------------------------------------\par
+Pi\par
+------------------------------------------------------------\par
+\par
+This trigger returns the numeric value of pi (3.141593...)\par
+\par
+Format:\par
+  pi\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 Pos\par
+\cf1 ------------------------------------------------------------\par
+\par
+Gets the value of the player's position. You must specify the component that you want to check, eg. "Pos Y" to check the Y-position.\par
+\par
+Format:\par
+  Pos [component]\par
+\par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  For "Pos X", the value is relative to the center of the\par
+  screen (value 0). Negative is left, positive is right.\par
+  For "Pos Y", the value is relative to the floor. Negative\par
+  is higher up, positive is below the floor.\par
+\par
+Example:\par
+  trigger1 = Pos Y >= 0\par
+    True when the player is below the floor.\par
+\par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Power\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+\cf1 Returns the amount of power the player has.\par
+\par
+Format:\par
+  Power\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = power >= 1000\par
+    True if player has at least 1000 power (level 1).\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 PowerMax\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+\cf1 Returns the maximum amount of power the player can have. This is normally 3000 (level 3).\par
+\par
+Format:\par
+  PowerMax\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = power < powermax / 2\par
+    True if player has less than half his maximum power.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 PlayerIDExist\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+\cf1 Returns 1 if a player with the specified ID number exists, 0 otherwise. This ID number is obtained using the "ID" trigger (see ID). Do not confuse PlayerID with TargetID.\par
+\par
+Format:\par
+  PlayerIDExist(ID_number)\par
+\par
+Arguments:\par
+  ID_number\par
+    An expression that evaluates to the ID number to check for (int)\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  trigger1 = PlayerIDExist(var(4))\par
+    Triggers if a player with an ID number equal to the value of\par
+    var(4) exists.\par
+\cf0\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 PrevStateNo\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Returns the number of the state that the player was last in. The results of this trigger are not guaranteed to be accurate.\par
+\par
+\cf1 Format:\par
+  StateNo\par
+\par
+Arguments:\par
+\cf0   none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = stateno = [200,650]\par
+    Returns true if the state number is between 200 and 650, \par
+    inclusive.\par
+\par
+\par
+------------------------------------------------------------\par
+ProjCancelTime\par
+------------------------------------------------------------\par
+\par
+This trigger takes an required nonnegative ID number as an argument.  If the player's last projectile to make any kind of contact was cancelled by an opponent's projectile and had the specified ID number, then ProjCancelTime returns the number of ticks since that contact occurred. If the specified ID number is 0, then the projectile ID is not checked. If no projectile meets all the above conditions, then ProjCancelTime returns -1.\par
+\par
+Format:\par
+  ProjCancelTime(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression evaluating to a nonnegative ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse. If a negative ID is\par
+  specified, then the ID defaults to zero.\par
+\par
+Examples:\par
+  1. trigger1 = ProjCancelTime(1234) = 1\par
+    Triggers if a projectile with ID 1234 was just cancelled by an\par
+    opponent's projectile. \par
+  2. trigger1 = ProjCancelTime(0) != -1 && ProjCancelTime(0) < 15\par
+    Triggers if any of the player's projectiles were cancelled \par
+    within last 15 ticks.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 ProjContact(*,***)\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+This trigger takes an optional ID number as a suffix. If the ID number is omitted, ProjContact returns true if any of the player's projectiles either successfully hit the opponent or were guarded by the opponent. When the ID number is specified, ProjContact returns true only if any of the player's projectiles with the specified ID number either successfully hit the opponent or was guarded.\par
+\par
+Format:\par
+  1. ProjContact[ID] = value\par
+  2. ProjContact[ID] = value, [oper] value2\par
+\par
+Arguments:\par
+  [ID]\par
+    Optional ID number.\par
+  value (boolean)\par
+    Value to compare against. 0 for false, 1 for true.\par
+  [oper]\par
+    =, !=, <, >, <=, >=\par
+  value2\par
+    Time value to compare against.\par
+\par
+Return type:\par
+  boolean int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  ProjContact will trigger once for each hit of the projectile, so a\par
+  multi-hit projectile can trigger multiple times. \par
+  The first form of ProjContact shown above is only valid for one tick\par
+  after contact, unlike MoveContact. \par
+  For the second form, ProjContact returns true if the projectile made \par
+  contact n ticks ago, where n is a nonnegative number satisfying the \par
+  relation "n [oper] value2".\par
+  Specifying an ID number of 0 gives the same behavior as if the ID\par
+  number is omitted (check all projectiles).\par
+\par
+Examples:\par
+  1. trigger1 = ProjContact1234 = 1\par
+    Triggers if a projectile with ID 1234 just made contact with the \par
+    opponent.\par
+  2. trigger1 = ProjContact456 = 0, < 15\par
+    Triggers if no projectile with ID 456 made contact in the last 15 \par
+    ticks.\par
+\par
+\par
+------------------------------------------------------------\par
+ProjContactTime\par
+------------------------------------------------------------\par
+\par
+This trigger takes an required nonnegative ID number as an argument.  If the player's last projectile to make any kind of contact, made contact with the opponent and had the specified ID number, then ProjContactTime returns the number of ticks since that contact occurred. If the specified ID number is 0, then the projectile ID is not checked. If no projectile meets all the above conditions, then ProjContactTime returns -1.\par
+\par
+Format:\par
+  ProjContactTime(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression evaluating to a nonnegative ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse. If a negative ID is\par
+  specified, then the ID defaults to zero.\par
+\par
+Examples:\par
+  1. trigger1 = ProjContactTime(1234) = 1\par
+    Triggers if a projectile with ID 1234 just made contact with \par
+    the opponent. \par
+  2. trigger1 = ProjContactTime(0) != -1 && ProjContactTime(0) < 15\par
+    Triggers if any of the player's projectiles made successful \par
+    contact with the opponent within the last 15 ticks.\par
+\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 ProjGuarded(*,***)\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+This trigger takes an optional ID number as a suffix. If the ID number is omitted, ProjGuarded returns true if any of the player's projectiles were guarded by the opponent. When the ID number is specified, ProjGuarded returns true only if one of the player's projectiles with the specified ID number was guarded by the opponent.\par
+\par
+Format:\par
+  1. ProjGuarded[ID] = value\par
+  2. ProjGuarded[ID] = value, [oper] value2\par
+\par
+Arguments:\par
+  [ID]\par
+    Optional ID number.\par
+  value (boolean)\par
+    Value to compare against. 0 for false, 1 for true.\par
+  [oper]\par
+    =, !=, <, >, <=, >=\par
+  value2\par
+    Time value to compare against.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  ProjGuarded will trigger once for each hit of the projectile, so a\par
+  multi-hit projectile can trigger multiple times. \par
+  The first form of ProjGuarded shown above is only valid for one tick\par
+  after hit, unlike MoveGuarded. \par
+  For the second form, ProjGuarded returns true if the projectile was \par
+  guarded n ticks ago, where n is a nonnegative number satisfying the \par
+  relation "n [oper] value2".\par
+  Specifying an ID number of 0 gives the same behavior as if the ID\par
+  number is omitted (check all projectiles).\par
+\par
+Examples:\par
+  1. trigger1 = ProjGuarded1234 = 1\par
+    Triggers if the opponent just blocked a projectile with ID 1234. \par
+  2. trigger1 = ProjGuarded = 1, < 15\par
+    Triggers if the opponent blocked any projectile in the last 15 \par
+    ticks.\par
+\par
+ \par
+------------------------------------------------------------\par
+ProjGuardedTime\par
+------------------------------------------------------------\par
+\par
+This trigger takes an required nonnegative ID number as an argument.  If the player's last projectile to make any kind of contact was guarded by the opponent and had the specified ID number, then ProjGuardedTime returns the number of ticks since that contact occurred. If the specified ID number is 0, then the projectile ID is not checked. If no projectile meets all the above conditions, then ProjGuardedTime returns -1.\par
+\par
+Format:\par
+  ProjCancelTime(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression evaluating to a nonnegative ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse. If a negative ID is\par
+  specified, then the ID defaults to zero.\par
+\par
+Examples:\par
+  1. trigger1 = ProjGuardedTime(1234) = 1\par
+    Triggers if a projectile with ID 1234 was just guarded by the\par
+    opponent. \par
+  2. trigger1 = ProjGuardedTime(0) != -1 && ProjGuardedTime(0) < 15\par
+    Triggers if any of the player's projectiles was guarded by the \par
+    opponent within the last 15 ticks.\par
+\par
+\par
+------------------------------------------------------------\par
+ProjHit(*,***)\par
+------------------------------------------------------------\par
+\par
+This trigger takes an optional positive ID number as a suffix. If the ID number is omitted, ProjHit returns true if any of the player's projectiles successfully hit the opponent. When the ID number is specified, ProjHit returns true only if one of the player's projectiles with the specified ID number successfully hit the opponent.\par
+\par
+Format:\par
+  1. ProjHit[ID] = value\par
+  2. ProjHit[ID] = value, [oper] value2\par
+\par
+Arguments:\par
+  [ID] (int)\par
+    Optional ID number.\par
+  value (boolean)\par
+    Value to compare against. 0 for false, 1 for true.\par
+  [oper]\par
+    =, !=, <, >, <=, >=\par
+  value2\par
+    Time value to compare against.\par
+\par
+Return type:\par
+  boolean int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  ProjHit will trigger once for each hit of the projectile, so a\par
+  multi-hit projectile can trigger multiple times. \par
+  The first form of ProjHit shown above is only valid for one tick\par
+  after hit, unlike MoveHit. \par
+  For the second form, ProjHit returns true if the projectile hit\par
+  n ticks ago, where n is a nonnegative number satisfying the relation \par
+  "n [oper] value2".\par
+  Specifying an ID number of 0 gives the same behavior as if the ID\par
+  number is omitted (check all projectiles).\par
+\par
+Examples:\par
+  1. trigger1 = ProjHit1234 = 1\par
+    Triggers if a projectile with ID 1234 just made successful \par
+    contact with the opponent. \par
+  2. trigger1 = ProjHit1234 = 1, < 15\par
+    Triggers if any of the player's projectiles made successful \par
+    contact with the opponent within the last 15 ticks.\par
+\par
+\par
+------------------------------------------------------------\par
+ProjHitTime\par
+------------------------------------------------------------\par
+\par
+This trigger takes an required nonnegative ID number as an argument.  If the player's last projectile to make any kind of contact successfully hit the opponent and had the specified ID number, then ProjHit returns the number of ticks since that contact occurred. If the specified ID number is 0, then the projectile ID is not checked.\par
+If no projectile meets all the above conditions, then ProjHitTime returns -1.\par
+\par
+Format:\par
+  ProjHitTime(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression evaluating to a nonnegative ID number (int).\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse. If a negative ID is\par
+  specified, then the ID defaults to zero.\par
+\par
+Examples:\par
+  1. trigger1 = ProjHitTime(1234) = 1\par
+    Triggers if a projectile with ID 1234 just made successful \par
+    contact with the opponent. \par
+  2. trigger1 = ProjHitTime(0) != -1 && ProjHitTime(0) < 15\par
+    Triggers if any of the player's projectiles made successful \par
+    contact with the opponent within the last 15 ticks.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Random\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Returns a random number between 0 and 999, inclusive.\par
+\par
+Format:\par
+  Random\par
+\par
+Arguments:\par
+\cf1   none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Random <= 249\par
+    Triggers if the random number returned is less than or equal to \par
+    249. (This occurs with 25% probability.)\par
+\cf0     \par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 RootDist\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+\cf1 This trigger is only valid for helper-type characters.\par
+RootDist returns the distance from the helper to its root. The root is the main player character who owns the helper: for instance, if you select Kumquat to play with, and Kumquat spawns a helper named Kiwi, who in turn spawns a helper named Penguin, then Penguin's root is Kumquat, and Penguin is a descendant of Kumquat. RootDist works similarly to P2Dist.\par
+\cf0\par
+\cf1 Format:\par
+  RootDist [component]\par
+\par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if the player has no root.\par
+\par
+Details:\par
+  For comparing the Y-distance, RootDist gives the difference in the\par
+  heights of the players' Y-axes. A negative value means that the\par
+  root is above its descendant.  \par
+  For comparing the X-distance, ParentDist gives the X-distance\par
+  of the root's axis from the descendant's axis. A positive value\par
+  indicates the root is in front of its descendant.\par
+\par
+Example:\par
+  trigger1 = RootDist X != 0\par
+    Triggers if the root is not at the exact same x-position as the\par
+    helper character.\par
+\cf0\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 RoundNo\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Returns the current round number.\par
+\par
+Format:\par
+  RoundNo\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = RoundNo = 3\par
+    Triggers if this is the third round of the match.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 RoundsExisted\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Returns the number of rounds the player has existed for. On the first round, returns 0. This is useful for a Turns mode intro.\par
+\par
+Format:\par
+  RoundsExisted\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = RoundsExisted = 0\par
+  trigger1 = TeamMode = Turns\par
+  trigger1 = RoundNo > 0\par
+    Triggers if the player has just entered a Turns mode team match\par
+    after the first round. You can use this example with a\par
+    ChangeState controller to switch to an intro state by\par
+    overriding the Initialize state (state 5900).\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 RoundState\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Returns the current round state number.\par
+\par
+Format:\par
+  RoundState\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  Return values:\par
+  0: Pre-intro  - screen fades in\par
+  1: Intro\par
+  2: Fight - players do battle\par
+  3: Pre-over - just a round is won or lost\par
+  4: Over - win poses\par
+\par
+Example:\par
+  trigger1 = RoundState = 2\par
+    Triggers if the actual fighting portion of the round is in \par
+    progress.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 ScreenPos\par
+\cf1 ------------------------------------------------------------\par
+\par
+Gets the value of the player's absolute (screen-relative) position. You must specify the component that you want to check, eg. "Pos Y" to check the Y-position.\par
+\par
+Format:\par
+  Pos [component]\par
+\par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+\par
+Details:\par
+  For "ScreenPos X", the value is relative to the left of the\par
+  screen (value 0). Negative is left, positive is right.\par
+  For "ScreenPos Y", the value is relative to the top of the screen. \par
+  Negative is above the screen, positive is downward.\par
+\par
+Example:\par
+  trigger1 = ScreenPos Y = [0,239]\par
+    True when the player's is in the screen's vertical extent.\par
+\par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+\cf0 SelfAnimExist\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Like AnimExist, except that this only checks P1's animation data. If P1 has been given P2's animation data by a hit, SelfAnimExist will not check P2's animation data to determine whether or not a given action exists.\par
+\par
+\cf1\par
+------------------------------------------------------------\par
+\cf0 Sin\par
+\cf1 ------------------------------------------------------------\par
+\par
+Computes the sine of the specified argument (in radians.)\par
+\par
+Format:\par
+  sin(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the sine of. (float)\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  value = sin(pi/2)\par
+    Sets value to the sine of pi/2, which is approximately 1.0\par
+    (possibly with some rounding error.)\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 StateNo\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+Returns the player's current state number. Useful for "move interrupts" in the CMD file.\par
+\par
+\cf1 Format:\par
+  StateNo\par
+\par
+Arguments:\par
+\cf0   none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = stateno = [200,650]\par
+    Returns true if the state number is between 200 and 650, \par
+    inclusive.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 StateType\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+\cf1 StateType gives the player's state-type. Refer to the section\par
+on StateDef in the CNS documentation for more details on StateType.\par
+Useful for "move interrupts" in the CMD file.\par
+\cf0\par
+\cf1 Format:\par
+  StateType [oper] state_type\par
+\par
+Arguments:\par
+  [oper]\par
+    =, !=   (other operators not valid)\par
+  state_type (char)\par
+    S, C, A\par
+    Stand, Crouch and Air state-types.\par
+\cf0\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = StateType != A\par
+    Triggers if the player is not in an air-type state.\par
+\par
+\cf1\par
+------------------------------------------------------------\par
+\cf0 SysFVar\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+This trigger takes a mandatory variable number as an argument. It returns the value of the player's specified system float variable.\par
+This trigger should NOT be used under normal circumstances. System \par
+variables are reserved for bookkeeping in common1.cns.\par
+\par
+Format:\par
+  FVar(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+\cf1     An expression evaluating to a variable number. Valid numbers\par
+    at this time are 0-4.\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn evaluates\par
+  to an invalid variable index.\par
+\par
+\cf0 Example:\par
+  trigger1 = SysFVar(0) = -1.23\par
+    Triggers if the value of system float variable 0 is -1.23.\par
+\cf1\par
+\par
+------------------------------------------------------------\par
+\cf0 SysVar\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+This trigger takes a mandatory variable number as an argument. It returns the value of the player's specified system int variable.\par
+This trigger is NOT to be used under normal circumstances. System\par
+variables are reserved for bookkeeping in common1.cns.\par
+\par
+Format:\par
+  Var(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+\cf1     An expression evaluating to a variable number. Valid numbers\par
+    at this time are 0-4.\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn evaluates\par
+  to an invalid variable index.\par
+\par
+\cf0 Example:\par
+  trigger1 = SysVar(0) = -34\par
+    Triggers if the value of system variable 0 is -34.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Tan\par
+\cf1 ------------------------------------------------------------\par
+\par
+Computes the tangent of the specified argument (in radians.)\par
+\par
+Format:\par
+  tan(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+    Expression to compute the tangent of. (float)\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse.\par
+\par
+Example:\par
+  value = tan(pi/4)\par
+    Sets value to the tangent of pi/4, which is approximately 1.0\par
+    (possibly with some rounding error.)\par
+\cf0\par
+\par
+\cf1 ------------------------------------------------------------\par
+TeamMode(*,***)\par
+------------------------------------------------------------\par
+\par
+TeamMode gives the current mode of play for the player's team.\par
+\par
+Format:\par
+  TeamMode [oper] mode\par
+\par
+Arguments:\par
+  [oper]\par
+    =, !=   (other operators not valid)\par
+  mode (string)\par
+    single - single player\par
+    simul  - 2 players simultaneously\par
+    turns  - turns battle\par
+    \par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Notes:\par
+  In survival mode, TeamMode = turns on the enemy side.\par
+\par
+Example:\par
+  trigger1 = TeamMode = Single\par
+    Triggers if the player is playing in single play.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 TeamSide\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the team side the player is on. 1 represents P1 side (left), 2 for P2 side (right).\par
+\par
+Format:\par
+  TeamSide\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+\cf0   trigger1 = TeamSide = 2\par
+    Triggers if player is on the P2 side team.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 TicksPerSecond\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the number of ticks per second. Useful for time calculations.\par
+\par
+Format:\par
+  TicksPerSecond\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Time > 10 * TicksPerSecond\par
+    Triggers after 10 seconds, regardless of game speed.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 Time\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns the state-time of the player (that is, the number of ticks that the player has been in the current state so far).\par
+\par
+Format:\par
+  Time\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = Time = 2\par
+    Triggers when the player's state-time is 2.\par
+\par
+\par
+------------------------------------------------------------\par
+TimeMod(*,**,***)\par
+------------------------------------------------------------\par
+\cf0\par
+Returns the remainder when the state-time of the player is divided by the specified value.\par
+\par
+The % operator subsumes the functionality of TimeMod, so it is recommended that you use % instead.\par
+\par
+Format:\par
+  TimeMod [oper] divisor, value1\par
+\par
+Arguments:\par
+\cf1   [oper]\par
+    =, !=, <, >, <=, >=\par
+  divisor (int)\par
+    Positive number to use as a divisor.\par
+  value1 (int)\par
+    Value to compare remainder against.\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  Returns SFalse if the divisor is 0.\par
+\par
+Example:\par
+  trigger1 = TimeMod = 4, 3\par
+    Triggers when the state-time is 3, 7, 11, 15, ...\par
+  \par
+\cf0\par
+\cf1 ------------------------------------------------------------\par
+UniqHitCount\par
+------------------------------------------------------------\par
+\par
+Returns the total number of hits the player's current attack move has done. This value is valid only for a single state; after any state change, it resets to 0. To prevent it from resetting to 0, set hitcountpersist in the StateDef (see cns documentation for details). The HitCount and UniqHitCount triggers differ only when the player is hitting more than one opponent. In the case where the player is hitting two opponents with the same attack, HitCount will increase by 1 for every hit, while UniqHitCount increases by 2.\par
+\par
+Format:\par
+  UniqHitCount\par
+\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  none\par
+\par
+Example:\par
+  trigger1 = UniqHitCount = [4,6]\par
+    Triggers when 4, 5 or 6 hits have been dealt since\par
+    the start of the player's attack move.\par
+\par
+\par
+------------------------------------------------------------\par
+\cf0 Var\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+This trigger takes a mandatory variable number as an argument. It returns the value of the player's specified int variable.\par
+\par
+Format:\par
+  Var(exprn)\par
+\par
+Arguments:\par
+  exprn\par
+\cf1     An expression evaluating to a variable number. Valid numbers\par
+    at this time are 0-59.\par
+\par
+Return type:\par
+  int\par
+\par
+Error conditions:\par
+  Returns SFalse if exprn evaluates to SFalse, or if exprn evaluates\par
+  to an invalid variable index.\par
+\par
+\cf0 Example:\par
+  trigger1 = Var(0) = -34\par
+    Triggers if the value of variable 0 is -34.\par
+\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Vel\par
+\cf1 ------------------------------------------------------------\par
+\cf0\par
+\cf1 Gets the value of the player's velocity. You must specify the component that you want to check, eg. "Vel Y" to check the Y-velocity.\par
+\par
+Format:\par
+  Vel [component]\par
+ \par
+Arguments:\par
+  [component]\par
+    X, Y\par
+\par
+Return type:\par
+  float\par
+\par
+Error conditions:\par
+  none\par
+ \par
+Details:\par
+\pard\nowidctlpar\li240 For Vel X, a positive value indicates that the player is moving forward. (This behavior is the opposite of HitVel X's behavior.) For Vel Y, a positive value indicates that the player is moving downward.\par
+\pard\nowidctlpar\par
+Example:\par
+  trigger1 = Vel Y >= 0\par
+    True when the player is not moving upward.\par
+\cf0\par
+\par
+\cf1 ------------------------------------------------------------\par
+\cf0 Win\par
+\cf1 ------------------------------------------------------------\par
+\par
+Returns true if the player (or the player's team, in team mode) has won the round, false otherwise. Can be suffixed with "KO", "Time", or "Perfect" to return true only when the round has been won by a KO, by time expiring, or with no life lost, respectively.\par
+\par
+Format:\par
+\pard\nowidctlpar\li240 1. Win\par
+2. WinKO\par
+3. WinTime\par
+4. WinPerfect\par
+\pard\nowidctlpar\par
+Arguments:\par
+  none\par
+\par
+Return type:\par
+  boolean int (1 or 0)\par
+\par
+Error conditions:\par
+  none\par
+\par
+Examples:\par
+  1. trigger1 = Win\par
+\pard\nowidctlpar\li600 Triggers if the player (or his team) has won the round.\par
+\pard\nowidctlpar   2. trigger1 = !WinKO\par
+\pard\nowidctlpar\li600 Triggers if the player (or his team) has not won the round by a KO. For example, this will trigger if the player's team has not yet won the round, or if they have won the round by time over.\par
+\pard\cf0\par
+}
+ 

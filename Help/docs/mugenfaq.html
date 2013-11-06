@@ -1,0 +1,1268 @@
+<html lang="en">
+<head>
+<title>M.U.G.E.N. F.A.Q</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="M.U.G.E.N. F.A.Q">
+<meta name=generator content="makeinfo 4.0">
+<link href="http://texinfo.org/" rel=generator-home>
+</head>
+
+<body>
+<p><hr>
+Node:<a name="Top">Top</a>,
+Next:<a rel=next href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h1>M.U.G.E.N FAQ version 2002.04.14</h1>
+
+<p>This document describes several frequently asked questions about
+M.U.G.E.N. It applies to version 2002.04.14 of the
+M.U.G.E.N environment. Please be sure to thoroughly read
+<code>readme.txt</code> as well as this FAQ.
+
+<p>Copyright &copy; 2002 Elecbyte.
+
+<a href="mailto:games@elecbyte.com">games@elecbyte.com</a>
+
+<a href="http://www.elecbyte.com">http://www.elecbyte.com</a>
+
+<p>Quick section menu:
+
+<ul>
+<li><a href="#Meta-Questions">Meta-Questions</a>: 	Questions not related to specific M.U.G.E.N features. 
+<li><a href="#General%20Questions">General Questions</a>:            Miscellaneous questions on M.U.G.E.N features. 
+<li><a href="#Troubleshooting">Troubleshooting</a>:              Getting M.U.G.E.N to run properly. 
+<li><a href="#Character-specific">Character-specific</a>:           Questions about character making.
+
+<p>
+</p><li><a href="#Index">Index</a>:                        Limited concept index. 
+</ul>
+
+
+<h1>Table of Contents</h1>
+<ul>
+<li><a href="#Top">M.U.G.E.N FAQ version 2002.04.14</a>
+<li><a href="#Meta-Questions">Meta-Questions</a>
+<ul>
+<li><a href="#What's%20in%20the%20Linux%2fWindows%20ports%3f">What's in the Linux/Windows ports?</a>
+<li><a href="#Why%20Linux%3f">Why did M.U.G.E.N move to Linux?</a>
+<li><a href="#Where%20do%20I%20get%20Linux%3f">Where do I get Linux? Give me Linux!</a>
+<li><a href="#What%20about%20DOS%3f">What happens to the DOS version?</a>
+<li><a href="#What%20about%20Windows%3f">What about a Windows version?</a>
+<li><a href="#How%20much%20money%20have%20you%20gotten%3f">How much profit have you made to date?</a>
+<li><a href="#Does%20this%20mean%20you're%20not%20supporting%20my%20game%3f">Does this mean you're not supporting my game?</a>
+<li><a href="#Is%20it%20Free%3f">Is MUGEN Free?</a>
+<li><a href="#Selling">Can I sell a game I make with MUGEN?</a>
+<li><a href="#Ports">Will you make a Windows/Macintosh version?</a>
+<li><a href="#Console%20Ports">Will you port MUGEN to Dreamcast/PSX?</a>
+<li><a href="#Source%20Code">Will you release the source code for MUGEN?</a>
+</ul>
+<li><a href="#General%20Questions">General Questions</a>
+<ul>
+<li><a href="#Getting%20Characters">Where do I get new characters? Give me characters!</a>
+<li><a href="#Adding%20Characters">How do I add new characters to the select screen?</a>
+<li><a href="#Adding%20More%20Characters">How do I increase the number of slots in the character select screen?</a>
+<li><a href="#Character%20compatibility">This character I downloaded isn't compatible. What do I do?</a>
+<li><a href="#Character%20fixers">Fixing characters is too hard! Make a tool for it!</a>
+<li><a href="#Debug%20Info%20Display">How do I get rid of the numbers and letters at the bottom of the screen?</a>
+<li><a href="#Enabling%20a%20Gamepad">How do I enable my gamepad?</a>
+<li><a href="#Using%20Multiple%20Gamepads">How can I use two gamepads at the same time?</a>
+<li><a href="#Playstation%20Controllers">How do I use my Playstation gamepad?</a>
+<li><a href="#Force%20Feedback">How do I use force feedback with my input device?</a>
+<li><a href="#Making%20Stages">How do I make a stage and its background?</a>
+<li><a href="#Stage%20Music">How do I add music to the stage?</a>
+<li><a href="#Other%20Music">How do I add music to the title, select and VS screens?</a>
+<li><a href="#Changing%20Game%20Sounds">How do I switch the sounds for the hits and announcers?</a>
+<li><a href="#Changing%20Game%20Graphics">How do I change the graphics for supers and hit sparks and life bars?</a>
+<li><a href="#Changing%20Menu%20Graphics">How do I change the title screen and character select graphics?</a>
+<li><a href="#AI">Why isn't the AI very competitive?</a>
+<li><a href="#Other%20Documentation">Where are the docs and tutorials?</a>
+<li><a href="#Tag%20Team">Can MUGEN do tag-team battles?</a>
+<li><a href="#Secrets">Does MUGEN support hidden characters and other secrets?</a>
+<li><a href="#Info%20Screen">How do I get rid of the info screen that pops up when I start MUGEN?</a>
+</ul>
+<li><a href="#Troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#Opening%20Files">When I try to open a <code>.cfg</code>, <code>.def</code>, etc. file, Windows tells me something about the Accessibility Wizard. Or it asks for an application. Or it asks for<small>...</small>. What do I do?</a>
+<li><a href="#Video%20Corruption%20Problems">When I try to run MUGEN, all I see is a blank screen, or I see messed-up colors, or my computer just crashes. What can I do?</a>
+<li><a href="#Changing%20Video%20Modes">When I try to run MUGEN it gives me an error "Can't change video mode", even when I hit "yes" to switch to 640x480. What does it mean?</a>
+<li><a href="#Screen%20Size">When I run in 640x480 I have a tiny screen. How do I make it big?</a>
+<li><a href="#Sound%20Problems">Why doesn't MUGEN work with my <var>(insert name)</var> soundcard?</a>
+<li><a href="#My%20characters%20don't%20work!">I added a character, but I get a "String value for display names must be in quotes" error message.</a>
+<li><a href="#Character%20Loading%20Problems">When I try to load a character, MUGEN quits with an error message saying it can't load the character's <code>.sff</code>. What's wrong?</a>
+<li><a href="#Virtual%20Memory">I don't have enough memory! Will the next MUGEN support virtual memory?</a>
+<li><a href="#Speed%20Issues%20and%20RAM">MUGEN runs slower with some characters! Do I need more memory?</a>
+<li><a href="#Loading%20Errors">MUGEN says it can't load <code>data/mugen.cfg</code>. Why not?</a>
+<li><a href="#Font%20Errors">MUGEN says it can't load fonts. What's wrong?</a>
+<li><a href="#AirEditor%20and%20Font%20Errors">AirEditor says it can't load fonts. What's wrong?</a>
+<li><a href="#Joystick%20Problems">Why can't I use more than 4 buttons on my pad?</a>
+<li><a href="#PSX%20Controller%20Problems">My PSX converter behaves erratically/slowly/turns off!</a>
+</ul>
+<li><a href="#Character-specific">Character-specific questions</a>
+<ul>
+<li><a href="#Making%20.act%20files">How do I make an <code>.act</code> file?</a>
+<li><a href="#Making%20.sff%20and%20.snd%20files">How do I make an <code>.sff</code> or <code>.snd</code> file?</a>
+<li><a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">How do I make an <code>.air</code>, <code>.cns</code>, <code>.cmd</code> or <code>.def</code> file?</a>
+<li><a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">How do I open an <code>.air</code>, <code>.cns</code>, <code>.cmd</code>, or <code>.def</code> file under Windows?</a>
+<li><a href="#MUGEN%20File%20Editors">Can you please make an AIR/CNS/CMD/SFF/SND editor?</a>
+<li><a href="#Starting%20a%20Character">Heck, how do I make a character?</a>
+<li><a href="#Too%20Difficult!">Making a character is hard! What's the easy way?</a>
+<li><a href="#Transparency%20problems">Why does my character have a colored box around him?</a>
+<li><a href="#Making%20Attacks">How do I make an attack move?</a>
+<li><a href="#Command%20problems">Why doesn't my command work in the <code>.cmd</code>?</a>
+<li><a href="#Throwing%20problems">My character disappears when he's thrown. What's wrong?</a>
+<li><a href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Can I have a separate palette for certain player or projectile sprites?</a>
+<li><a href="#KO%20sounds">How do I add a KO sound?</a>
+<li><a href="#Learning%20by%20Example">A character I saw did this cool effect. How was it done?</a>
+</ul>
+<li><a href="#Index">Index</a>
+</ul>
+
+<p><hr>
+Node:<a name="Meta-Questions">Meta-Questions</a>,
+Next:<a rel=next href="#General%20Questions">General Questions</a>,
+Previous:<a rel=previous href="#Top">Top</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h1>Meta-Questions</h1>
+
+<ul>
+<li><a href="#What's%20in%20the%20Linux%2fWindows%20ports%3f">What's in the Linux/Windows ports?</a>: 
+<li><a href="#Why%20Linux%3f">Why Linux?</a>: 
+<li><a href="#Where%20do%20I%20get%20Linux%3f">Where do I get Linux?</a>: 
+<li><a href="#What%20about%20DOS%3f">What about DOS?</a>: 
+<li><a href="#What%20about%20Windows%3f">What about Windows?</a>: 
+<li><a href="#How%20much%20money%20have%20you%20gotten%3f">How much money have you gotten?</a>: 
+<li><a href="#Does%20this%20mean%20you're%20not%20supporting%20my%20game%3f">Does this mean you're not supporting my game?</a>: 
+<li><a href="#Is%20it%20Free%3f">Is it Free?</a>: 
+<li><a href="#Selling">Selling</a>: 
+<li><a href="#Ports">Ports</a>: 
+<li><a href="#Console%20Ports">Console Ports</a>: 
+<li><a href="#Source%20Code">Source Code</a>: 
+</ul>
+
+<p><hr>
+Node:<a name="What's%20in%20the%20Linux%2fWindows%20ports%3f">What's in the Linux/Windows ports?</a>,
+Next:<a rel=next href="#Why%20Linux%3f">Why Linux?</a>,
+Previous:<a rel=previous href="#Meta-Questions">Meta-Questions</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>What's in the Linux/Windows ports?</h2>
+
+<p>The Linux port features a rewritten graphics engine, player precaching for
+transparent load times, multiple joystick support, and of course various
+updates and bug fixes. The Windows version doesn't exist yet,
+but is likely to have these features; See <a href="#What%20about%20Windows%3f">What about Windows?</a>.
+
+<p><hr>
+Node:<a name="Why%20Linux%3f">Why Linux?</a>,
+Next:<a rel=next href="#Where%20do%20I%20get%20Linux%3f">Where do I get Linux?</a>,
+Previous:<a rel=previous href="#What's%20in%20the%20Linux%2fWindows%20ports%3f">What's in the Linux/Windows ports?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Why did M.U.G.E.N move to Linux?</h2>
+
+<p>M.U.G.E.N has moved to Linux for a variety of reasons. The most important
+is that the new features that have been added are easily supported
+in a modern operating system such as Linux, but not in an operating system
+such as DOS.
+
+<p><hr>
+Node:<a name="Where%20do%20I%20get%20Linux%3f">Where do I get Linux?</a>,
+Next:<a rel=next href="#What%20about%20DOS%3f">What about DOS?</a>,
+Previous:<a rel=previous href="#Why%20Linux%3f">Why Linux?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Where do I get Linux? Give me Linux!</h2>
+
+<p>Linux is available in packages known as distributions. Perhaps the best-known
+of these is <a href="http://www.redhat.com">Red Hat</a>. Please understand that we
+neither offer Linux nor support it ourselves.
+
+<p><hr>
+Node:<a name="What%20about%20DOS%3f">What about DOS?</a>,
+Next:<a rel=next href="#What%20about%20Windows%3f">What about Windows?</a>,
+Previous:<a rel=previous href="#Where%20do%20I%20get%20Linux%3f">Where do I get Linux?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>What happens to the DOS version?</h2>
+
+<p>The future of the DOS version of M.U.G.E.N is uncertain. It may or may not be
+continued in the future. If it is continued, it is certain to be "feature-
+deficient" in comparison to the other ports, for the simple reason that the
+new functionalities cannot be supported in DOS.
+
+<p><hr>
+Node:<a name="What%20about%20Windows%3f">What about Windows?</a>,
+Next:<a rel=next href="#How%20much%20money%20have%20you%20gotten%3f">How much money have you gotten?</a>,
+Previous:<a rel=previous href="#What%20about%20DOS%3f">What about DOS?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>What about a Windows version?</h2>
+
+<p>The Windows version is under development.
+
+<p><hr>
+Node:<a name="How%20much%20money%20have%20you%20gotten%3f">How much money have you gotten?</a>,
+Next:<a rel=next href="#Does%20this%20mean%20you're%20not%20supporting%20my%20game%3f">Does this mean you're not supporting my game?</a>,
+Previous:<a rel=previous href="#What%20about%20Windows%3f">What about Windows?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>How much profit have you made to date?</h2>
+
+<p>You can see the current total of all donations on our <a href="http://www.elecbyte.com">web page</a>.
+
+<p>You may have paid money for a complete game made using MUGEN. Typical examples
+are DBZ-ME2, Anime Brawl 2, etc. These are pirated games and are neither
+authorized nor endorsed by Elecbyte. Needless to say, we do not see any
+revenue from these illegal sales.
+
+<p>Authorized distributions of MUGEN do exist on, for instance, magazine demo
+CDs. We do not receive revenue from these either.
+
+<p><hr>
+Node:<a name="Does%20this%20mean%20you're%20not%20supporting%20my%20game%3f">Does this mean you're not supporting my game?</a>,
+Next:<a rel=next href="#Is%20it%20Free%3f">Is it Free?</a>,
+Previous:<a rel=previous href="#How%20much%20money%20have%20you%20gotten%3f">How much money have you gotten?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Does this mean you're not supporting my game?</h2>
+
+<p>Complete game distributions, whether downloaded from the net or paid for, are
+in violation of the M.U.G.E.N licensing agreement unless explicitly approved
+by Elecbyte. We are not currently aware of any authorized third-party MUGEN
+distributions. Examples of unauthorized distributions that we have received
+support requests for are DBZ-ME2, Anime Brawl 2, the Saint Seiya game, etc. 
+Elecbyte has never, and will never, offer support for these games. See the
+license agreement in <code>readme.txt</code> for further details. Also: See <a href="#Selling">Selling</a>.
+
+<p>Support requests for old DOS versions of MUGEN (which are not part of game
+distributions) will be treated with low priority, like any other support
+requests for old versions.
+
+<p><hr>
+Node:<a name="Is%20it%20Free%3f">Is it Free?</a>,
+Next:<a rel=next href="#Selling">Selling</a>,
+Previous:<a rel=previous href="#Does%20this%20mean%20you're%20not%20supporting%20my%20game%3f">Does this mean you're not supporting my game?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Is MUGEN Free?</h2>
+
+<p>In the sense of your rights of usage and redistribution, MUGEN is not free. 
+The license agreement in readme.txt indicates the restrictions that you
+agree to observe by using the software.
+
+<p>In the monetary sense, the stock MUGEN distribution on our website is made
+available at no cost to the general public. Authorized redistributors of
+MUGEN may charge for their distributions if they so choose. Unauthorized
+distribution is a criminal act and falls outside the realm of this
+discussion.
+
+<p><hr>
+Node:<a name="Selling">Selling</a>,
+Next:<a rel=next href="#Ports">Ports</a>,
+Previous:<a rel=previous href="#Is%20it%20Free%3f">Is it Free?</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Can I sell a game I make with MUGEN?</h2>
+
+<p>You can't sell MUGEN betas or redistribute them without our permission. 
+What you do with the characters and files you make is your decision, but
+any distribution of them (whether for profit or not) cannot include the
+MUGEN environment itself without our approval. See the license agreement
+in readme.txt.
+
+<p><hr>
+Node:<a name="Ports">Ports</a>,
+Next:<a rel=next href="#Console%20Ports">Console Ports</a>,
+Previous:<a rel=previous href="#Selling">Selling</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Will you make a Windows/Macintosh version?</h2>
+
+<p>The Windows version is hung up pending compiler availability; See <a href="#What%20about%20Windows%3f">What about Windows?</a>. 
+A Macintosh version will probably never happen.
+
+<p><hr>
+Node:<a name="Console%20Ports">Console Ports</a>,
+Next:<a rel=next href="#Source%20Code">Source Code</a>,
+Previous:<a rel=previous href="#Ports">Ports</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Will you port MUGEN to Dreamcast/PSX?</h2>
+
+<p>No.
+
+<p><hr>
+Node:<a name="Source%20Code">Source Code</a>,
+Previous:<a rel=previous href="#Console%20Ports">Console Ports</a>,
+Up:<a rel=up href="#Meta-Questions">Meta-Questions</a>
+<br>
+
+<h2>Will you release the source code for MUGEN?</h2>
+
+<p>The source for MUGEN is not available for public download. The file formats
+for <code>.sff</code>, <code>.snd</code> and <code>.fnt</code> are
+published on our <a href="http://www.elecbyte.com">website</a>.
+
+<p><hr>
+Node:<a name="General%20Questions">General Questions</a>,
+Next:<a rel=next href="#Troubleshooting">Troubleshooting</a>,
+Previous:<a rel=previous href="#Meta-Questions">Meta-Questions</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h1>General Questions</h1>
+
+<ul>
+<li><a href="#Getting%20Characters">Getting Characters</a>: 
+<li><a href="#Adding%20Characters">Adding Characters</a>: 
+<li><a href="#Adding%20More%20Characters">Adding More Characters</a>: 
+<li><a href="#Character%20compatibility">Character compatibility</a>: 
+<li><a href="#Character%20fixers">Character fixers</a>: 
+<li><a href="#Debug%20Info%20Display">Debug Info Display</a>: 
+<li><a href="#Enabling%20a%20Gamepad">Enabling a Gamepad</a>: 
+<li><a href="#Using%20Multiple%20Gamepads">Using Multiple Gamepads</a>: 
+<li><a href="#Playstation%20Controllers">Playstation Controllers</a>: 
+<li><a href="#Force%20Feedback">Force Feedback</a>: 
+<li><a href="#Making%20Stages">Making Stages</a>: 
+<li><a href="#Stage%20Music">Stage Music</a>: 
+<li><a href="#Other%20Music">Other Music</a>: 
+<li><a href="#Changing%20Game%20Sounds">Changing Game Sounds</a>: 
+<li><a href="#Changing%20Game%20Graphics">Changing Game Graphics</a>: 
+<li><a href="#Changing%20Menu%20Graphics">Changing Menu Graphics</a>: 
+<li><a href="#AI">AI</a>: 
+<li><a href="#Other%20Documentation">Other Documentation</a>: 
+<li><a href="#Tag%20Team">Tag Team</a>: 
+<li><a href="#Secrets">Secrets</a>: 
+<li><a href="#Info%20Screen">Info Screen</a>: 
+</ul>
+
+<p><hr>
+Node:<a name="Getting%20Characters">Getting Characters</a>,
+Next:<a rel=next href="#Adding%20Characters">Adding Characters</a>,
+Previous:<a rel=previous href="#General%20Questions">General Questions</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>Where do I get new characters? Give me characters!</h2>
+
+<p>We cannot send any characters. Other than KFM, who is available from our
+<a href="http://www.elecbyte.com">web page</a>, you must look elsewhere.
+
+<p><hr>
+Node:<a name="Adding%20Characters">Adding Characters</a>,
+Next:<a rel=next href="#Adding%20More%20Characters">Adding More Characters</a>,
+Previous:<a rel=previous href="#Getting%20Characters">Getting Characters</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I add new characters to the select screen?</h2>
+
+<p>Unzip your character into a new directory under <var>chars/</var>. Note the name of
+of the character's <code>.def</code> file.
+
+<p>Now open <code>data/select.def</code>. In the <code>[Characters]</code> group at the
+top, add a line that looks like: <code><var>mydir/player.def</var>,
+<var>stages/stage.def</var></code>. <var>mydir</var> should be the directory you placed
+the character files in, and <var>player.def</var> should be the player's <code>.def</code>
+file. <var>stage.def</var> should be the name of the player's stage. If you do
+not specify a stage, it will be randomly chosen in the game. The comments
+in <code>select.def</code> have additional information.
+
+<p>If your player's <code>.def</code> file name and directory name are the same (for
+instance, the directory is <code>kiwi/</code> and the <code>.def</code> file is
+<code>kiwi.def</code>), then you can just enter <code>kiwi</code> instead of
+<code>kiwi/kiwi.def</code>.
+
+<p>Like many of the other files, <code>select.def</code> is a text file. If you are
+using Windows to open the file, choose a text editor such as Notepad
+when prompted.
+
+<p><hr>
+Node:<a name="Adding%20More%20Characters">Adding More Characters</a>,
+Next:<a rel=next href="#Character%20compatibility">Character compatibility</a>,
+Previous:<a rel=previous href="#Adding%20Characters">Adding Characters</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I increase the number of slots in the character select screen?</h2>
+
+<p>Open up <code>data/system.def</code> using a text editor, and look at the
+<code>[Select Info]</code> group. Increase the value of <code>rows</code> and
+<code>columns</code> to create more slots for additional characters.
+
+<p>You may need to adjust the <code>pos</code> parameter to place the newly-sized
+boxes correctly on the screen. A value of 0,0 represents the upper-left
+corner, and 319,239 is the lower-right.
+
+<p>For an example of how this works, download the motif "Big" from the
+<a href="http://mugen.elecbyte.com/develop.html">developer's section</a>
+on our web page.
+
+<p><hr>
+Node:<a name="Character%20compatibility">Character compatibility</a>,
+Next:<a rel=next href="#Character%20fixers">Character fixers</a>,
+Previous:<a rel=previous href="#Adding%20More%20Characters">Adding More Characters</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>This character I downloaded isn't compatible. What do I do?</h2>
+
+<p>The M.U.G.E.N character standard is a work in progress. There is explicitly
+no guarantee that characters made for earlier versions will work with later
+ones. If a character isn't compatible with a certain version of M.U.G.E.N, it
+is the author's responsibility to fix it.
+
+<p>New releases of MUGEN contain compatibility notes (found in <code>updates.txt</code>
+ or <code>incompt2.txt</code>) which give instructions on how to bring characters
+into compliance with new versions. Elecbyte will not update third-party
+characters.
+
+<p><hr>
+Node:<a name="Character%20fixers">Character fixers</a>,
+Next:<a rel=next href="#Debug%20Info%20Display">Debug Info Display</a>,
+Previous:<a rel=previous href="#Character%20compatibility">Character compatibility</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>Fixing characters is too hard! Make a tool for it!</h2>
+
+<p>Elecbyte will never make a character "fixer" or autoupdater. These are the
+reasons why:
+
+<ol type=1 start=1>
+</p><li>It's not our priority. Effort that would be spent maintaining and
+debugging an autofixer is better spent maintaining and debugging the engine.
+
+<li>It's not our responsibility. M.U.G.E.N is in a "beta" stage for a very
+good reason - namely, it carries no guarantees of usability or
+compatibility with previous versions.
+
+<li>It's not possible. No autofixer, even in theory, could correctly update
+an arbitrary character without possibly introducing bugs that weren't there
+before. Any autofixer can at most be merely one tool among many which are
+required to update a character properly. Releasing an "autofixer" tool tends
+to mislead the end user into forgetting this basic fact.
+</ol>
+
+<p><hr>
+Node:<a name="Debug%20Info%20Display">Debug Info Display</a>,
+Next:<a rel=next href="#Enabling%20a%20Gamepad">Enabling a Gamepad</a>,
+Previous:<a rel=previous href="#Character%20fixers">Character fixers</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I get rid of the numbers and letters at the bottom of the screen?</h2>
+
+<p>Those "numbers and letters" are the debug information for a character. 
+Press <kbd>Ctrl-D</kbd> until it goes away or for a more permanent fix, open
+<code>data/mugen.cfg</code> and in the <code>[Debug]</code> group, change
+<code>Debug = 1</code> to <code>Debug = 0</code>.
+
+<p><hr>
+Node:<a name="Enabling%20a%20Gamepad">Enabling a Gamepad</a>,
+Next:<a rel=next href="#Using%20Multiple%20Gamepads">Using Multiple Gamepads</a>,
+Previous:<a rel=previous href="#Debug%20Info%20Display">Debug Info Display</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I enable my gamepad?</h2>
+
+<p>This can be done from the input configuration screen available under Options. 
+Simply choose which player you want to use the joystick, then choose the
+appropriate joystick type for that player. The joystick should then be
+initialized and you can configure the buttons for it.
+
+<p>If your joystick isn't initialized properly, save your options and then
+restart MUGEN. If that still doesn't work, then open up the
+<code>data/mugen.cfg</code> and find the <code>[Input]</code> group.  Change the setting
+for <code>P1.Joystick.type</code> or <code>P2.Joystick.type</code> to the appropriate
+number as indicated in the comments.
+
+<p><hr>
+Node:<a name="Using%20Multiple%20Gamepads">Using Multiple Gamepads</a>,
+Next:<a rel=next href="#Playstation%20Controllers">Playstation Controllers</a>,
+Previous:<a rel=previous href="#Enabling%20a%20Gamepad">Enabling a Gamepad</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How can I use two gamepads at the same time?</h2>
+
+<p>For Linux, MUGEN supports two gamepads natively.
+
+<p><hr>
+Node:<a name="Playstation%20Controllers">Playstation Controllers</a>,
+Next:<a rel=next href="#Force%20Feedback">Force Feedback</a>,
+Previous:<a rel=previous href="#Using%20Multiple%20Gamepads">Using Multiple Gamepads</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I use my Playstation gamepad?</h2>
+
+<p>You need to build a converter to connect your joystick to the computer. 
+MUGEN supports the DirectPad Pro converter; schematics are available at
+<a href="http://www.ziplabel.com">http://www.ziplabel.com</a>. You will then need to compile the appropriate
+joystick driver. The converter connects to the parallel port, so you will
+need to disconnect your printer cable if you wish to use the pad.
+
+<p>The DirectPad Pro schematics specify a +5V power supply for the main
+controller electronics, and a +9V power supply for the shock motors. 
+The standard voltages supplied by the Playstation for these purposes
+are, respectively, +3.5V and +7.6V. It is up to you to decide whether
+you wish to run at the higher voltages, or build an external power
+supply to provide the +3.5V and +7.6V inputs. An external power supply,
+though more inconvenient, may be able to supply more power, to
+controllers that require it, than the parallel port can. We have
+received no reports of damage to Playstation controllers from running at
++5V/+9V, but that does not mean the possibility does not exist.
+
+<p>In any case, neither we nor the DirectPad Pro author can answer
+questions about the construction of a PSX converter. Please find a
+friend knowledgeable in electronics to help you if you have
+difficulties.
+
+<p>When your converter is completed and functioning, set the joystick type
+to Auto in the Options screen. You can then configure your joystick buttons.
+
+<p>Note that you can bind the Start button to any physical button on the
+PSX joystick, if you choose. The X button functions as a cancel button
+in most menus. This is not configurable.
+
+<p>MUGEN does not support analog input. The L3 and R3 switches are supported.
+
+<p><hr>
+Node:<a name="Force%20Feedback">Force Feedback</a>,
+Next:<a rel=next href="#Making%20Stages">Making Stages</a>,
+Previous:<a rel=previous href="#Playstation%20Controllers">Playstation Controllers</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I use force feedback with my input device?</h2>
+
+<p>No force feedback is currently supported.
+
+<p><hr>
+Node:<a name="Making%20Stages">Making Stages</a>,
+Next:<a rel=next href="#Stage%20Music">Stage Music</a>,
+Previous:<a rel=previous href="#Force%20Feedback">Force Feedback</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I make a stage and its background?</h2>
+
+<p>You need a <code>.def</code> and an <code>.sff</code> in the <code>stages/</code>
+directory.  <code>stages/stage0.def</code> has some comments on how to make a
+background.
+
+<p><hr>
+Node:<a name="Stage%20Music">Stage Music</a>,
+Next:<a rel=next href="#Other%20Music">Other Music</a>,
+Previous:<a rel=previous href="#Making%20Stages">Making Stages</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I add music to the stage?</h2>
+
+<p>Edit the <code>.def</code> file for the stage, and go to <code>[Music]</code>.  For
+<code>bgmusic</code>, put in the name of the <code>.midi</code>, <code>.mod</code> (also
+<code>.s3m</code>) or <code>.mp</code>3 file. For example, if you have
+<code>music.mp3</code> in the <code>sound/</code> directory, the line should read:
+
+<pre>bgmusic = sound/music.mp3
+</pre>
+
+<p><hr>
+Node:<a name="Other%20Music">Other Music</a>,
+Next:<a rel=next href="#Changing%20Game%20Sounds">Changing Game Sounds</a>,
+Previous:<a rel=previous href="#Stage%20Music">Stage Music</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I add music to the title, select and VS screens?</h2>
+
+<p>Open <code>data/system.def</code> with a text editor, and look under
+<code>[Music]</code>. Add the filename of the <code>.mp3</code>, <code>.midi</code> or
+<code>.mod</code> file to the appropriate lines.
+
+<p><hr>
+Node:<a name="Changing%20Game%20Sounds">Changing Game Sounds</a>,
+Next:<a rel=next href="#Changing%20Game%20Graphics">Changing Game Graphics</a>,
+Previous:<a rel=previous href="#Other%20Music">Other Music</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I switch the sounds for the hits and announcers?</h2>
+
+<p>You'll need to build your own <code>fight.snd</code> and <code>common.snd</code> and
+place it in a subdirectory under <code>data/</code>. You will need to copy
+<code>data/system.def</code> into that subdirectory, and edit it if
+necessary. To run with your new <code>system.def</code>, you will need to use
+the <code>-r</code> switch at the command line.  For example, if you put the
+new files in <code>data/mymotif</code>, then type:
+
+<pre>mugen -r mymotif
+</pre>
+
+<p>to use your new motif. See <code>readme.txt</code> for more on custom
+motifs.
+
+<p><hr>
+Node:<a name="Changing%20Game%20Graphics">Changing Game Graphics</a>,
+Next:<a rel=next href="#Changing%20Menu%20Graphics">Changing Menu Graphics</a>,
+Previous:<a rel=previous href="#Changing%20Game%20Sounds">Changing Game Sounds</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I change the graphics for supers and hit sparks and life bars?</h2>
+
+<p>You'll need to create your own <code>fightfx.sff</code> and <code>fightfx.air</code>
+in a subdirectory under <code>data/</code>. See the previous question about
+how to use your custom motifs.
+
+<p><hr>
+Node:<a name="Changing%20Menu%20Graphics">Changing Menu Graphics</a>,
+Next:<a rel=next href="#AI">AI</a>,
+Previous:<a rel=previous href="#Changing%20Game%20Graphics">Changing Game Graphics</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I change the title screen and character select graphics?</h2>
+
+<p>All the files we use are under the <code>data/</code> directory. If you would
+like to use your own, you will need to make a copy those files in a
+subdirectory under <code>data/</code>, and edit the necessary files. For
+example, you will need to edit <code>system.def</code> to customize the title
+screen, and supply the the work files we used to make the default motif
+is available on our web page.
+
+<p>See <code>readme.txt</code> for more on custom motifs.
+
+<p><hr>
+Node:<a name="AI">AI</a>,
+Next:<a rel=next href="#Other%20Documentation">Other Documentation</a>,
+Previous:<a rel=previous href="#Changing%20Menu%20Graphics">Changing Menu Graphics</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>Why isn't the AI very competitive?</h2>
+
+<p>The AI implementation is incomplete. For now, engine bug fixes and
+improvements are the priority.
+
+<p><hr>
+Node:<a name="Other%20Documentation">Other Documentation</a>,
+Next:<a rel=next href="#Tag%20Team">Tag Team</a>,
+Previous:<a rel=previous href="#AI">AI</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>Where are the docs and tutorials?</h2>
+
+<p>MUGEN documentation may be found in the <code>docs/</code> folder or in
+<code>readme.txt</code>. The main table of contents can be found in
+<code>docs/mugen.html</code>. Some areas which are not fully documented are
+addressed in the comments included in configuration and sample files.
+
+<p><hr>
+Node:<a name="Tag%20Team">Tag Team</a>,
+Next:<a rel=next href="#Secrets">Secrets</a>,
+Previous:<a rel=previous href="#Other%20Documentation">Other Documentation</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>Can MUGEN do tag-team battles?</h2>
+
+<p>This is under development.
+
+<p><hr>
+Node:<a name="Secrets">Secrets</a>,
+Next:<a rel=next href="#Info%20Screen">Info Screen</a>,
+Previous:<a rel=previous href="#Tag%20Team">Tag Team</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>Does MUGEN support hidden characters and other secrets?</h2>
+
+<p>No, it doesn't.
+
+<p><hr>
+Node:<a name="Info%20Screen">Info Screen</a>,
+Previous:<a rel=previous href="#Secrets">Secrets</a>,
+Up:<a rel=up href="#General%20Questions">General Questions</a>
+<br>
+
+<h2>How do I get rid of the info screen that pops up when I start MUGEN?</h2>
+
+<p>Your version of MUGEN is expired. Please download the latest version of MUGEN
+from <a href="http://mugen.elecbyte.com">http://mugen.elecbyte.com</a>.
+
+<p><hr>
+Node:<a name="Troubleshooting">Troubleshooting</a>,
+Next:<a rel=next href="#Character-specific">Character-specific</a>,
+Previous:<a rel=previous href="#General%20Questions">General Questions</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h1>Troubleshooting</h1>
+
+<ul>
+<li><a href="#Opening%20Files">Opening Files</a>: 
+<li><a href="#Video%20Corruption%20Problems">Video Corruption Problems</a>: 
+<li><a href="#Changing%20Video%20Modes">Changing Video Modes</a>: 
+<li><a href="#Screen%20Size">Screen Size</a>: 
+<li><a href="#Sound%20Problems">Sound Problems</a>: 
+<li><a href="#My%20characters%20don't%20work!">My characters don't work!</a>: 
+<li><a href="#Character%20Loading%20Problems">Character Loading Problems</a>: 
+<li><a href="#Virtual%20Memory">Virtual Memory</a>: 
+<li><a href="#Speed%20Issues%20and%20RAM">Speed Issues and RAM</a>: 
+<li><a href="#Loading%20Errors">Loading Errors</a>: 
+<li><a href="#Font%20Errors">Font Errors</a>: 
+<li><a href="#AirEditor%20and%20Font%20Errors">AirEditor and Font Errors</a>: 
+<li><a href="#Joystick%20Problems">Joystick Problems</a>: 
+<li><a href="#PSX%20Controller%20Problems">PSX Controller Problems</a>: 
+<li><a href="#Making%20.act%20files">Making .act files</a>: 
+<li><a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>: 
+<li><a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>: 
+<li><a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>: 
+<li><a href="#Starting%20a%20Character">Starting a Character</a>: 
+<li><a href="#Too%20Difficult!">Too Difficult!</a>: 
+<li><a href="#Transparency%20problems">Transparency problems</a>: 
+<li><a href="#Making%20Attacks">Making Attacks</a>: 
+<li><a href="#Command%20problems">Command problems</a>: 
+<li><a href="#Throwing%20problems">Throwing problems</a>: 
+<li><a href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>: 
+<li><a href="#KO%20sounds">KO sounds</a>: 
+<li><a href="#Learning%20by%20Example">Learning by Example</a>: 
+</ul>
+
+<p><hr>
+Node:<a name="Opening%20Files">Opening Files</a>,
+Next:<a rel=next href="#Video%20Corruption%20Problems">Video Corruption Problems</a>,
+Previous:<a rel=previous href="#Troubleshooting">Troubleshooting</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>When I try to open a <code>.cfg</code>, <code>.def</code>, etc. file, Windows tells me something about the Accessibility Wizard. Or it asks for an application. Or it asks for<small>...</small>. What do I do?</h2>
+
+<p>MUGEN's configuration files are all normal text files. They can be
+opened using any text editor.
+
+<p><hr>
+Node:<a name="Video%20Corruption%20Problems">Video Corruption Problems</a>,
+Next:<a rel=next href="#Changing%20Video%20Modes">Changing Video Modes</a>,
+Previous:<a rel=previous href="#Opening%20Files">Opening Files</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>When I try to run MUGEN, all I see is a blank screen, or I see messed-up colors, or my computer just crashes. What can I do?</h2>
+
+<p>If you are running windowed in X, make sure your screen size is 320 x 240 and
+your color depth matches the X color depth. If you are running console, make
+sure your screen size and color depth match your current settings (unless
+you're running as root).
+
+<p><hr>
+Node:<a name="Changing%20Video%20Modes">Changing Video Modes</a>,
+Next:<a rel=next href="#Screen%20Size">Screen Size</a>,
+Previous:<a rel=previous href="#Video%20Corruption%20Problems">Video Corruption Problems</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>When I try to run MUGEN it gives me an error "Can't change video mode", even when I hit "yes" to switch to 640x480. What does it mean?</h2>
+
+<p>Please follow the recommendations in the previous item; See <a href="#Video%20Corruption%20Problems">Video Corruption Problems</a>.
+
+<p><hr>
+Node:<a name="Screen%20Size">Screen Size</a>,
+Next:<a rel=next href="#Sound%20Problems">Sound Problems</a>,
+Previous:<a rel=previous href="#Changing%20Video%20Modes">Changing Video Modes</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>When I run in 640x480 I have a tiny screen. How do I make it big?</h2>
+
+<p>Edit <code>data/mugen.cfg</code>, and look under <code>[Video]</code>. Set
+<code>stretch</code> to 1. This will run slower though.
+
+<p><hr>
+Node:<a name="Sound%20Problems">Sound Problems</a>,
+Next:<a rel=next href="#My%20characters%20don't%20work!">My characters don't work!</a>,
+Previous:<a rel=previous href="#Screen%20Size">Screen Size</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>Why doesn't MUGEN work with my <var>(insert name)</var> soundcard?</h2>
+
+<p>MUGEN should work with any sound card that works in Linux. However, your
+kernel may be set up to use /dev/sound/dsp. In this case you should
+create a symlink to /dev/sound/dsp named /dev/dsp.
+
+<p><hr>
+Node:<a name="My%20characters%20don't%20work!">My characters don't work!</a>,
+Next:<a rel=next href="#Character%20Loading%20Problems">Character Loading Problems</a>,
+Previous:<a rel=previous href="#Sound%20Problems">Sound Problems</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>I added a character, but I get a "String value for display names must be in quotes" error message.</h2>
+
+<p>That character is made for an earlier version of MUGEN and is outdated. Old
+characters will NEVER be supported. Refer to incompt2.txt for conversion
+instructions.
+
+<p><hr>
+Node:<a name="Character%20Loading%20Problems">Character Loading Problems</a>,
+Next:<a rel=next href="#Virtual%20Memory">Virtual Memory</a>,
+Previous:<a rel=previous href="#My%20characters%20don't%20work!">My characters don't work!</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>When I try to load a character, MUGEN quits with an error message saying it can't load the character's <code>.sff</code>. What's wrong?</h2>
+
+<p>Most likely, you do not have enough memory to load the character.  Most
+characters need at least 16 MB to run, but there are cases where even 32
+MB is not enough, especially if the character has an unoptimized sound or
+sprite file.
+
+<p>Consult <code>readme.txt</code> for ways to reduce MUGEN's memory consumption.
+
+<p><hr>
+Node:<a name="Virtual%20Memory">Virtual Memory</a>,
+Next:<a rel=next href="#Speed%20Issues%20and%20RAM">Speed Issues and RAM</a>,
+Previous:<a rel=previous href="#Character%20Loading%20Problems">Character Loading Problems</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>I don't have enough memory! Will the next MUGEN support virtual memory?</h2>
+
+<p>MUGEN is in fact using virtual memory. However, you can't
+always solve lack of RAM problems by swapping data back and forth from
+the hard drive. For instance, swapping character graphics and sounds
+from the drive causes a considerable amount of "thrashing", making
+MUGEN run too slow for any level of acceptable
+gameplay. Further, swapping is automatic, meaning that we have no
+control what is actually swapped to disk.
+
+<p>See <code>readme.txt</code> for ways to reduce MUGEN's memory
+consumption.
+
+<p><hr>
+Node:<a name="Speed%20Issues%20and%20RAM">Speed Issues and RAM</a>,
+Next:<a rel=next href="#Loading%20Errors">Loading Errors</a>,
+Previous:<a rel=previous href="#Virtual%20Memory">Virtual Memory</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>MUGEN runs slower with some characters! Do I need more memory?</h2>
+
+<p>It is possible the character you are running is unoptimized.  Having
+inefficiently-coded states, lots of constantly-checked states, or
+overuse of trigger expressions can cause slowdown.  Unless you hear your
+hard drive cranking loudly whenever you are playing, you don't have a
+RAM problem.
+
+<p><hr>
+Node:<a name="Loading%20Errors">Loading Errors</a>,
+Next:<a rel=next href="#Font%20Errors">Font Errors</a>,
+Previous:<a rel=previous href="#Speed%20Issues%20and%20RAM">Speed Issues and RAM</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>MUGEN says it can't load <code>data/mugen.cfg</code>. Why not?</h2>
+
+<p>MUGEN expects to find several configuration files within a subdirectory
+called <code>data</code>. If this directory was not created when you unpacked
+the MUGEN archive, you need to preserve the directory structure while
+unpacking. This shouldn't be an issue, though.
+
+<p><hr>
+Node:<a name="Font%20Errors">Font Errors</a>,
+Next:<a rel=next href="#AirEditor%20and%20Font%20Errors">AirEditor and Font Errors</a>,
+Previous:<a rel=previous href="#Loading%20Errors">Loading Errors</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>MUGEN says it can't load fonts. What's wrong?</h2>
+
+<p>MUGEN expects to find its fonts in a subdirectory called
+<code>fonts</code>. If this directory was not created when you unpacked the
+MUGEN distribution, you need to preserve the directory structure while
+unpacking the archive.
+
+<p><hr>
+Node:<a name="AirEditor%20and%20Font%20Errors">AirEditor and Font Errors</a>,
+Next:<a rel=next href="#Joystick%20Problems">Joystick Problems</a>,
+Previous:<a rel=previous href="#Font%20Errors">Font Errors</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>AirEditor says it can't load fonts. What's wrong?</h2>
+
+<p>You need to run AirEditor in the same directory as MUGEN.  It uses the
+MUGEN fonts.
+
+<p><hr>
+Node:<a name="Joystick%20Problems">Joystick Problems</a>,
+Next:<a rel=next href="#PSX%20Controller%20Problems">PSX Controller Problems</a>,
+Previous:<a rel=previous href="#AirEditor%20and%20Font%20Errors">AirEditor and Font Errors</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>Why can't I use more than 4 buttons on my pad?</h2>
+
+<p>Make sure you have configured your joystick's buttons from the Options
+screen.
+
+<p><hr>
+Node:<a name="PSX%20Controller%20Problems">PSX Controller Problems</a>,
+Next:<a rel=next href="#Making%20.act%20files">Making .act files</a>,
+Previous:<a rel=previous href="#Joystick%20Problems">Joystick Problems</a>,
+Up:<a rel=up href="#Troubleshooting">Troubleshooting</a>
+<br>
+
+<h2>My PSX converter behaves erratically/slowly/turns off!</h2>
+
+<p>You will need to verify that your convertor is correctly constructed and that
+the Linux joystick drivers are functioning properly.
+
+<p><hr>
+Node:<a name="Character-specific">Character-specific</a>,
+Next:<a rel=next href="#Index">Index</a>,
+Previous:<a rel=previous href="#Troubleshooting">Troubleshooting</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h1>Character-specific questions</h1>
+
+<ul>
+<li><a href="#Making%20.act%20files">Making .act files</a>: 
+<li><a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>: 
+<li><a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>: 
+<li><a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>: 
+<li><a href="#MUGEN%20File%20Editors">MUGEN File Editors</a>: 
+<li><a href="#Starting%20a%20Character">Starting a Character</a>: 
+<li><a href="#Too%20Difficult!">Too Difficult!</a>: 
+<li><a href="#Transparency%20problems">Transparency problems</a>: 
+<li><a href="#Making%20Attacks">Making Attacks</a>: 
+<li><a href="#Command%20problems">Command problems</a>: 
+<li><a href="#Throwing%20problems">Throwing problems</a>: 
+<li><a href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>: 
+<li><a href="#KO%20sounds">KO sounds</a>: 
+<li><a href="#Learning%20by%20Example">Learning by Example</a>: 
+</ul>
+
+<p><hr>
+Node:<a name="Making%20.act%20files">Making .act files</a>,
+Next:<a rel=next href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>,
+Previous:<a rel=previous href="#PSX%20Controller%20Problems">PSX Controller Problems</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>How do I make an <code>.act</code> file?</h2>
+
+<p>You can do it one of several ways:
+
+<ol type=1 start=1>
+</p><li>If you have Adobe Photoshop, you can save <code>.act</code> files from a 256 color
+image.
+
+<li>You can download PCXClean from our <a href="http://www.elecbyte.com">homepage</a>,
+in the <a href="http://www.elecbyte.com/tools/index.html">Tools</a> section. 
+The package contains the PCXPal tool, which can can be used to extract
+<code>.pal</code> files from a PCX file.
+
+<li>You can get the Paint Shop Pro <code>.pal</code> to <code>.act</code> converter from
+the most recent PCXClean package (v1.5).
+</ol>
+
+<p><hr>
+Node:<a name="Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>,
+Next:<a rel=next href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>,
+Previous:<a rel=previous href="#Making%20.act%20files">Making .act files</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>How do I make an <code>.sff</code> or <code>.snd</code> file?</h2>
+
+<p>You will need sprmaker and sndmaker. They are available in the
+<a href="http://mugen.elecbyte.com/mtools098b.zip">MUGEN Tools</a>
+package.
+
+<p><hr>
+Node:<a name="Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>,
+Next:<a rel=next href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>,
+Previous:<a rel=previous href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>How do I make an <code>.air</code>, <code>.cns</code>, <code>.cmd</code> or <code>.def</code> file?</h2>
+
+<p>They are all text files, so they can be made with any text editor. See the
+documentation in the <code>docs/</code> folder for more information on each type
+of file.
+
+<p><hr>
+Node:<a name="Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>,
+Next:<a rel=next href="#MUGEN%20File%20Editors">MUGEN File Editors</a>,
+Previous:<a rel=previous href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>How do I open an <code>.air</code>, <code>.cns</code>, <code>.cmd</code>, or <code>.def</code> file under Windows?</h2>
+
+<p>Use any text editor of your choice.
+
+<p><hr>
+Node:<a name="MUGEN%20File%20Editors">MUGEN File Editors</a>,
+Next:<a rel=next href="#Starting%20a%20Character">Starting a Character</a>,
+Previous:<a rel=previous href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>Can you please make an AIR/CNS/CMD/SFF/SND editor?</h2>
+
+<p>Sorry, we do not have plans to make any editors. You are welcome to write your
+own frontends and editors if you like. Our formats for .sff and .snd are
+published in the
+<a href="http://mugen.elecbyte.com/develop.html">developer's section</a> of our
+Mugen site.
+
+<p><hr>
+Node:<a name="Starting%20a%20Character">Starting a Character</a>,
+Next:<a rel=next href="#Too%20Difficult!">Too Difficult!</a>,
+Previous:<a rel=previous href="#MUGEN%20File%20Editors">MUGEN File Editors</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>Heck, how do I make a character?</h2>
+
+<p>It's not easy, but here's a brief outline to get started. Read up on
+the docs for more details.
+
+<ul>
+<li>Download KFM from our site. He's a good reference. Also get his work
+files, which contain his sprites and a <code>.txt</code> file for piping into
+sprmaker. 
+<li>Get some sprites ready to use. Even just the standing sprites are enough
+to get started. 
+<li>Make the <code>.txt</code> file for the <code>.sff</code> of his standing frames. 
+<li>Make the <code>.sff</code> using sprmaker. 
+<li>Make a <code>.def</code> file (or copy over and edit KFM's)
+<li>Make an <code>.air</code> file (or copy over and edit KFM's)
+<li>Make a <code>.cns</code> file (or copy over and edit KFM's)
+<li>Try it out. Tweak the axes in the <code>.sff</code> until the animation looks
+right. Type <code>MUGEN player player</code> to test the character. 
+<li>Add walking frames to the <code>.sff</code>, then add frames for animations in
+the air. Add jumping, getting hit, etc. 
+<li>When you're done with basic movement, it's time to add attacks! That's
+when the fun and real work begins (also lots of frustration). 
+</ul>
+
+<p><hr>
+Node:<a name="Too%20Difficult!">Too Difficult!</a>,
+Next:<a rel=next href="#Transparency%20problems">Transparency problems</a>,
+Previous:<a rel=previous href="#Starting%20a%20Character">Starting a Character</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>Making a character is hard! What's the easy way?</h2>
+
+<p>Sorry, there isn't any. MUGEN is very flexible, but with that
+flexibility comes work. You can try replacing sprites for KFM and
+tweaking with his <code>.air</code> and <code>.cns</code> to get started though.
+
+<p><hr>
+Node:<a name="Transparency%20problems">Transparency problems</a>,
+Next:<a rel=next href="#Making%20Attacks">Making Attacks</a>,
+Previous:<a rel=previous href="#Too%20Difficult!">Too Difficult!</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>Why does my character have a colored box around him?</h2>
+
+<p>You need to set the color of that box to color 0 in his palette. Make
+sure your sprites are all 256 colors, with that same palette.
+
+<p><hr>
+Node:<a name="Making%20Attacks">Making Attacks</a>,
+Next:<a rel=next href="#Command%20problems">Command problems</a>,
+Previous:<a rel=previous href="#Transparency%20problems">Transparency problems</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>How do I make an attack move?</h2>
+
+<p>You need several things.
+
+<ol type=1 start=1>
+</p><li>Sprites for the attack move (in the <code>.sff</code> file). 
+<li>An animation action for the attack (in the <code>.air</code> file). 
+<li>A move definition specifying the command for the move (in the <code>.cmd</code> file). 
+<li>State entry specifying what state to go to when the command is performed
+(in the <code>.cmd</code> file). 
+<li>States for the move (in the <code>.cns</code> file).
+</ol>
+
+<p>See the respective documentation for details.
+
+<p><hr>
+Node:<a name="Command%20problems">Command problems</a>,
+Next:<a rel=next href="#Throwing%20problems">Throwing problems</a>,
+Previous:<a rel=previous href="#Making%20Attacks">Making Attacks</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>Why doesn't my command work in the <code>.cmd</code>?</h2>
+
+<p>You need to put state entry for a move (call it Move A) before all other
+moves that have commands that are subsets of Move A. So if Move A has
+command <code>D, F, a</code> then Move A has to be placed before any move that
+has command <code>a</code> in the <code>.cmd</code> file.
+
+<p><hr>
+Node:<a name="Throwing%20problems">Throwing problems</a>,
+Next:<a rel=next href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>,
+Previous:<a rel=previous href="#Command%20problems">Command problems</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>My character disappears when he's thrown. What's wrong?</h2>
+
+<p>You do not have all the required sprites as specified in <code>spr.txt</code>. 
+Make sure you've added all the required sprites with their specified
+numbers, including the ones that have axes in the middle of the body, as
+well as at the head. See <code>spr.gif</code> for an illustration of the
+required sprites.
+
+<p><hr>
+Node:<a name="Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>,
+Next:<a rel=next href="#KO%20sounds">KO sounds</a>,
+Previous:<a rel=previous href="#Throwing%20problems">Throwing problems</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>Can I have a separate palette for certain player or projectile sprites?</h2>
+
+<p>Except for the big portrait (9000,1), the answer is no. To see how to
+use a different palette for the big portrait, download KFM's work files
+and look at the <code>.txt</code> file for his <code>.sff</code>.
+
+<p><hr>
+Node:<a name="KO%20sounds">KO sounds</a>,
+Next:<a rel=next href="#Learning%20by%20Example">Learning by Example</a>,
+Previous:<a rel=previous href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>How do I add a KO sound?</h2>
+
+<p>If you have a sound 11,0 (that's group 11, sound 0) in your character's
+<code>.snd</code> file, it will automatically be played as the KO sound.
+
+<p><hr>
+Node:<a name="Learning%20by%20Example">Learning by Example</a>,
+Previous:<a rel=previous href="#KO%20sounds">KO sounds</a>,
+Up:<a rel=up href="#Character-specific">Character-specific</a>
+<br>
+
+<h2>A character I saw did this cool effect. How was it done?</h2>
+
+<p>Take note of which states that character was in, and take a look at it
+in his <code>.cns</code> file. The reason for the open file formats is so that you
+can share techniques with other developers.
+
+<p><hr>
+Node:<a name="Index">Index</a>,
+Previous:<a rel=previous href="#Character-specific">Character-specific</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h1>Index</h1>
+
+<ul compact>
+<li>.act file: <a href="#Making%20.act%20files">Making .act files</a>
+<li>.air file: <a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>, <a href="#MUGEN%20File%20Editors">MUGEN File Editors</a>, <a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>
+<li>.cmd file: <a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>, <a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>, <a href="#Command%20problems">Command problems</a>, <a href="#MUGEN%20File%20Editors">MUGEN File Editors</a>
+<li>.cns file: <a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>, <a href="#MUGEN%20File%20Editors">MUGEN File Editors</a>, <a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>, <a href="#Making%20.air%2f.cns%2f.cmd%2f.def%20files">Making .air/.cns/.cmd/.def files</a>
+<li>.def file: <a href="#Opening%20.air%2f.cns%2f.cmd%2f.def%20Files">Opening .air/.cns/.cmd/.def Files</a>
+<li>.sff file: <a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>, <a href="#MUGEN%20File%20Editors">MUGEN File Editors</a>
+<li>.snd file: <a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>, <a href="#MUGEN%20File%20Editors">MUGEN File Editors</a>
+<li>AI: <a href="#AI">AI</a>
+<li>AirEditor: <a href="#AirEditor%20and%20Font%20Errors">AirEditor and Font Errors</a>
+<li>Attacks: <a href="#Making%20Attacks">Making Attacks</a>
+<li>Characters, acquiring: <a href="#Getting%20Characters">Getting Characters</a>
+<li>Characters, adding: <a href="#Character%20compatibility">Character compatibility</a>, <a href="#Adding%20Characters">Adding Characters</a>, <a href="#Adding%20More%20Characters">Adding More Characters</a>
+<li>Characters, colors: <a href="#Making%20.act%20files">Making .act files</a>
+<li>Characters, making: <a href="#Command%20problems">Command problems</a>, <a href="#Starting%20a%20Character">Starting a Character</a>, <a href="#Making%20Attacks">Making Attacks</a>, <a href="#Learning%20by%20Example">Learning by Example</a>, <a href="#Throwing%20problems">Throwing problems</a>, <a href="#Too%20Difficult!">Too Difficult!</a>
+<li>Commands: <a href="#Command%20problems">Command problems</a>
+<li>Compatibility: <a href="#Character%20fixers">Character fixers</a>, <a href="#Character%20compatibility">Character compatibility</a>
+<li>Debug Info: <a href="#Debug%20Info%20Display">Debug Info Display</a>
+<li>Documentation: <a href="#Other%20Documentation">Other Documentation</a>
+<li>DOS: <a href="#What%20about%20DOS%3f">What about DOS?</a>
+<li>Fonts: <a href="#AirEditor%20and%20Font%20Errors">AirEditor and Font Errors</a>, <a href="#Font%20Errors">Font Errors</a>
+<li>Force Feedback: <a href="#Force%20Feedback">Force Feedback</a>
+<li>Game Speed: <a href="#Speed%20Issues%20and%20RAM">Speed Issues and RAM</a>
+<li>Gamepads: <a href="#Joystick%20Problems">Joystick Problems</a>
+<li>Gamepads, enabling: <a href="#Enabling%20a%20Gamepad">Enabling a Gamepad</a>
+<li>Gamepads, multiple: <a href="#Using%20Multiple%20Gamepads">Using Multiple Gamepads</a>
+<li>Gamepads, Playstation: <a href="#Playstation%20Controllers">Playstation Controllers</a>, <a href="#PSX%20Controller%20Problems">PSX Controller Problems</a>, <a href="#Force%20Feedback">Force Feedback</a>
+<li>Graphics, changing: <a href="#Changing%20Menu%20Graphics">Changing Menu Graphics</a>, <a href="#Changing%20Game%20Graphics">Changing Game Graphics</a>
+<li>incompatibilities: <a href="#My%20characters%20don't%20work!">My characters don't work!</a>
+<li>Info screen: <a href="#Info%20Screen">Info Screen</a>
+<li>Linux: <a href="#What's%20in%20the%20Linux%2fWindows%20ports%3f">What's in the Linux/Windows ports?</a>, <a href="#Where%20do%20I%20get%20Linux%3f">Where do I get Linux?</a>, <a href="#Why%20Linux%3f">Why Linux?</a>
+<li>Loading Problems: <a href="#Font%20Errors">Font Errors</a>, <a href="#Loading%20Errors">Loading Errors</a>
+<li>Loading Problems, Characters: <a href="#Character%20Loading%20Problems">Character Loading Problems</a>, <a href="#My%20characters%20don't%20work!">My characters don't work!</a>
+<li>Loading Problems, Stages: <a href="#Character%20Loading%20Problems">Character Loading Problems</a>
+<li>Memory, requirements: <a href="#Speed%20Issues%20and%20RAM">Speed Issues and RAM</a>, <a href="#Character%20Loading%20Problems">Character Loading Problems</a>
+<li>Memory, virtual: <a href="#Virtual%20Memory">Virtual Memory</a>
+<li>motif: <a href="#Changing%20Game%20Sounds">Changing Game Sounds</a>, <a href="#Adding%20More%20Characters">Adding More Characters</a>
+<li>MUGEN Ports: <a href="#Console%20Ports">Console Ports</a>, <a href="#Ports">Ports</a>
+<li>mugen.cfg: <a href="#Loading%20Errors">Loading Errors</a>
+<li>Music, adding to game screens: <a href="#Other%20Music">Other Music</a>
+<li>Music, adding to stages: <a href="#Stage%20Music">Stage Music</a>
+<li>Opening Files: <a href="#Opening%20Files">Opening Files</a>
+<li>Palette: <a href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>, <a href="#Making%20.act%20files">Making .act files</a>
+<li>Palette, Transparent Color: <a href="#Transparency%20problems">Transparency problems</a>
+<li>Secrets: <a href="#Secrets">Secrets</a>
+<li>Select screen: <a href="#Adding%20Characters">Adding Characters</a>
+<li>Select screen, expanding: <a href="#Adding%20More%20Characters">Adding More Characters</a>
+<li>select.def: <a href="#Adding%20Characters">Adding Characters</a>, <a href="#Adding%20More%20Characters">Adding More Characters</a>
+<li>Selling MUGEN: <a href="#Is%20it%20Free%3f">Is it Free?</a>, <a href="#Selling">Selling</a>
+<li>sndmaker: <a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>
+<li>Sound, Sound Cards: <a href="#Sound%20Problems">Sound Problems</a>
+<li>Sounds, adding: <a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>
+<li>Sounds, changing: <a href="#Changing%20Game%20Sounds">Changing Game Sounds</a>
+<li>Sounds, KO: <a href="#KO%20sounds">KO sounds</a>
+<li>Source Code: <a href="#Source%20Code">Source Code</a>
+<li>Sprites, adding: <a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>
+<li>Sprites, character: <a href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>
+<li>Sprites, projectile: <a href="#Separate%20Palettes%20for%20Players%20and%20Projectiles">Separate Palettes for Players and Projectiles</a>
+<li>Sprites, required: <a href="#Throwing%20problems">Throwing problems</a>
+<li>sprmaker: <a href="#Making%20.sff%20and%20.snd%20files">Making .sff and .snd files</a>
+<li>Stages, adding music: <a href="#Stage%20Music">Stage Music</a>
+<li>Stages, making: <a href="#Making%20Stages">Making Stages</a>
+<li>Tag Team: <a href="#Tag%20Team">Tag Team</a>
+<li>Text Display, disabling: <a href="#Debug%20Info%20Display">Debug Info Display</a>
+<li>Throws: <a href="#Throwing%20problems">Throwing problems</a>
+<li>VESA: <a href="#Video%20Corruption%20Problems">Video Corruption Problems</a>, <a href="#Changing%20Video%20Modes">Changing Video Modes</a>
+<li>Video, Modes: <a href="#Changing%20Video%20Modes">Changing Video Modes</a>
+<li>Video, Problems: <a href="#Video%20Corruption%20Problems">Video Corruption Problems</a>
+<li>Video, Size: <a href="#Screen%20Size">Screen Size</a>
+<li>Windows: <a href="#What%20about%20Windows%3f">What about Windows?</a>, <a href="#What's%20in%20the%20Linux%2fWindows%20ports%3f">What's in the Linux/Windows ports?</a>
+</ul>
+
+</body></html>
+

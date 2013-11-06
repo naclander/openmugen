@@ -1,0 +1,307 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\nowidctlpar\cf1\f0\fs20 Storyboard documentation\cf0\par
+========================\par
+M.U.G.E.N, (c) Elecbyte 2002\par
+Documentation for version 2002.04.14\par
+\par
+Updated 27 October 2001\par
+\par
+\par
+\par
+Contents\par
+--------\par
+\pard I.   Introduction\par
+II.  Getting started\par
+III. How to view storyboards\par
+IV.  Storyboard basics\par
+\pard\nowidctlpar V.   Testing your storyboard\par
+A.   SceneDef parameter reference\par
+B.   Scene parameter reference\par
+\par
+\par
+\par
+====================================================================\par
+\pard I. Introduction\par
+\pard\nowidctlpar ====================================================================\par
+\pard\par
+\ul What is a storyboard?\par
+\ulnone\par
+A storyboard is a way to put together animation and music in M.U.G.E.N, usually in the form of a cutscene.\par
+\par
+\ul What do you use storyboards for?\par
+\ulnone\par
+Storyboards can be used in M.U.G.E.N to make cutscenes such as the game introduction, character endings, credits and more.\par
+\par
+\ul Some terminology\par
+\ulnone\par
+A cutscene is what you actually see (and hear). An event is point in time to play back a cutscene. A storyboard refers to the .def file that defines what you see during a cutscene. Here is an example: during the ending event, the ending cutscene will be played back. The ending cutscene uses the ending.def storyboard.\par
+\par
+\par
+\par
+\pard\nowidctlpar ====================================================================\par
+\pard II. Getting started\par
+\pard\nowidctlpar ====================================================================\par
+\pard\par
+\ul Cutscenes Events\par
+\ulnone\par
+There are several events that trigger cutscenes. The first set is defined in data/system.def, and applies to all characters within the game. This cutscenes in this set are called the "system cutscenes".\par
+\par
+Game Logo - played back once when you start M.U.G.E.N\par
+Game Intro - played back after the Game Logo\par
+Default Ending - played back after you beat the game with a\par
+    character that does not have a user-defined ending.\par
+Credits - played back after the ending cutscene\par
+Game Over - played back if you choose "No" at the continue screen\par
+\par
+The next set is specific to each character, and is define in the character's .def file. For example, Kung Fu Man's is in chars/kfm/kfm.def. These are known as the "character cutscenes".\par
+\par
+Character Intro - played back once when you select your character\par
+Character Ending - played back when you beat the game. The default\par
+    ending will not be played back if this cutscene exists\par
+\par
+\par
+\ul Trying it out\par
+\ulnone\par
+At the command line, type:\par
+\par
+  mugen -r kfm\par
+\par
+This will start the "KFM" motif (for more information on motifs, please read readme.txt). Right away, you will see the game logo, followed by the game intro. After the game intro ends, you will be at the title screen. If you start Arcade mode and choose Kung Fu Man, his character intro will be played, and then the fight begins. If you lose the fight and choose "No" at the continue screen, the game over cutscene is played and you are returned to the title screen. If you win, Kung Fu Man's character ending will be played, followed by the ending credits.\par
+\par
+These are where each of the storyboard files are in the KFM motif.\par
+\par
+Game Logo        - data/kfm/logo.def\par
+Game Intro       - data/kfm/intro.def\par
+Default Ending   - (none)\par
+Credits          - data/kfm/credits.def\par
+Game Over        - data/kfm/gameover.def\par
+Character Intro  - chars/kfm/intro.def\par
+Character Ending - chars/kfm/ending.def\par
+\par
+The storyboard filenames for the system cutscenes are in data/kfm/system.def.\par
+\par
+\par
+\par
+\pard\nowidctlpar ====================================================================\par
+III. How to view storyboards\par
+====================================================================\par
+\pard\par
+To play back a storyboard file, use MUGEN's -storyboard command-line option. The syntax is:\par
+\par
+  mugen -storyboard <storyboard filename>\par
+\par
+For example, to play back data/kfm/intro.def, you would type:\par
+\par
+  mugen -storyboard data/kfm/intro.def\par
+\par
+The storyboard search directory defaults to data/, so you can omit the "data/" part if you like. The following will also play back data/kfm/intro.def:\par
+\par
+  mugen -storyboard kfm/intro.def\par
+\par
+This feature can be useful for quickly testing your storyboards as you build them.\par
+\par
+\par
+\par
+\pard\nowidctlpar ====================================================================\par
+IV. Storyboard basics\par
+====================================================================\par
+\par
+Here is an example of a simple storyboard that shows just one picture for 5 seconds. If you are not already familiar with sprites and animations, please consult the spr and air docs before continuing.\par
+\par
+;----------------------------------------------------------\par
+[SceneDef]\par
+spr = sprite.sff       ;Filename of sprite file to use\par
+\par
+[Scene 0]\par
+; Overlay Anims (from 0 to 9)\par
+layerall.pos = 160,120 ;Default position for all layers\par
+layer0.anim =  0       ;Anim action number to show\par
+; Total time\par
+end.time = 300         ;300 ticks = 5 seconds\par
+\par
+;Animation to use\par
+[Begin Action 0]\par
+0,0, 0,0, -1\par
+;----------------------------------------------------------\par
+\par
+A storyboard must always begin with a [SceneDef] group. Within this group you must specify the name of the sprite file to use. This sprite file must exist in the same directory as the storyboard file. The sprite file should contain all the sprites you need for your storyboard.\par
+\par
+A storyboard is broken up into scenes. How you choose to divide up your storyboard is up to you. In the example above, there is only one scene, the [Scene 0] group. All scenes must begin with a group that looks like [Scene ?], where the question mark (?) can be any identifier string. Typically, scenes are labeled in numerical order starting from 0.\par
+\par
+Scenes are composed of up to 10 animation objects. Each of these objects exists on its own layer, and the layers are overlaid on top of each other. Layers are numbered from 0 to 9, with 0 being at the bottom, and 9 at the top. For instance, an animation on layer 0 is underneath another on layer 1, and the animation on layer 1 is under that of layer 2, and so on. Each animation object must make reference to an animation action using a "layerX.anim" parameter, where X is the layer number. Each action must be defined within the same storyboard file.\par
+\par
+The simple example above has only one layer. Its drawing position is determined by the value of the "layerall.pos" parameter, and the action number of the animation is the value of the "layer0.anim" parameter. In this case, the action number is 0. Action 0 is defined right after the [Scene 0] group. \par
+\par
+One important parameter is "end.time". This is the time to end the scene, measured in ticks. One tick is equivalent to 1/60th of a second. When one scene ends, it goes on to show the next. If there are no more scenes, the storyboard playback ends. In the example, "end.time" is 300 ticks, which is the same as 5 seconds. Since there is only one scene, the storyboard ends at the same time.\par
+\par
+The next example will show a slideshow of pictures, along with a title overlaid on top. Again, this only has one scene.\par
+\par
+;----------------------------------------------------------\par
+[SceneDef]\par
+spr = sprite.sff       ;Filename of sprite file to use\par
+\par
+[Scene 0]\par
+; Overlay Anims (from 0 to 9)\par
+layerall.pos = 160,120 ;Default position for all layers\par
+layer0.anim =  0       ;Anim action number for slideshow pictures\par
+layer1.anim =  1       ;Anim action number for title\par
+; Total time\par
+end.time = 600         ;600 ticks = 10 seconds\par
+\par
+;Animation to use for pictures\par
+[Begin Action 0]\par
+0,0, 0,0, 120\par
+0,1, 0,0, 120\par
+0,2, 0,0, 120\par
+0,3, 0,0, 120\par
+0,4, 0,0, 120\par
+\line ;Animation to use for title\par
+[Begin Action 1]\par
+1,0, 0,0, -1\par
+;----------------------------------------------------------\par
+\par
+Note that there are 2 layers now. Layer 0 is used for the slideshow of pictures, and layer 1 is used for the overlay title. If you imagine the slideshow to be pictures of your vacation trip, the title might be an image with text that reads, "My summer vacation".\par
+\par
+The new "fadein.time" and "fadeout.time" parameters specify fade-in and fade-out times respectively, measured in ticks.\par
+\par
+This third example shows multiple scenes, with screen fades between each scene.\par
+\par
+;----------------------------------------------------------\par
+[SceneDef]\par
+spr = sprite.sff\par
+\par
+[Scene 0]\par
+; Fade parameters\par
+fadein.time = 30       ;30 ticks (0.5 seconds) for fade-in\par
+fadeout.time = 30      ;30 ticks for fade-out\par
+; Overlay Anims (from 0 to 9)\par
+layerall.pos = 160,120\par
+layer0.anim =  0\par
+; Music\par
+bgm = mysong.s3m       ;Filename for music\par
+; Total time\par
+end.time = 120\par
+\par
+;Animation to use for scene 0\par
+[Begin Action 0]\par
+0,0, 0,0, -1\par
+\par
+[Scene 1]\par
+; Fade parameters\par
+fadein.time = 30       ;30 ticks (0.5 seconds) for fade-in\par
+fadeout.time = 30      ;30 ticks for fade-out\par
+; Overlay Anims (from 0 to 9)\par
+layerall.pos = 160,120\par
+layer0.anim =  10\par
+; Total time\par
+end.time = 120\par
+\par
+;Animation to use for scene 1\par
+[Begin Action 10]\par
+10,0, 0,0, -1\par
+\par
+[Scene 2]\par
+; Fade parameters\par
+fadein.time = 30       ;30 ticks (0.5 seconds) for fade-in\par
+fadeout.time = 30      ;30 ticks for fade-out\par
+; Overlay Anims (from 0 to 9)\par
+layerall.pos = 160,120\par
+layer0.anim =  20\par
+; Total time\par
+end.time = 120\par
+\par
+;Animation to use for scene 2\par
+[Begin Action 20]\par
+20,0, 0,0, -1\par
+;----------------------------------------------------------\par
+\par
+There is a "bgm" parameter in the first scene. This plays back a music file "mysong.s3m" at the start of the scene, and that music will continue playing until the end of the storyboard. In this case, mysong.s3m should be placed in the same directory as the storyboard file.\par
+\par
+For full details on the parameters for Scenes and SceneDefs, see the sections titled "SceneDef parameter reference" and "Scene parameter reference" below.\par
+\par
+\par
+\par
+====================================================================\par
+V. Testing your storyboard\par
+====================================================================\par
+\par
+This section covers some tips for testing your storyboard.\par
+\par
+You may find pausing and framestepping useful when you play back your storyboard. The pause and framestep buttons are Pause and Scroll Lock on your keyboard respectively. These key are enabled only if MUGEN is running in debug mode. You are not advised to use the pause function if your storyboard has animations synchronized to the music, as pausing may disrupt synchronization.\par
+\par
+When you write a long storyboard with many scenes, you may like to skip over completed scenes to view your newer ones. To do this, add a line to your SceneDef group:\par
+\par
+\pard\nowidctlpar\li270 [SceneDef]\par
+spr = sprite.sff       ;Filename of sprite file to use\par
+startscene = 0         ;<-- line added\par
+\pard\nowidctlpar\par
+Change the 0 to whatever scene number you would like to start your storyboard at. For example, if you are working on the 10th scene, and you would like to skip the first 9 scenes during testing, enter the number 10. Note that skipping a scene will cause the music in that scene not to be played back.\par
+\par
+\par
+\par
+====================================================================\par
+A. SceneDef parameter reference\par
+====================================================================\par
+\par
+\pard Required parameters:\par
+\pard\nowidctlpar   spr = \i filename\i0  (string)\par
+\pard\nowidctlpar\li450 This is the filename of the sprite (.sff) file to use in the  storyboard.\par
+\pard\nowidctlpar\par
+Optional parameters:\par
+  startscene = \i scene_number\i0  (int)\par
+\pard\nowidctlpar\li450 This parameter is used mainly for testing purposes. If specified, the first \i scene_number\i0  scenes will be skipped. Valid values are from 0 to the total number of scenes minus 1. If omitted, defaults to 0.\par
+\pard\nowidctlpar\par
+\par
+\par
+====================================================================\par
+B. Scene parameter reference\par
+====================================================================\par
+\pard\par
+Please note that time is measured in ticks, where 60 ticks is equal to one second. Take note that some optional parameters have default values that depend on the scene number. For example, if the "clearcolor" parameter is omitted, it will have a different default value on the first scene, compared to if it was omitted on following scenes.\par
+\par
+\par
+Required parameters:\par
+  end.time = \cf1\i t \i0 (int)\par
+\pard\li450\cf0\i t\i0  is the time to end the scene, measured in ticks relative to the starting time of the scene. If there is another scene after the current one, it will start when the current scene ends. Otherwise, the whole storyboard will end.\par
+\pard\par
+Basic optional parameters:\par
+  fadein.time = \cf1\i duration \i0 (int)\par
+\cf0   fadein.col = \i r\i0 ,\i g\i0 ,\i b\i0  (int,int,int)\par
+\pard\li450\cf1\i duration\i0  is the length of time (measured in ticks) to fade the screen in, at the start of the scene. Note that fadein.time does not affect the ending time of the scene. \cf0\i r\i0 ,\i g\i0 ,\i b\cf1\i0  represents the R,G and B values of the starting fade color. Valid values for \i duration\i0  are from 0 (no fade) to the value of end.time. Valid values for the \cf0\i r\i0 ,\i g\i0 ,\i b\cf1\i0  triplet are 0,0,0 (fade from black) and 255,255,255 (fade from white) only. Other fade colors are currently not supported. If omitted, \i duration\i0  defaults to 0 (no fade) and \i r,g,b\i0  to 0,0,0 (fade from black).\par
+\pard   \cf0\par
+  fadeout.time = \cf1\i duration \i0 (int)\par
+\cf0   fadeout.col = \i r\i0 ,\i g\i0 ,\i b\i0  (int,int,int)\par
+\pard\li450 Similar to the fadein parameters, except this fades the scene out.\par
+\pard\par
+  clearcolor = \i r\i0 ,\i g\i0 ,\i b\i0  (int,int,int)\par
+\pard\li450 This is the color to clear the screen with before drawing each tick. If \i r\i0  is set to -1, the screen will not be cleared. If omitted on the first scene, \i r\i0  defaults to -1. If omitted on successive scenes, \i r,g,b\i0  defaults the previous scene's values. For instance, if you set clearcolor to 0,0,0 in the first scene, you do not need to specify the parameter for successive scenes if you would like them all to use the same color values.\par
+\pard\par
+  layerall.pos = \i x,y\i0  (int,int)\par
+\pard\li450 This is the default position to draw all animations. If omitted on the first scene, defaults to 0,0. If omitted on successive scenes, the value defaults to that of the previous scene's. Note that this parameter does not affect background objects.\par
+\pard\par
+  layer\i X\i0 .anim = \i actionno\i0  (int)\par
+  layer\i X\i0 .offset = \i offx\i0 ,\i offy\i0  (int,int)\par
+  layer\i X\i0 .starttime = \i t\i0  (int,int)\par
+\pard\li450 If \i actionno\i0  specified, the animation with action number \i actionno\i0  will be shown. If this parameter is omitted, no animation will be drawn.\par
+\i X\i0  is the layer priority of the animation. For example, an animation with \i X\i0  = 0 will be drawn below another with \i X\i0  = 1. Valid values for \i X\i0  are from 0 to 9.\par
+\i offx\i0 ,\i offy\i0  is the x,y position offset to draw the animation at. The values of this parameter are added to those of the "layerall.pos" parameter to determine the drawing position. This defaults to 0,0 if omitted.\par
+\i t\i0  is the time to start drawing the animation object. If omitted, it defaults to 0.\par
+\pard\par
+  bgm = \i filename\i0  (string)\par
+\pard\li450 If specified, the music file named \i filename\i0  will begin to play at the start of the current scene. If omitted on the first scene, no BGM will play. If omitted on successive scenes, the BGM from the previous scene will continue to play. If \i filename\i0  is an empty string, the BGM currently being played will be stopped. The BGM file should be placed in the same directory as the storyboard file.\par
+\pard\par
+  bgm.loop = \i loop\i0  (boolean)\par
+\pard\li450 Set \i loop\i0  to a non-zero to make the background music loop, 0 to prevent looping. The default value is 0.\par
+\pard\par
+\par
+Advanced optional parameters:\par
+\par
+  window = \i x1,y1,x2,y2 \i0 (int,int,int,int)\par
+\pard\li450 This defines the drawing window of the storyboard. \i x1,y1\i0  are the x,y coordinates of the upper left of the window, while \i x2,y2 \i0 represents the lower right. Anything drawn outside this window will not be seen. Note that this parameter does not affect the drawing window of background-type objects. If omitted on the first scene, the values will default to the full size of the screen. If omitted on successive scenes, the values will default to the those of the previous scene's.\par
+\pard\par
+  bg.name = \i bgname\i0  (string)\par
+\pard\li450 If this parameter is specified, you can make use of a background object. \i bgname\i0  is a string prepended to your background definition groups. For example, if \i bgname\i0  is "Scene04bg", then your background definition group must be named "Scene04bgDef", and the following background elements must begin with "Scene04bg". data/kfm/intro.def and data/kfm/credits.def are examples that use this parameter. Note that background objects are not affected by the "window" parameter. All elements of a background objects are drawn underneath all "layer\i X\i0 " animation objects, with the exception of elements with the "layer" parameter set at 1.\par
+\pard     \par
+}
+ 

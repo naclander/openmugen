@@ -1,0 +1,3145 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\nowidctlpar\cf1\f0\fs20 State controller\cf0  reference\par
+==========================\par
+M.U.G.E.N, (c) Elecbyte 2002\par
+Documentation for version 2002.04.14\par
+\par
+Beta-release documentation\par
+Updated 28 March 2002\par
+\par
+\par
+\par
+====================================================================\par
+\par
+\cf1 All state controllers have two optional parameters, "persistent" and "ignorehitpause". These must be set to integer constants. Unless otherwise specified, any other numeric state controller parameter can be specified with an arithmetic expression.\par
+\par
+In all cases, if setting a parameter with an expression, you should be careful that the expression does not evaluate to SFalse, as in this case the parameter will be set to 0.\par
+\par
+\par
+Alphabetical State Controller Index\par
+-----------------------------------\par
+  - AfterImage\par
+  - AfterImageTime\par
+  - AllPalFX\par
+  - AngleAdd\par
+  - AngleDraw\par
+  - AngleMul\par
+  - AngleSet\par
+  - AppendToClipboard\par
+  - AssertSpecial\par
+  - AttackDist\par
+  - AttackMulSet\par
+  - BGPalFX\par
+  - BindToParent\par
+  - BindToRoot\par
+  - BindToTarget\par
+  - ChangeAnim\par
+  - ChangeAnim2\par
+  - ChangeState\par
+  - ClearClipboard\par
+  - CtrlSet\par
+  - DefenceMulSet\par
+  - DestroySelf\par
+  - DisplayToClipboard\par
+  - EnvColor\par
+  - EnvShake\par
+  - Explod\par
+  - ExplodBindTime\par
+  - ForceFeedback\par
+  - FallEnvShake\par
+  - GameMakeAnim\par
+  - Gravity\par
+  - Helper\par
+  - HitAdd\par
+  - HitBy\par
+  - HitDef\par
+  - HitFallDamage\par
+  - HitFallSet\par
+  - HitFallVel\par
+  - HitOverride\par
+  - HitVelSet\par
+  - LifeAdd\par
+  - LifeSet\par
+  - MakeDust\par
+  - ModifyExplod\par
+  - MoveHitReset\par
+  - NotHitBy\par
+  - Null\par
+  - Offset\par
+  - PalFX\par
+  - ParentVarAdd\par
+  - ParentVarSet\par
+  - Pause\par
+  - PlayerPush\par
+  - PlaySnd\par
+  - PosAdd\par
+  - PosFreeze\par
+  - PosSet\par
+  - PowerAdd\par
+  - PowerSet\par
+  - Projectile\par
+  - RemoveExplod\par
+  - ReversalDef\par
+  - ScreenBound\par
+  - SelfState\par
+  - SprPriority\par
+  - StateTypeSet\par
+  - SndPan\par
+  - StopSnd\par
+  - SuperPause\par
+  - TargetBind\par
+  - TargetDrop\par
+  - TargetFacing\par
+  - TargetLifeAdd\par
+  - TargetPowerAdd\par
+  - TargetState\par
+  - TargetVelAdd\par
+  - TargetVelSet\par
+  - Trans\par
+  - Turn\par
+  - VarAdd\par
+  - VarRandom\par
+  - VarRangeSet\par
+  - VarSet\par
+  - VelAdd\par
+  - VelMul\par
+  - VelSet\par
+  - Width\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AfterImage\par
+------------------------------------------------------------\par
+\cf1\par
+Enables player afterimage effects. The character's frames are stored in a history buffer, and are displayed after a delay as afterimages.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  time = \i duration \i0 (int)\par
+    Specifies the number of ticks that the afterimages should be \par
+    displayed for. Set to -1 to display indefinitely. Defaults to 1.\par
+\par
+  length = \i no_of_frames \i0 (int)\par
+    Sets the capacity of the frame history buffer. The history will\par
+    hold up to no_of_frames of the character's most recently saved \par
+    frames. Assuming constant values for timegap and framegap, \par
+    increasing the length can increase the number and "age" (for lack \par
+    of a better term) of afterimages displayed at one time. The \par
+    maximum length is 60, and the default is 20.\par
+\par
+  palcolor = \i col \i0 (int)  \par
+  palinvertall = \i invertall \i0 (bool)\par
+  palbright = \i add_r\i0 , \i add_g\i0 , \i add_b \i0 (int)\par
+  palcontrast = \i mul_r\i0 ,\i  mul_g\i0 ,\i  mul_b \i0 (int)\par
+  palpostbright = \i add2_r\i0 ,\i  add2_g\i0 ,\i  add2_b\i0  (int)\par
+\pard\nowidctlpar\li480 These parameters determine palette effects to be applied to all afterimages. First the color level is adjusted according to the palcolor value, then if \i invertall \i0 is non-zero the colors are inverted. Afterwards, the palbright components are added to the corresponding component of the player's palette, then each component is multiplied by the corresponding palcontrast component divided by 256, then the palpostbright components are added to the result. The value of palcolor ranges from 0 (greyscale) to 256 (normal color). For instance, if the red component of the character's palette is denoted pal_r, then the red component of the afterimage palette is given by (\i pal_r\i0 +\i add_r\i0 )*\i mul_r\i0 /256 + \i add2_r\i0 , assuming \i palcolor \i0 and \i palinvert\i0  are left at their default values. Valid values are 0-256 for palcolor, 0-255 for palbright and palpostbright components, and any non-negative integer for palcontrast components. The defaults are:\par
+palcolor = 256\par
+palinvertall = 0\par
+palbright = 30,30,30\par
+palcontrast = 120,120,220\par
+palpostbright = 0,0,0\par
+\pard\nowidctlpar\par
+  paladd = \i add_r\i0 , \i add_g\i0 , \i add_b \i0 (int)\par
+  palmul = \i mul_r\i0 ,\i  mul_g\i0 ,\i  mul_b \i0 (float)\par
+\pard\nowidctlpar\li480 These parameters specify palette effects that are applied repeatedly to successive frames in the afterimage. In one application of these palette effects, first the paladd components are added to the afterimage palette, then the components are multiplied by the palmul multipliers. These effects are applied zero times to the most recent afterimage frame, once to the  second-newest afterimage frame, twice in succession to the third-newest afterimage frame, etc. Valid values are 0-255 for the paladd components, and any non-negative float value for the palmul multipliers. The defaults are:\par
+paladd = 10,10,25\par
+palmul = .65,.65,.75\par
+\pard\nowidctlpar   \par
+  timegap = \i value \i0 (int)\par
+    This parameter controls how many frames to skip between saving \par
+    player frames to the history buffer for afterimage display. The \par
+    default is 1 (skip no frames). To save every third frame (for \par
+    example), you would use timegap = 3.\par
+\par
+  framegap = \i value \i0 (int)\par
+    Every \i value'\i0 th frame in the history buffer will be displayed as an \par
+    afterimage. For instance, if framegap = 4 (the default), then the \par
+    first, fifth, ninth, ... frames of the history buffer will be \par
+    displayed as afterimages.\par
+\par
+  trans = \i type \i0 (string)\par
+    Specifies the transparency type for the afterimages. Valid types \par
+    are "none" for an opaque afterimage, "add", "add1", and "sub".\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AfterImageTime\par
+------------------------------------------------------------\par
+\cf1\par
+Changes the duration of the player's afterimage effects, if currently enabled. If no afterimage effects are being displayed, this controller does nothing.\par
+Known bugs: If the timegap parameter in the originating AfterImage controller is not set at 1, using this AfterImageTime will cause the frame positions to be reset.\par
+\par
+Required parameters:\par
+  time = \i new_duration\i0  (int)\par
+    Sets the new number of ticks that the afterimages will be \par
+    displayed before being removed.\par
+  \par
+Alternate syntax:\par
+  value = \i new_duration\i0  (int)\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+AllPalFX\par
+------------------------------------------------------------\par
+\par
+Same as PalFX, except that this affects the palette of the background and lifebars as well as the palette of all characters and explods (regardless of the ownpal parameter). See the PalFX section for details on the parameters to AllPalFX.\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AngleAdd\par
+------------------------------------------------------------\par
+\cf1\par
+Adds to the drawing rotation angle used by AngleDraw.\par
+\par
+Required arguments:\par
+  value = \i add_angle\i0  (float)\par
+    add_angle should be given in degrees.\par
+\par
+Optional arguments:\par
+  none\par
+\par
+Example:\par
+  none\par
+\cf0\par
+\par
+------------------------------------------------------------\par
+AngleDraw\par
+------------------------------------------------------------\par
+\cf1\par
+Draws the player (for 1 frame) rotated about his axis by the angle set by the AngleSet controller. When facing right, a positive angle means a counterclockwise rotation.\par
+\par
+Required arguments:\par
+  none\par
+\par
+Optional arguments:\par
+  value = \i angle\i0  (float)\par
+    Sets the drawing angle.\par
+\par
+\pard\nowidctlpar\fi240 scale = \i xscale\i0 , \i yscale\i0  (float, float)\par
+  Scales the player sprite.\par
+\pard\nowidctlpar\par
+Notes:\par
+  Rotation/scaling does not affect the player\rquote s collision boxes.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AngleMul\par
+------------------------------------------------------------\par
+\cf1\par
+Multiplies the drawing rotation angle used by AngleDraw by the specified factor.\par
+\par
+Required arguments:\par
+  value = \i angle_multiplier\i0  (float)\par
+    Multiplies the drawing angle by \i angle_multiplier\i0 .\par
+\par
+Optional arguments:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AngleSet\par
+------------------------------------------------------------\par
+\cf1\par
+Sets the drawing rotation angle used by AngleDraw. The angle is initialized at 0.\par
+\par
+Required arguments:\par
+  value = \i angle \i0 (float)\par
+    \i angle \i0 should be given in degrees.\par
+\par
+Optional arguments:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AppendToClipboard\par
+------------------------------------------------------------\par
+\cf1\par
+This is the same as DisplayToClipboard, except that message text is added on a new line, instead of overwriting whatever text is already on the clipboard. See DisplayToClipboard for a format description.\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+AssertSpecial\par
+------------------------------------------------------------\par
+\par
+This controller allows you to assert up to three special flags simultaneously. MUGEN will automatically "deassert" each flag at every game tick, so you must assert a flag for each tick that you want it to be active.\par
+\par
+Required parameters:\par
+  flag = \i flag_name\i0\par
+    \i flag_name\i0  is a string specifying the flag to assert.\par
+\par
+Optional parameters:\par
+  flag2 = \i flag2_name\i0\par
+  flag3 = \i flag3_name\i0\par
+    You can assert up to three flags simultaneously.\par
+\par
+Details:\par
+  The flag name can be one of the following:\par
+    - intro\par
+      Tells MUGEN that the character is currently performing his intro\par
+      pose. Must be asserted on every tick while the intro pose is \par
+      being performed.\par
+    - invisible\par
+      Turns the character invisible while asserted. Does not affect \par
+      display of afterimages.\par
+    - roundnotover\par
+      Tells MUGEN that the character is currently performing his win\par
+      pose. Must be asserted on every tick while the win pose is being\par
+      performed.\par
+    - nobardisplay\par
+      Disables display of life, super bars, etc. while asserted.\par
+    - noBG\par
+      Turns off the background. The screen is cleared to black.\par
+    - noFG\par
+      Disables display of layer 1 of the stage (the foreground).\par
+    - nostandguard\par
+      While asserted, disables standing guard for the character.\par
+    - nocrouchguard\par
+      While asserted, disables crouching guard for the character.\par
+    - noairguard\par
+      While asserted, disables air guard for the character.\par
+    - noautoturn\par
+      While asserted, keeps the character from automatically turning\par
+      to face the opponent.\par
+    - nojugglecheck\par
+      While asserted, disables juggle checking. P2 can be juggled \par
+      regardless of juggle points.\par
+    - nokosnd\par
+      Suppresses playback of sound 11, 0 (the KO sound) for players\par
+      who are knocked out. For players whose KO sound echoes, nokosnd\par
+      must be asserted for 50 or more ticks after the player is KOed\par
+      in order to suppress all echoes.\par
+    - nokoslow\par
+      While asserted, keeps MUGEN from showing the end of the round in\par
+      slow motion.\par
+    - noshadow\par
+      While asserted, disables display of this player's shadows.\par
+    - globalnoshadow\par
+      Disables display of all player, helper and explod shadows.\par
+    - nomusic\par
+      While asserted, pauses playback of background music.\par
+    - nowalk\par
+      While asserted, the player cannot enter his walk states, even if\par
+      he has control. Use to prevent run states from canceling into\par
+      walking.\par
+\cf1     - timerfreeze\par
+      While asserted, keeps the round timer from counting down. Useful \par
+      to keep the round from timing over in the middle of a splash \par
+      screen.\par
+    - unguardable\par
+      While asserted, all the asserting player's HitDefs become \par
+      unblockable, i.e., their guardflags are ignored.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+AttackDist\par
+------------------------------------------------------------\par
+\par
+Changes the value of the guard.dist parameter for the player's current HitDef. The guard.dist is the x-distance from P1 in which P2 will go\par
+into a guard state if P2 is holding the direction away from P1. If P1 currently has no active HitDef, then AttackDist has no effect.\par
+\par
+Required parameters:\par
+  value = \i guard_dist \i0 (int)\par
+    New guard distance, in pixels.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+AttackMulSet\par
+------------------------------------------------------------\par
+\par
+Sets the player's attack multiplier. All damage the player gives is scaled by this amount.\par
+\par
+Required parameters:\par
+  value = \i attack_mul\i0  (float)\par
+    Specifies the desired multiplier. For instance, an \i attack_mul\i0  of 2 \par
+    deals double damage.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+BGPalFX\par
+------------------------------------------------------------\par
+\par
+Same as PalFX, except that this affects the palette of the background and lifebars instead of the palette of the character. See the PalFX section for details on the parameters to BGPalFX.\par
+\par
+\par
+------------------------------------------------------------\par
+BindToParent\par
+------------------------------------------------------------\par
+\par
+If the player is a helper, binds the player to a specified position relative to its parent. If the player is not a helper, this controller does nothing.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  time = \i bind_time\i0  (int)\par
+    Specify number of ticks that this binding should be effective. \par
+    Defaults to 1.\par
+\par
+  facing = \i facing_flag \i0 (int)\par
+    If \i facing_flag \i0 is -1, makes the player always face the opposite \par
+    direction from its parent during the binding time. If \i facing_flag \i0\par
+    is 1, makes the player always face the same direction as its \par
+    parent during the binding time. If facing_flag is 0, the player \par
+    will not turn regardless of what its parent does. Defaults to 0.\par
+\par
+  pos = \i pos_x\i0  (float), \i pos_y\i0  (float)\par
+    \i pos_x\i0  and \i pos_y \i0 specify the offsets (from the parent's axis) to\par
+    bind to. Defaults to 0,0.\par
+\par
+Notes:\par
+  If the player's parent is destroyed (for example, if it is a\par
+  helper, and executes DestroySelf), then the effect of\par
+  BindToParent is terminated.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+BindToRoot\par
+------------------------------------------------------------\par
+\par
+If the player is a helper, binds the player to a specified position relative to its root. If the player is not a helper, this controller does nothing.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  time = \i bind_time\i0  (int)\par
+    Specify number of ticks that this binding should be effective. \par
+    Defaults to 1.\par
+\par
+  facing = \i facing_flag \i0 (int)\par
+    If facing_flag is -1, makes the player always face the opposite \par
+    direction from its root during the binding time. If facing_flag \par
+    is 1, makes the player always face the same direction as its \par
+    root during the binding time. If facing_flag is 0, the player \par
+    will not turn regardless of what its root does. Defaults to 0.\par
+\par
+  pos = \i pos_x\i0  (float), \i pos_y\i0  (float)\par
+    \i pos_x\i0  and \i pos_y\i0  specify the offsets (from the root's axis) to\par
+    bind to. Defaults to 0,0.\par
+\par
+Notes:\par
+  If the player's root is destroyed (for example, if it is a\par
+  helper, and executes DestroySelf), then the effect of\par
+  BindToRoot is terminated.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+BindToTarget\par
+------------------------------------------------------------\par
+\par
+Binds the player to a specified position relative to the specified target.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  time = \i bind_time\i0  (int)\par
+    Specify number of ticks that this binding should be effective. \par
+    Defaults to 1.\par
+\par
+  ID = \i bind_id \i0 (int)\par
+    Specifies ID number of the target to bind to. Defaults to -1 (pick \par
+    any target).\par
+\par
+  pos = \i pos_x\i0  (float), \i pos_y\i0  (float), \i postype\i0  (string)\par
+    \i pos_x\i0  and \i pos_y\i0  specify the offsets (from the bind point) to bind \par
+    to. The bind point defaults to the target's axis.\par
+    If \i postype \i0 is "Foot", then the bind point is the target's axis.\par
+    If \i postype \i0 is "Mid", then the bind point is the target's\par
+    midsection.\par
+    If \i postype \i0 is "Head", then the bind point is the target's head.\par
+    In the latter two cases, the bind point is determined from the \par
+    values of the head.pos and mid.pos parameters in the target's CNS \par
+    file. The bind point is not guaranteed to match up with the\par
+    target's head or midsection.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+ChangeAnim\par
+------------------------------------------------------------\par
+\par
+Changes the action number of the player's animation.\par
+\par
+Required parameters:\par
+  value = \i anim_no \i0 (int)\par
+    \i anim_no \i0 is the action number to change to.\par
+\par
+Optional parameters:\par
+  elem = \i elem_no\i0  (int)\par
+    \i elem_no\i0  is the element number within the specified action\par
+    to start from.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+ChangeAnim2\par
+------------------------------------------------------------\par
+\par
+Like ChangeAnim, except this controller should be used if you have placed P2 in a custom state via a hit and wish to change P2's animation to one specified in P1's air file. For example, when making throws, use this to change P2 to a being-thrown animation.\par
+\par
+\par
+------------------------------------------------------------\par
+ChangeState\par
+------------------------------------------------------------\par
+\par
+Changes the state number of the player.\par
+\par
+Required parameters:\par
+  value = \i state_no \i0 (int)\par
+    \i state_no \i0 is the number of the state to change to.\par
+\par
+Optional parameters:\par
+  ctrl = \i ctrl_flag \i0 (int)\par
+    \i ctrl_flag \i0 is the value to set the player's control\par
+    flag to. 0 for no control, nonzero for control.\par
+\par
+  anim = \i anim_no \i0 (int)\par
+    This is the action number to switch to. If omitted,\par
+    the player's animation will remain unchanged.\par
+\par
+Example:\par
+  ; Change to standing state, and give player control\par
+  type = ChangeState\par
+  value = 0\par
+  ctrl = 1\par
+\par
+\par
+------------------------------------------------------------\par
+ClearClipboard\par
+------------------------------------------------------------\par
+\par
+Erases any text currently on the player's clipboard.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+CtrlSet\par
+------------------------------------------------------------\par
+\par
+Sets the player's control flag.\par
+\par
+Required parameters:\par
+  value = \i ctrl_flag\i0  (int)\par
+    Set to nonzero to have control, or 0 to disable control.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+DefenceMulSet\par
+------------------------------------------------------------\par
+\par
+Sets the player's defense multiplier. All damage the player takes is scaled by (the reciprocal of) this amount.\par
+\par
+Required parameters:\par
+  value = \i defense_mul \i0 (float)\par
+    Specifies the defense multiplier. For instance, a \i defense_mul \i0 of 2 \par
+    takes half damage.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+DestroySelf\par
+------------------------------------------------------------\par
+\par
+If called by a helper-type character, DestroySelf causes that character to be removed from the field of play. DestroySelf is not valid for non-helper characters.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+DisplayToClipboard\par
+------------------------------------------------------------\par
+\par
+This controller is only useful for debugging. DisplayToClipboard clears the player clipboard and prints a specified message to it. Display of the player clipboards is enabled in debug mode (press Ctrl+D).\par
+\par
+Required parameters:\par
+  text = "\i format_string\i0 "\par
+    \i format_string \i0 must be encased in double-quotes. It is a printf \par
+    format string, so if you know about printf, you can skip this \par
+    description. The format string contains any text you wish to \par
+    display. You can also use \\n to generate a line break, and \\t to \par
+    generate a tab character (tab width is equivalent to 4 characters).\par
+    To display the value of an arithmetic expression, you can put a %d\par
+    (for ints) or a %f (for floats) in the format string, then specify\par
+    the expression in the params list. To display a % character, you\par
+    must put %% in the format string.\par
+\par
+Optional parameters:\par
+  params = \i exp_1\i0 , \i exp_2\i0 ,\i  exp_3\i0 ,\i  exp_4\i0 ,\i  exp_5\par
+\i0     Up to 5 numeric arguments can be specified in the format string.     \par
+    These should be listed under the params item, in order. The type \par
+    of each parameter must match its format specifier. You cannot \par
+    specify more or less parameters than are called for in the format \par
+    string.\par
+\par
+Example:\par
+  type = DisplayToClipboard\par
+  text="The value of var(17) is %d, which is %f%% of 23.\\n\\t--Kiwi."\par
+  params = var(17):=1,var(17)/.230\par
+    displays the following to the player's clipboard:\par
+    The value of var(17) is 1, which is 4.347826% of 23.\par
+        --Kiwi.\par
+  \par
+\par
+------------------------------------------------------------\par
+EnvColor\par
+------------------------------------------------------------\par
+\par
+Turns the whole screen a solid color, excepting foreground-layer animations like hit sparks and "ontop" explods. Foreground layers of the stage will not be visible.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  value = \i col_r\i0 ,\i  col_g\i0 ,\i  col_b \i0 (int)\par
+    Specifies the R, G, and B components of the color to set the \par
+    screen to. Each component should be an integer between 0 and 255. \par
+    The larger a component, the more of that color will appear in the \par
+    environment color. The default is 255,255,255 (pure white).\par
+\par
+  time = \i effective_time \i0 (int)\par
+    Specifies how many ticks the environment color should be \par
+    displayed. Defaults to 1 tick. Set to -1 to have the EnvColor \par
+    persist indefinitely.\par
+\par
+\i   \i0 under = \i under_flag \i0 (int)\par
+    Set under_flag to 1 to have the environment color drawn under \par
+    characters and projectiles. In other words, characters and \par
+    projectiles will be visible on top of the colored backdrop. \par
+    Defaults to 0.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+EnvShake\par
+------------------------------------------------------------\par
+\par
+Causes the screen to shake.\par
+\par
+Required parameters:\par
+  time = \i shake_time \i0 (int)\par
+    Specifies the number of ticks to shake the screen for.\par
+\par
+Optional parameters:\par
+  freq = \i shake_speed \i0 (float)\par
+    shake_speed is a float between 0 (slow shake) to 180 (fast \par
+    shake). Defaults to 60.\par
+\par
+  ampl = \i shake_amplitude \i0 (int)\par
+    The larger the amplitude, the farther the screen shakes up and \par
+    down. A negative amplitude means that the screen will shake down\par
+    first. Defaults to -4.\par
+\par
+  phase = \i phase_offset \i0 (float)\par
+    Specifies the phase offset for the shaking. The default is 0, \par
+    unless the frequency multiplier is 90 or greater. In this case,\par
+    the default phase offset is 90.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+Explod\par
+------------------------------------------------------------\par
+\par
+The Explod controller is a flexible tool for displaying animations such as sparks. Its functionality includes that of GameMakeAnim, which is now deprecated.\par
+\par
+Required parameters:\par
+  anim = \i [F]anim_no \i0 (int)\par
+    \i anim_no \i0 specifies the number of the animation to play back. The \par
+    'F' prefix is optional: if included, then the animation is played\par
+    back from fight.def.\par
+\par
+Optional parameters:\par
+  ID = \i id_no \i0 (int)\par
+    \i id_no \i0 specifies an ID number for this explod. Useful mainly with\par
+    the NumExplod trigger and the RemoveExplod controller.\par
+  \par
+  pos = \i x_pos\i0 , \i y_pos\i0  (int)\par
+    \i x_pos\i0  and \i y_pos\i0  specify the offset at which to create the explod.\par
+    The exact behavior depends on the postype. If these parameters are\par
+    omitted, they default to 0.\par
+\par
+  postype = \i string \i0 (string)\par
+\pard\nowidctlpar\li480\i string \i0 specifies the postype -- how to interpret the pos parameters. In all cases, a positive y offset means a downward displacement. Valid values for postype are the following:\par
+\pard\nowidctlpar\li720 - p1\par
+  Interprets pos relative to p1's axis. A positive x offset is\par
+  toward the front of p1. This is the default value for postype.\par
+- p2\par
+  Interprets pos relative to p2's axis. A positive x offset is\par
+  toward the front of p2.\par
+- front\par
+  Interprets xpos relative to the edge of the screen that p1 is \par
+  facing toward, and ypos relative to the top of the screen. A\par
+  positive x offset is away from the center of the screen,   \par
+  whereas a negative x offset is toward the center.\par
+- back\par
+  Interprets xpos relative to the edge of the screen that p1 is\par
+  facing away from, and ypos relative to the top of the screen. A \par
+  positive x offset is toward the center of the screen, whereas a \par
+  negative x offset is away from the center.\par
+- left\par
+  Interprets xpos and ypos relative to the upper-left corner of\par
+  the screen. A positive x offset is toward the right of the \par
+  screen.\par
+- right\par
+  Interprets xpos and ypos relative to the upper-right corner of\par
+  the screen. A positive x offset is toward the left of the \par
+  screen.\par
+\pard\nowidctlpar\par
+  facing = \i facing \i0 (int)\par
+    Set \i facing\i0  to 1 to have the explod face in the same direction as \par
+    the positive x offset (as determined by postype), and -1 to have \par
+    the explod face in the opposite direction. Defaults to 1.\par
+    \par
+  vfacing = \i vfacing\i0  (int)\par
+    Set vfacing to -1 to have the explod display vertically flipped,\par
+    or 1 to have the explod display vertically unflipped. Defaults to\par
+    1 if omitted.\par
+\par
+  bindtime = \i bind_time\i0  (int)\par
+    Specifies the number of game ticks to bind the explod to the bind \par
+    point specified by postype. For instance, if postype = p1, pos = \par
+    30, -40, and bindtime = 5, then the explod will be drawn at\par
+    position 30, -40 relative to p1's axis for 5 ticks, no matter how\par
+    p1 moves during this time. After the bindtime has expired, the \par
+    explod will no longer be bound to the bind point, and will \par
+    maintain its position (unless affected by the vel or accel \par
+    parameters). If bindtime = -1, then the explod will be bound \par
+    forever.\par
+\par
+  vel = \i x_vel\i0 , \i y_vel \i0 (float)\par
+    Specifies initial X and Y velocity components for the explod. \par
+    These are interpreted relative to the explod's "facing" direction.\par
+    These default to 0 if omitted.\par
+\par
+  accel = \i x_accel\i0 , \i y_accel \i0 (float)\par
+    Specifies X and Y acceleration components for the explod. These \par
+    default to 0.\par
+  \par
+  random = \i rand_x\i0 , \i rand_y\i0  (int)\par
+    Causes the explod's bind point to be displaced by a random amount  \par
+    when created. \i rand_x\i0  specifies the displacement range in the x\par
+    direction, and \i rand_y\i0  specifies the displacement range in the y\par
+    direction. For instance, if pos = 0,0 and random = 40,80, then the\par
+    explod's x location will be a random number between -20 and 19, \par
+    and its y location will be a random number between -40 and 39.\par
+    Both arg1 and arg2 default to 0 if omitted.\par
+\par
+  removetime = \i rem_time\i0  (int)\par
+    If \i rem_time\i0  is positive, the explod will be removed after having \par
+    been displayed for that number of game ticks. If \i rem_time\i0  is -1,\par
+    the explod will be displayed indefinitely. If \i rem_time\i0  is -2, \par
+    the explod will be removed when its animtime reaches 0. The \par
+    default value if omitted is -2.\par
+\par
+  supermove = \i bvalue\i0  (boolean)\par
+    (deprecated -- use supermovetime parameter instead)\par
+    Set supermove = 1 to have the explod persist until the end of a\par
+    super pause, regardless of the value of removetime. Defaults to 0.\par
+\par
+  supermovetime = \i move_time \i0 (int)\par
+\cf1     Determines the number of ticks that the explod should be \par
+    "unfrozen" during a SuperPause. Often useful if you want the \par
+    explod to be animated during a SuperPause, such as for custom\par
+    super sparks. Defaults to 0.\par
+\cf0\par
+  pausemovetime = \i move_time \i0 (int)\par
+\cf1     Determines the number of ticks that the explod should be \par
+    "unfrozen" during a Pause. Defaults to 0.\par
+\cf0\par
+  scale = \i x_scale [,y_scale] \i0 (float)\par
+    \i x_scale \i0 and \i y_scale \i0 specify the scaling factors to apply to the \par
+    explod in the horizontal and vertical directions. Both default to \par
+    1 (no scaling) if omitted.\par
+\par
+  sprpriority = \i pr\i0  (int)\par
+    \i pr \i0 specifies the drawing priority for the explod. Animations \par
+    with higher priority get drawn over animations with lesser\par
+    priority. For instances, setting sprpriority = -3 will cause the\par
+    explod to be drawn under most characters and other explods, which\par
+    usually have sprpriority >= -2.\par
+    Defaults to 0 if omitted.\par
+\par
+  ontop = \i bvalue \i0 (boolean)\par
+    Set ontop = 1 to have the explod drawn over all other sprites and \par
+    background layers. This parameter has precedence over sprpriority.\par
+    Defaults to 0.\par
+\par
+  shadow = \i shad_r\i0 ,\i  shad_g\i0 ,\i  shad_b \i0 (int)\par
+    Specifies the R, G, and B components of the explod's shadow. Valid \par
+    values for each component are 0-255. The greater a component, the \par
+    less of that color will be displayed in the shadow. To use the\par
+    shadow color of the stage, set shad_r to -1. Defaults to 0,0,0 (no\par
+    shadow). \par
+\par
+  ownpal = \i bvalue \i0 (boolean)\par
+    Set ownpal = 1 to give the explod its own copy of its palette.\par
+    This is desirable if you want to keep temporary changes to the\par
+    player's palette, such as recovering from a fall or using the\par
+    PalFX controller, from affecting the color of the explod. Defaults \par
+    to 0 if omitted.\par
+\par
+  removeongethit = \i bvalue \i0 (boolean)\par
+    Setting this to 1 will have the explod removed if the player gets\par
+    hit. Defaults to 0.\par
+\par
+  ignorehitpause = \i bvalue \i0 (boolean)\par
+    If this is 1, the explod will be animated independently of the\par
+    player that created it. If set to 0, it will not be updated when\par
+    the player is in hitpause. Defaults to 1.\par
+\par
+  trans = \i trans_type\i0  (string)\par
+    Overrides the explod's animation transparency settings. See the\par
+    Trans controller for details. An "alpha" parameter must be specified\par
+    if \i trans_type\i0  is "addalpha". If omitted, does nothing.\par
+\par
+\par
+------------------------------------------------------------\par
+ExplodBindTime\par
+------------------------------------------------------------\par
+\par
+Changes the position binding time of the player's explods.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  ID = \i id_no \i0 (int)\par
+    Only explods with ID number equal to \i id_no \i0 will have their \par
+    position binding affected. Set ID to -1 to affect the binding of \par
+    all explods. This is the default behavior.\par
+\par
+  time = \i binding_time \i0 (int)\par
+    Specifies the number of ticks for which the explods should be \par
+    bound to their binding points (defined at the time the explods \par
+    were created.) Defaults to 1 tick. A time of -1 binds the explods \par
+    indefinitely.\par
+\par
+Alternate syntax:\par
+  value = \i binding_time \i0 may be used instead of time = \i binding_time\i0 .\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+ForceFeedback\par
+------------------------------------------------------------\par
+\par
+Creates force feedback for supported force feedback devices. Currently, the only such devices are Playstation dual shock controllers using the engine's native support.\par
+\par
+Parameters to the ForceFeedback controller may not be specified using arithmetic expressions. It is an exception in this regard.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  waveform = \i wave_type \i0 (string)\par
+    Valid waveforms are "sine", "square", "sinesquare", and "off". For \par
+    the Dual Shock controller, a sine waveform corresponds to the \par
+    large rumble motor, and a square waveform corresponds to the \par
+    smaller buzzer motor. sinesquare, of course, corresponds to both \par
+    motors simultaneously. Use "off" to turn off any force feedback \par
+    that is currently executing. waveform defaults to sine.\par
+\par
+  time = \i duration \i0 (integer constant)\par
+    Specifies how long the force feedback should last, in ticks. \par
+    Defaults to 60.\par
+\par
+  freq = \i start \i0 (integer constant), \i d1\i0 ,\i  d2\i0 ,\i  d3\i0  (float constants)\par
+    Force feedback frequency varies between 0 and 255. The formula \par
+    used to determine force feedback frequency is \par
+    \i start \i0 + \i d1\i0 *\i t\i0  + \i d2\i0 *\i t\i0 **2 + \i d3\i0 *\i t\i0 **3\par
+    where \i t\i0  represents the number of ticks elapsed since the force \par
+    feedback was initiated. Defaults to\par
+    freq = 128,0,0,0\par
+    Currently, the frequency parameter is completely ignored.\par
+\par
+  ampl = \i start \i0 (integer constant), \i d1\i0 ,\i  d2\i0 ,\i  d3\i0  (float constants)\par
+    Force feedback amplitude varies between 0 and 255. The formula \par
+    used to determine force feedback frequency is \par
+    \i start \i0 + \i d1\i0 *\i t\i0  + \i d2\i0 *\i t\i0 **2 + \i d3\i0 *\i t\i0 **3\par
+    where \i t\i0  represents the number of ticks elapsed since the force \par
+    feedback was initiated. Defaults to\par
+    ampl = 128,0,0,0\par
+\par
+  self = \i self_flag \i0 (boolean constant)\par
+    If self is 1, then P1's pad will vibrate. If self is 0, then P2's \par
+    pad will vibrate. Defaults to 1.\par
+   \par
+Example:\par
+  See common1.cns.\par
+ \par
+\par
+\cf1 ------------------------------------------------------------\par
+FallEnvShake\par
+------------------------------------------------------------\par
+\cf0\par
+Shakes the screen using the fall.envshake parameters set by an attack (see HitDef controller). This controller is effective only if GetHitVar(fall.envshake.time) is not zero, and it sets GetHitVar(fall.envshake.time) to zero after being executed. This controller is used in common1.cns to shake the screen when a player falls, and is not normally useful otherwise.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  See common1.cns.\par
+ \par
+\par
+\cf1 ------------------------------------------------------------\par
+GameMakeAnim\par
+------------------------------------------------------------\par
+\par
+Creates a game animation, like a hit spark or a super charging effect. This controller has been superseded by Explod and is now considered obsolete. Support for it may be removed in future versions.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  value = \i anim_no \i0 (int)\par
+    Specifies the animation number (from fightfx) of the animation to \par
+    play. Defaults to 0.\par
+  \par
+  under = \i under_flag \i0 (int)\par
+    If under_flag is 1, the animation is drawn behind the character \par
+    sprites. Defaults to 0 (draw over characters).\par
+\par
+  pos = \i x_pos\i0 , \i y_pos \i0 (float)\par
+    Specifies the position to display the animation at, relative to \par
+    the player axis. Defaults to 0,0. \par
+\par
+  random = \i rand_amt \i0 (int)\par
+    The position of the animation will be displaced in the x and y \par
+    directions by (different) random amounts. The displacement can be \par
+    as large as half of rand_amt. You can think of \i rand_amt \i0 as \par
+    specifying the total possible "spread" in the positions of the \par
+    randomly displaced animations. Defaults to 0.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Gravity\par
+------------------------------------------------------------\par
+\par
+Accelerates the player downwards, using the value of the player's "yaccel" constant.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  ; Applies constant acceleration throughout state\par
+  trigger1 = 1\par
+  type = Gravity\par
+\par
+\par
+------------------------------------------------------------\par
+Helper\par
+------------------------------------------------------------\par
+\par
+Creates another instance of the player as a helper character.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  helpertype = \i type_string\i0\par
+\cf0     (deprecated -- do not use player-type helpers)\par
+\cf1     If helpertype = normal, then the helper will be allowed to move \par
+    off the edge of the screen. Furthermore, the camera will not move \par
+    to try to keep the helper on screen. If helpertype = player, then\par
+    the helper will be constrained to the screen and will be followed\par
+    by the camera, just like a normal player. Defaults to normal.\par
+    If you plan to use a helper for camera manipulation, do not use\par
+    a player-type helpers (it is deprecated). Use the ScreenBound\par
+    controller with the "movecamera" parameter if necessary.\par
+  \par
+  name = "\i name_string\i0 "\par
+    Specifies a name for this helper, which must be enclosed in double \par
+    quotes. If omitted, the name defaults to "<parent>'s helper", \par
+    where <parent> represents the name of the player creating the \par
+    helper.\par
+\par
+  ID = \i id_no \i0 (int)\par
+    Sets an ID number to refer to this helper by. Defaults to 0.\par
+ \par
+  pos = \i x_off\i0 , \i y_off\i0  (int)\par
+    Determines the x and y offsets to create this helper at. The \par
+    precise meaning of these parameters is dependent on the postype.\par
+    Defaults to 0,0.\par
+\par
+  postype = \i postype_string\i0\par
+    postype works nearly the same as in the Explod controller. \par
+\cf0     postype_string specifies the postype -- how to interpret the pos \par
+    parameters. In all cases, a positive y offset means a downward \par
+    displacement.\par
+    Valid values for \i postype \i0 are the following:\par
+      - p1\par
+        Interprets pos relative to p1's axis. A positive x offset is\par
+        toward the front of p1. This is the default value for postype.\par
+      - p2\par
+        Interprets pos relative to p2's axis. A positive x offset is\par
+        toward the front of p2. If p2 does not exist, the helper is \par
+        created with respect to p1.\par
+      - front\par
+        Interprets xpos relative to the edge of the screen that p1 is \par
+        facing toward, and ypos relative to p1's axis. A positive x \par
+        offset is away from the center of the screen, whereas a \par
+        negative x offset is toward the center.\par
+      - back\par
+        Interprets xpos relative to the edge of the screen that p1 is\par
+        facing away from, and ypos relative to p1's axis. A positive x \par
+        offset is toward the center of the screen, whereas a negative x \par
+        offset is away from the center.\par
+      - left\par
+        Interprets xpos relative to the left edge of the screen, and \par
+        ypos relative to p1's axis. A positive x offset is toward the \par
+        right of the screen.\par
+      - right\par
+        Interprets xpos relative to the right edge of the screen, and \par
+        ypos relative to p1's axis. A positive x offset is toward the \par
+        left of the screen.\par
+\cf1\par
+  facing = \i facing \i0 (int)\par
+    If postype is left or right, setting facing to 1 will make the\par
+    helper face the right, and a value of -1 makes the helper face\par
+    left.\par
+    For all other values of postype except p2, if facing is 1, the\par
+    helper will face the same direction as the player. If facing is\par
+    -1, the helper will face the opposite direction.\par
+    In the case of postype = p2, facing has the same effect as above,\par
+    except it is with respect to p2's facing. Defaults to 1.\par
+\par
+  stateno = \i start_state \i0 (int)\par
+    Determines the state number that the helper starts off in. \par
+    Defaults to 0.\par
+\par
+  keyctrl = \i ctrl_flag \i0 (boolean)\par
+    If keyctrl = 1, then the helper is able to read command input from \par
+    the player (e.g., the keyboard or joystick). Also, the helper will \par
+    inherit its root's State -1. If keyctrl = 0, then the helper does \par
+    not have access to command input, and does not inherit State -1. \par
+    The default value of keyctrl is 0.\par
+\par
+  ownpal = \i pal_flag \i0 (boolean)\par
+    If ownpal = 0, the helper will inherit its parent's palette. If the\par
+    parent's palette is temporarily changed (eg. by a PalFX controller), the\par
+    changes will be reflected in the helper too. If ownpal = 1, the helper\par
+    will receive its own working palette, that is independent of its\par
+    parent's. Defaults to 0.\par
+\par
+  supermovetime = \i value \i0 (int)\par
+    Determines the number of ticks that the helper should be \par
+    "unfrozen" during a SuperPause. Often useful if you want the \par
+    helper to make its appearance during a SuperPause. Defaults to 0.\par
+\par
+\cf0   pausemovetime = \i move_time \i0 (int)\par
+\cf1     Determines the number of ticks that the helper should be \par
+    "unfrozen" during a Pause. Defaults to 0.\par
+\par
+  size.xscale (float)\par
+  size.yscale (float)\par
+  size.ground.back (int)\par
+  size.ground.front (int)\par
+  size.air.back (int)\par
+  size.air.front (int)\par
+  size.height (int)\par
+  size.proj.doscale (int)\par
+  size.head.pos (int,int)\par
+  size.mid.pos (int,int)\par
+  size.shadowoffset (int)\par
+    These parameters have the same meaning as the corresponding \par
+    parameters in the root's CNS file. You can specify one or more of \par
+    these parameters to change it to a value suitable for this helper.\par
+    Otherwise, they default to the values inherited from the parent.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitAdd\par
+------------------------------------------------------------\par
+\par
+Adds hits to the current combo.\par
+\par
+Required parameters:\par
+  value = \i add_count \i0 (int)\par
+    \i add_count \i0 specifies the number of hits to add to the current \par
+    combo.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitBy\par
+------------------------------------------------------------\par
+\par
+Temporarily specifies types of hits that should be allowed hit to the player. \par
+\par
+Required parameters:\par
+  value = \i attr_string  \i0 OR  value2 = \i attr_string\i0\par
+    Only one of the above parameters can be specified. \i attr_string\i0  \par
+    should be a standard hit attribute string.\par
+\par
+Optional parameters:\par
+  time = \i effective_time\i0  (int)\par
+    Specifies the number of game ticks that these HitBy attributes\par
+    should be effective for. Defaults to 1.\par
+\par
+Details:\par
+  The player has two hit attribute slots, which can be set using the   \par
+  value or value2 parameters to the HitBy controller. These slots can \par
+  also be set by the NotHitBy controller. When a slot is set, it gets\par
+  a timer (the effective time) which counts down toward zero. If the \par
+  timer has not yet reached zero, the slot is considered to be active.\par
+  The player can be hit by a HitDef only if that HitDef's attribute \par
+  appears in all currently active slots. \par
+  Using the HitBy controller sets the specified slot to contain only \par
+  those hit attributes which appear in the HitBy attribute string.\par
+\par
+Example:\par
+  ; Can be hit only by standing normal attacks\par
+  trigger1 = 1\par
+  type = HitBy\par
+  value = S, NA\par
+\par
+\par
+------------------------------------------------------------\par
+HitDef\par
+------------------------------------------------------------\par
+\par
+Defines a single hit of the player's attack. If the player's Clsn1 box (red) comes in contact with his opponent's Clsn2 box (blue), and the HitDef was define on or before that particular point in time, then the specified effect will be applied. This is one of the more complex, but most commonly-used controllers.\par
+A single HitDef is valid only for a single hit. To make a move hit several times, you must trigger more than one HitDef during the attack.\par
+\par
+Required parameters:\par
+  attr = \i hit_attribute \i0 (string)\par
+    This is the attribute of the attack. It is used to determine if\par
+    the attack can hit P2. It has the format: \par
+      attr = \i arg1\i0 , \i arg2\i0\par
+    Where:\par
+    - arg1 is either "S", "C" or "A". Similar to "statetype" for the\par
+      StateDef, this says whether the attack is a standing, crouching,\par
+      or aerial attack.\par
+    - arg2 is a 2-character string. The first character is either "N"\par
+      for "normal", "S" for "special", or "H" for "hyper" (or "super",\par
+      as it is commonly known). The second character must be either\par
+      "A" for "attack" (a normal hit attack), "T" for "throw", or "P"\par
+      for projectile.\par
+\par
+  hitflag = \i hit_flags \i0 (string)\par
+    This determines what type of state P2 must be in for P1 to hit.\par
+    \i hit_flags\i0  is a string containing a combination of the following\par
+    characters:\par
+    "H" for "high", "L" for "low" or "A" for air. "M" (mid) is\par
+    equivalent to saying "HL". "F" is for fall, and if included\par
+    will allow P1 to juggle falling opponents in the air. "D" is\par
+    for "lying Down", and if included allows P1 to hit opponents\par
+    lying down on the ground.\par
+    Two optional characters are "+" and "-". If "+" is added, then\par
+    the hit only affects people in a gethit state. This may be\par
+    useful for chain-moves that should not affect opponents who\par
+    were not hit by the first move in the chain attack.\par
+    If "-" is added, then the hit only affects players that are\par
+    NOT in a gethit state. You should use "-" for throws and\par
+    other moves you do not want P1 to be able to combo into.\par
+    "+" and "-" are mutually exclusive, ie. cannot be used at the\par
+    same time.\par
+    If omitted, this defaults to "MAF".\par
+\par
+  guardflag = \i hit_flags \i0 (string)\par
+    This determines how P2 may guard the attack. \i hit_flags\i0  is a\par
+    string containing a combination of the following characters:\par
+    "H" for "high", "L" for "low" or "A" for air. "M" (mid) is\par
+    equivalent to saying "HL". \par
+\par
+Optional parameters:\par
+  affectteam = \i team_type \i0 (string)\par
+    \i team_type\i0  specifies which team's players can be hit by this \par
+    HitDef. Use B for both teams (all players), E for enemy team \par
+    (opponents), or F for friendly team (your own team). The default\par
+    is E.\par
+\par
+  animtype = \i anim_type \i0 (string)\par
+    This refers to the type of animation that P2 will go into when hit\par
+    by the attack. Choose from "light", "medium", "hard", "back", "up",\par
+    or "diagup".\par
+    The first three should be self-explanatory. "Back" is the\par
+    animation where P2 is knocked off her feet. "Up" should be used\par
+    when the character is knocked straight up in the air (for instance,\par
+    by an uppercut), and "DiagUp" should be used when the character is\par
+    knocked up and backwards in the air, eventually landing on his \par
+    head.\par
+    The default is "Light".\par
+\par
+  air.animtype = \i anim_type \i0 (string)\par
+    Similar to the "animtype" parameter, this is the animtype to set\par
+    P2 to if P2 is in the air, instead of on the ground. Defaults to\par
+    the same value as the "animtype" parameter if omitted.\par
+\par
+  fall.animtype = \i anim_type \i0 (string)\par
+    Similar to the "animtype" parameter, this is the animtype to set \par
+    P2 to if P2 is hit while falling. Defaults to Up if air.animtype \par
+    is Up, or Back otherwise. \par
+\par
+  priority = \i hit_prior\i0  (int), \i hit_type\i0  (string)\par
+    Specifies the priority for this hit. Hits with higher priorities \par
+    take precedence over hits with lower priorities. Valid values for \par
+    \i hit_prior\i0  are 1-7. Defaults to 4.\par
+    \i hit_type\i0 , if specified, gives the priority class of the hit. Valid \par
+    priority classes are Dodge, Hit, and Miss. The priority class\par
+    determines the tiebreaking behavior when P1 and P2 hit each other\par
+    simultaneously with equal priorities. The behavior is as follows:\par
+    Hit vs. Hit: both P1 and P2 are hit\par
+    Hit vs. Miss: Hit hits, Miss misses\par
+    Hit vs. Dodge: No hits\par
+    Dodge vs. Dodge: No hits\par
+    Dodge vs. Miss: No hits\par
+    Miss vs. Miss: No hits\par
+    In the case of a no-hit tie, the respective HitDefs stay enabled.\par
+\par
+  damage = \i hit_damage\i0 , \i guard_damage\i0  (int)\par
+    \i hit_damage\i0  is the damage that P2 takes when hit by P2. The\par
+    optional \i guard_damage\i0  parameter is the damage taken by P2 if the\par
+    hit is guarded. Both default to zero if omitted.\par
+\par
+  pausetime = \i p1_pausetime\i0 , \i p2_shaketime\i0  (int)\par
+    This is the time that each player will pause on the hit.\par
+    \i p1_pausetime\i0  is the time to freeze P1, measured in game-ticks.\par
+    \i p2_pausetime\i0  is the time to make P2 shake before recoiling from\par
+    the hit. Defaults to 0,0 if omitted.\par
+\par
+  guard.pausetime = \i p1_pausetime\i0 , \i p2_shaketime\i0  (int)\par
+    Similar to the "pausetime" parameter, these are the times\par
+    to pause each player if the hit was guarded.\par
+    Defaults to the same values as the "pausetime" parameter if\par
+    omitted.\par
+\par
+  sparkno = \i action_no\i0  (int)\par
+    This is the action number of the spark to display if the hit\par
+    is successful. To play a spark out of the player's .AIR file,\par
+    precede the action number with an S.\par
+    Defaults to the value set in the player variables if omitted.\par
+\par
+  guard.sparkno = \i action_no\i0  (int)\par
+    This is the action number of the spark to display if the hit\par
+    was guarded. To play a spark out of the player's .AIR file,\par
+    precede the action number with an S.\par
+    Defaults to the value set in the player variables if omitted.\par
+\par
+  sparkxy = \i spark_x\i0 , \i spark_y\i0  (int)\par
+    This is where to make the hit/guard spark.\par
+    \i spark_x\i0  is a coordinate relative to the front of P2. A negative\par
+    value makes the spark deeper inside P2. "Front" refers to the x-\par
+    position at P2's axis offset towards P1 by the corresponding\par
+    width value in the [Size] group in P2's player variables.\par
+    \i spark_y\i0  is relative to P1. A negative value makes a spark higher\par
+    up. You can use a tool like AirView to determine this value by\par
+    positioning the cursor at the "attack spot" and reading off the\par
+    value of the y-position.\par
+    Defaults to 0,0 if omitted.\par
+\par
+  hitsound = \i snd_grp\i0 , \i snd_item\i0  (int)\par
+    This is the sound to play on hit (from common.snd). The included\par
+    fight.snd lets you choose from 5,0 (light hit sound) through to\par
+    5,4 (painful whack). To play a sound from the player's own SND\par
+    file, precede the first number with an "S". For example,\par
+    "hitsound = S1,0".\par
+    Defaults to the value set in the player variables if omitted.\par
+\par
+  guardsound = \i snd_grp\i0 , \i snd_item\i0  (int)\par
+    This is the sound to play on guard (from common.snd). Only 6,0 is\par
+    available at this time. To play a sound from the player's own SND\par
+    file, precede the first number with an "S". There is no facility\par
+    to play a sound from the opponent's SND file.\par
+    Defaults to the value set in the player variables if omitted.\par
+\par
+  ground.type = \i attack_type \i0 (string)\par
+\pard\nowidctlpar\li480 This is the kind of attack if P2 is on the ground. Choose from "High" for attacks that make P2's head snap backwards, "Low" for attacks that look like that hit in the stomach, "Trip" for low sweep attacks, or "None" to not do anything to P2. "High" and "Low" attacks have no effect on P2 if the AnimType is "Back". If P2 is hit from behind, "High" will be displayed as "Low" and vice-versa. Defaults to "High" if omitted.\par
+\pard\nowidctlpar\par
+  air.type = \i attack_type \i0 (string)\par
+    This is the kind of attack if P2 is in the air. Defaults to the\par
+    same value as "ground.type" if omitted.\par
+\par
+  ground.slidetime = \i slide_time\i0  (int)\par
+    This is the time in game-ticks that P2 will slide back for after\par
+    being hit (this time does not include the pausetime for P2).\par
+    Applicable only to hits that keep P2 on the ground.\par
+    Defaults to 0 if omitted.\par
+\par
+  guard.slidetime = \i slide_time\i0  (int)\par
+    Same as "ground.slidetime", but this is the value if P2 guards the\par
+    hit. Defaults to same value as "guard.hittime".\par
+\par
+  ground.hittime = \i hit_time\i0  (int)\par
+    Time that P2 stays in the hit state after being hit. Increase this\par
+    value to keep P2 in the hit state for a longer time, perhaps to\par
+    make it easier to combo. Applicable only to hits that keep P2 on\par
+    the ground. Defaults to 0 if omitted.\par
+\par
+  guard.hittime = \i hit_time\i0  (int)\par
+    Same as "ground.hittime", but this is the value if P2 guards the\par
+    hit. Defaults to same value as "ground.hittime".\par
+\par
+  air.hittime = \i hit_time\i0  (int)\par
+    Time that p2 stays in the hit state after being hit in or into the\par
+    air, before being able to guard again. This parameter has no effect\par
+    if the "fall" parameter is set to 1. Defaults to 20 if omitted.\par
+\par
+  guard.ctrltime = \i ctrl_time\b  \b0\i0 (int)\par
+    This is the time before p2 regains control in the ground guard\par
+    state. Defaults to the same value as "guard.slidetime" if omitted.\par
+\par
+  guard.dist = \i x_dist\i0  (int)\par
+    This is the x-distance from P1 in which P2 will go into a guard\par
+    state if P2 is holding the direction away from P1. Defaults to\par
+    the value in the player variables if omitted. You normally do\par
+    not need to use this parameter.\par
+\par
+  yaccel = \i accel \i0 (float)\par
+    Specifies the y acceleration to impart to P2 if the hit connects.\par
+    Defaults to 0.\par
+\par
+  ground.velocity = \i x_velocity\i0 , \i y_velocity \i0 (float)\par
+    Initial velocity to give P2 after being hit, if P2 is on the\par
+    ground. If \i y_velocity\i0  is not zero, P2 will be knocked into the\par
+    air. Both values default to 0 if omitted. You can leave out\par
+    the \i y_velocity\i0  if you want P2 to remain on the ground.\par
+\par
+  guard.velocity = \i x_velocity\i0  (float)\par
+    Velocity to give P2 if P2 guards the hit on the ground.\par
+    Defaults to the \i x_velocity\i0  value of the "ground.velocity"\par
+    parameter if omitted.\par
+\par
+  air.velocity = \i x_velocity\i0 , \i y_velocity\i0  (float)\par
+    Initial velocity to give P2 if P2 is hit in the air.\par
+    Defaults to 0,0 if omitted.\par
+\par
+  airguard.velocity = \i x_velocity\i0 , \i y_velocity\i0  (float)\par
+    Velocity to give P2 if P2 guards the hit in the air. Defaults\par
+    to \i x_velocity\i0 *1.5, \i y_velocity\i0 /2, where \i x_velocity\i0  and \i y_velocity\i0\par
+    are values of the "air.velocity" parameter.\par
+\par
+  ground.cornerpush.veloff = \i x_velocity\i0  (float)\par
+    Determines the additional velocity (velocity offset) to impart to\par
+    the player if he lands a ground hit in the corner. Setting this\par
+    to a higher value will cause the player to be "pushed back" farther\par
+    out of the corner. If omitted, default value depends on the attr\par
+    parameter. If arg1 of attr is "A", default value is 0. Otherwise,\par
+    defaults to 1.3*guard.velocity.\par
+\par
+  air.cornerpush.veloff = \i x_velocity\i0  (float)\par
+    Determines the additional velocity (velocity offset) to impart to\par
+    the player if he lands a hit to an aerial opponent in the corner.\par
+    Setting this to a higher value will cause the player to be "pushed\par
+    back" farther out of the corner. Defaults to\par
+    ground.cornerpush.veloff if omitted.\par
+\par
+  down.cornerpush.veloff = \i x_velocity\i0  (float)\par
+    Determines the additional velocity (velocity offset) to impart to\par
+    the player if he lands a hit on a downed opponent in the corner. \par
+    Setting this to a higher value will cause the player to be "pushed \par
+    back" farther out of the corner. Defaults to\par
+    ground.cornerpush.veloff if omitted.\par
+\par
+  guard.cornerpush.veloff = \i x_velocity\i0  (float)\par
+    Determines the additional velocity (velocity offset) to impart to\par
+    the player if his hit is guarded in the corner. Setting this\par
+    to a higher value will cause the player to be "pushed back" farther\par
+    out of the corner. Defaults to ground.cornerpush.veloff if omitted.\par
+\par
+  airguard.cornerpush.veloff = \i x_velocity\i0  (float)\par
+    Determines the additional velocity (velocity offset) to impart to\par
+    the player if his hit is guarded in the corner. Setting this\par
+    to a higher value will cause the player to be "pushed back" farther\par
+    out of the corner. Defaults to guard.cornerpush.veloff if omitted.\par
+\par
+  airguard.ctrltime = \i ctrl_time\i0  (int)\par
+    This is the time before p2 regains control in the air guard state.\par
+    Defaults to the same value as "guard.ctrltime" if omitted.\par
+\par
+  air.juggle = \i juggle_points\i0  (int)\par
+    The amount of additional juggle points the hit requires. Do not\par
+    confuse this with the "juggle" parameter in the StateDef.\par
+    You typically do not need this parameter, except for HitDefs of\par
+    projectiles. Defaults to 0 if omitted.\par
+\par
+  mindist = \i x_pos\i0 , \i y_pos\i0  (int)\par
+  maxdist = \i x_pos\i0 , \i y_pos\i0  (int)\par
+    These let you control the minimum and maximum distance of P2\par
+    relative to P1, after P2 has been hit. These parameters are not\par
+    commonly used.\par
+    Defaults to no change in P2's position if omitted.\par
+\par
+  snap = \i x_pos\i0 , \i y_pos\i0  (int)\par
+\pard\nowidctlpar\li480 This moves P2 to the specified position relative to P1 if hit. This parameter is not normally used. If you want to snap P2 to a particular position for a throw, it is recommended you use a "TargetBind" controller in P1's throwing state instead. Defaults to no change in P2's position if omitted.\par
+\pard\nowidctlpar\par
+  p1sprpriority = \i drawing_priority\i0  (int)\par
+\pard\nowidctlpar\li480 This is the drawing priority of P1's sprite if the move hits or is guarded by P2. Together with the p2sprpriority parameter, it controls whether or not P1 is drawn in front of or behind P2. The default value is 1.\par
+\pard\nowidctlpar\par
+  p2sprpriority = \i drawing_priority\i0  (int)\par
+\pard\nowidctlpar\li480 This is the drawing priority of P2's sprite if the move hits or is guarded by P2. The default value is 0.\par
+\pard\nowidctlpar\par
+  p1facing = \i facing\i0  (int)\par
+    Set to -1 to make P1 turn around if the hit is successful.\par
+    Usually useful only for throws.\par
+    The default value is no change in where P1 is facing.\par
+\par
+  p1getp2facing = \i facing \i0 (int)\par
+    Set to 1 to have P1 face in the same direction as P2 is facing \par
+    after the hit connects, and -1 to have P1 face the opposite\par
+    direction from P2. Defaults to 0 (no change). If nonzero, this \par
+    parameter takes precedence over p1facing.\par
+\par
+  p2facing = \i facing\i0  (int)\par
+    Set to 1 to make P2 face the same direction as P1 if the hit\par
+    is successful, -1 to make P2 face away.\par
+    The default value is no change in where P2 is facing.\par
+\par
+  p1stateno = \i state_no\i0  (int)\par
+    This is the number of the state to set P1 to if the hit is\par
+    successful. Used mainly for throws.\par
+\par
+  p2stateno = \i state_no\i0  (int)\par
+    This is the number of the state to set P2 to if the hit is\par
+    successful. P2 will get P1's states and animation data.\par
+    Used mainly for throws.\par
+\par
+  p2getp1state = \i value\i0  (int)\par
+    Set to 0 to prevent P2 from getting P1's state and animation\par
+    data, in case you do not want that default behaviour of the\par
+    "p2stateno" parameter. Defaults to 1 if the "p2stateno"\par
+    parameter is used. Ignored otherwise.    \par
+\par
+  forcestand = \i value\i0  (int)\par
+    Set to 1 to force P2 to a standing state-type if the hit is\par
+    successful, and P2 is in a crouching state.\par
+    Normally defaults to 0, but if the \i y_velocity\i0  of the\par
+    "ground.velocity" parameter is non-zero, it defaults to 1.\par
+\par
+  fall = \i value\i0  (int)\par
+    Set to 1 if you want P2 to go into a "fall" state (where\par
+    P2 hits the ground without recovering control in the air).\par
+    Use if you want a move to "knock down" P2.\par
+\par
+  fall.xvelocity = \i x_velocity\i0  (float)\par
+    This is the x-velocity that P2 gets when bouncing off the ground\par
+    in the "fall" state. Defaults to no change if omitted.\par
+\par
+  fall.yvelocity = y\i _velocity\i0  (float)\par
+    This is the y-velocity that P2 gets when bouncing off the ground\par
+    in the "fall" state. Defaults to -4.5 if omitted.\par
+\par
+  fall.recover = \i value \i0 (int)\par
+    Set to 0 if you do not want P2 to be able to recover from the\par
+    "fall" state. Defaults to 1 if omitted (can recover).\par
+\par
+  fall.recovertime = \i recover_time\i0  (int)\par
+    This is the time that must pass before P2 is able to recover from\par
+    the "fall" state. Does not include the time that P2 is paused for\par
+    while shaking from the hit. Defaults to 4 if omitted.\par
+\par
+  fall.damage = \i damage_amt \i0 (int)\par
+    Indicates the amount of damage to deal when P2 hits the ground \par
+    out of a falling state. Defaults to 0 if omitted.\par
+\par
+  air.fall = \i value \i0 (int)\par
+    Set to 1 if you want P2 to go into a "fall" state (where P2 hits \par
+    the ground without recovering control in the air) if hit in the \par
+    air. Defaults to the same value as fall.\par
+\par
+  down.velocity = \i x_velocity\i0 , \i y_velocity\i0  (float)\par
+    This is the velocity to assign P2 if P2 is hit while lying down.\par
+    If the \i y_velocity\i0  is non-zero, P2 will be hit into the air. If\par
+    it is zero, then P2 will slide back on the ground.\par
+    Defaults to the same values as the "air.velocity" parameter if\par
+    omitted.\par
+\par
+  down.hittime = \i hit_time\i0  (int)\par
+    This is the time that P2 will slide back for if P2 is hit while\par
+    lying down. This parameter is ignored if the \i y_velocity\i0  is non-\par
+    zero for the "down.velocity" parameter.\par
+\par
+  down.bounce = \i value \i0 (int)\par
+    Set to 1 if you want P2 to bounce off the ground one time\par
+    (using the fall.xvelocity and fall.yvelocity values) after hitting\par
+    the ground from the hit.\par
+    This parameter is ignored if the y_velocity is zero for the\par
+    "down.velocity" parameter.\par
+    Defaults to 0 if omitted (P2 hits the ground and stays there).\par
+\par
+  id = \i id_number (int)\i0\par
+    Main use of this is for chain moves. You can use this number to\par
+    later detect if a player was last hit by this particular HitDef.\par
+    This number is called the targetID. It is used in controllers\par
+    such as TargetBind, or in the \i target(ID)\i0  redirection keyword.\par
+    Valid values are all values >= 1. If omitted, defaults to 0 (no\par
+    ID). Do not confuse targetID with PlayerID.\par
+\par
+  chainID = \i id_number (int)\i0\par
+    Main use of this is for chain moves. If P2 was last hit by a\par
+    move by P1 with this ID, only then can he be hit by the HitDef\par
+    with this chainID. You can use this in the following parts of a\par
+    chain move. Note that chain moves are still possible even without\par
+    the use of the "id" and "chainid" parameters. Valid values are\par
+    all values >= 1. If omitted, defaults to -1 (chain from any hit). \par
+\par
+  nochainID = \i nochain_1\i0 , \i nochain_2\i0  (int)\par
+    nochainID specifies up to 2 ID numbers of hits which cannot \par
+    be chained into this hit. If these are -1 (the default), then \par
+    chaining is not explicitly disabled for any hit ID numbers. \par
+    \i nochain_2\i0  can be omitted. Except for -1, the values specified\par
+    must not coincide with the value for chainID. This parameter\par
+    has no effect if P2 is hit by a third party between P1's\par
+    previous HitDef and the current HitDef.\par
+\par
+  hitonce = \i hitonce_flag\i0  (boolean)\par
+    If set to 1, the HitDef only affects one opponent. If the hit is \par
+    successful, all other targets will be dropped. Defaults to 0 most   \par
+    of the time. Only exception is if the "attr" parameter is a throw \par
+    type, which makes it default to 1.\par
+\par
+  kill = \i kill_flag\i0  (int)\par
+    Set to 0 if this hit should not be able to KO the opponent when\par
+    the hit is successful. Defaults to 1.\par
+\par
+  guard.kill = \i gkill_flag\i0  (int)\par
+    Set to 0 if this hit should not be able to KO the opponent when \par
+    he guards. Defaults to 1.\par
+\par
+  fall.kill = \i fkill_flag\i0  (int)\par
+    Set to 0 if this attack should not be able to KO the opponent\par
+    when he falls on the ground (see fall.damage). Defaults to 1.\par
+\par
+  numhits = \i hit_count\i0  (int)\par
+    hit_count indicates how many hits this hitdef should add to the \par
+    combo counter. Defaults to 1.\par
+\par
+  getpower = \i p1power\i0 , \i p1gpower\i0  (int)\par
+    p1power specifies the amount of power to give P1 if this HitDef \par
+    connects successfully. \i p1gpower \i0 specifies the amount of power to \par
+    give P1 if this HitDef is guarded. If omitted, \i p1power \i0 defaults\par
+    to \i hit_damage\i0  (from "damage" parameter) multiplied by the value\par
+    of Default.Attack.LifeToPowerMul specified in data/mugen.cfg.\par
+    If \i p1gpower\i0  is omitted, it defaults to the value specified for \par
+    \i p1power\i0  divided by 2.\par
+\par
+  givepower = \i p2power\i0 , \i p2gpower \i0 (int)\par
+    p2power specifies the amount of power to give P2 if this HitDef \par
+    connects successfully. \i p2gpower\i0  specifies the amount of power to \par
+    give P2 if this HitDef is guarded. If omitted, \i p1power\i0  defaults\par
+    to \i hit_damage\i0  (from "damage" parameter) multiplied by the value\par
+    of Default.GetHit.LifeToPowerMul specified in data/mugen.cfg.\par
+    If \i p1gpower\i0  is omitted, it defaults to the value specified for \par
+    \i p1power\i0  divided by 2.\par
+\par
+  palfx.time = \i palfx_time\i0  (int)\par
+  palfx.mul = \i r1\i0 , \i g1\i0 , \i b1\i0  (int)\par
+  palfx.add = \i r2\i0 , \i g2\i0 , \i b2\i0  (int)\par
+    If included, this allows for palette effects on P2 if the hit is\par
+    successful. \i palfx_time\i0  is the time in game-ticks to apply palette\par
+    effects on P2. \i palfx_time\i0  is 0 by default (no effect). The rest\par
+    of the parameters are the same as in the PalFX controller. \par
+\par
+  envshake.time = \i envshake_time\i0  (int)\par
+  envshake.freq = \i envshake_freq\i0  (float)\par
+  envshake.ampl = \i envshake_ampl\i0  (int)\par
+  envshake.phase = \i envshake_phase\i0  (float)\par
+    If included, this shakes the screen if the hit is successful.\par
+    \i envshake_time\i0  is the time in game-ticks to shake the screen.\par
+    The rest of the parameters are the same as in the EnvShake\par
+    controller.\par
+\par
+  fall.envshake.time = \i envshake_time\i0  (int)\par
+  fall.envshake.freq = \i envshake_freq\i0  (float)\par
+  fall.envshake.ampl = \i envshake_ampl\i0  (int)\par
+  fall.envshake.phase = \i envshake_phase\i0  (float)\par
+    Similar to the envshake.* parameters, except the effects are\par
+    applied only when P2 hits the ground.\par
+\par
+  attack.width = \i z1\i0 , \i z2 \i0 (int)\par
+    Not currently used.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitFallDamage\par
+------------------------------------------------------------\par
+\par
+When the player has been hit and is in a falling state, apply damage \par
+from the fall (specified in the hitdef) to the player.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitFallSet\par
+------------------------------------------------------------\par
+\par
+When the player has been hit, sets the player's fall variables.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  value = \i fallset_flag\i0  (int)\par
+    If \i fallset_flag\i0  is -1, then this controller does not change \par
+    whether the player will fall or not. A 0 \i fallset_flag\i0  means that \par
+    the player should not fall, and a 1 means that he should. Defaults \par
+    to -1.\par
+\par
+  xvel = \i x_velocity\i0  (float)\par
+  yvel = \i y_velocity\i0  (float)\par
+    If specified, sets the player's \i fall.xvel\i0  and \i fall.yvel\i0  \par
+    parameters, respectively. See HitDef for a description of these\par
+    parameters.  \par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitFallVel\par
+------------------------------------------------------------\par
+\par
+If the player has been hit and is in a falling state, sets the player's velocities to the fall velocities (fall.xvel and fall.yvel) specified in the HitDef.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitOverride\par
+------------------------------------------------------------\par
+\par
+Defines a hit override. If the player is hit by an attack of the specified type, he will go to the specified state number instead of his default gethit behavior. Up to 8 hit overrides can be active at one time.\par
+\par
+Required parameters:\par
+  attr = \i attr_string\i0\par
+    Standard hit attribute string specifying what types of hits to \par
+    override. See HitDef's description for the "attr" parameter.\par
+\par
+Optional parameters:  \par
+  slot = \i slot_no\i0  (int)\par
+    Specifies a slot number (0 to 7) to place this hit override in. \par
+    Defaults to 0 if omitted.\par
+\par
+  stateno = \i value \i0 (int)\par
+    Specifies which state to go into if hit by a HitDef with the \par
+    specified attributes. Defaults to -1 (no change) if omitted.\par
+\par
+  time = \i effective_time\i0  (int)\par
+    Specifies how long this hit override should be active. Defaults to \par
+    1 (one tick). Set this to -1 to have this override last until \par
+    overwritten by another one. \par
+\par
+  forceair = \i value \i0 (boolean)\par
+    If set to 1, the player's gethit variables will be set as if he was\par
+    in an aerial state when hit. Useful if you want to force the player \par
+    to fall down from any hit. Defaults to 0 if omitted.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+HitVelSet\par
+------------------------------------------------------------\par
+\par
+When the player has been hit, sets the desired components of the player's velocity to the appropriate gethit velocities.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  x = \i x_flag\i0  (int)\par
+  y = \i y_flag\i0  (int)\par
+    A nonzero flag means to change that component of the player's \par
+    velocity to the gethit velocity.\par
+\par
+Example:\par
+  none\par
+\par
+Notes:\par
+  Obsolete.\par
+\par
+\par
+------------------------------------------------------------\par
+LifeAdd\par
+------------------------------------------------------------\par
+\par
+Adds the specified amount to the player's life, scaled by the player's defense multiplier if necessary.\par
+\par
+Required parameters:\par
+  value = \i add_amt\i0  (int)\par
+    Specifies amount of life to add to the player's life bar.\par
+\par
+Optional parameters:\par
+  kill = \i kill_flag\i0  (int)\par
+    If \i kill_flag\i0  is 0, then the addition will not take the player \par
+    below 1 life point. Defaults to 1.\par
+  \par
+  absolute = \i abs_flag\i0  (int)\par
+    If \i abs_flag \i0 is 1, then exactly add_amt is added to the player's \par
+    life (the defense multiplier is ignored). Defaults to 0.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+LifeSet\par
+------------------------------------------------------------\par
+\par
+Sets the player's life to the specified value.\par
+\par
+Required parameters:\par
+  value = \i life_amt\i0  (int)\par
+    Specifies amount of life that the player will have after \par
+    execution.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+MakeDust\par
+------------------------------------------------------------\par
+\par
+Creates dust effects.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  pos = \i x_pos\i0 , \i y_pos\i0  (int)\par
+    Specifies the position that the dust should be drawn at, relative \par
+    to the player's axis. Defaults to 0,0.\par
+\par
+  pos2 = \i x_pos\i0 , \i y_pos\i0  (float)\par
+    Specifies the position to simultaneously draw a second dust cloud \par
+    at. If omitted, the second dust cloud is not drawn.\par
+\par
+  spacing = \i value\i0  (int)\par
+    Determines the number of frames to wait between drawing dust \par
+    clouds. For instance, spacing = 3 (the default) will draw a new \par
+    cloud of dust every third frame. spacing should be 1 or greater.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\cf0 ------------------------------------------------------------\par
+ModifyExplod\par
+------------------------------------------------------------\par
+\par
+Modifies the parameters of an existing Explod. Syntax is basically\par
+the same as Explod. However, this controller is subject to future\par
+change. Any code relying on this controller is not guaranteed to\par
+work in the future.\par
+\par
+\cf1\par
+------------------------------------------------------------\par
+MoveHitReset\par
+------------------------------------------------------------\par
+\par
+Resets the movehit flag to 0. That is, after executing MoveHitReset, the triggers MoveContact, MoveGuarded, and MoveHit will all return 0.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+NotHitBy\par
+------------------------------------------------------------\par
+\par
+Temporarily specifies types of hits that should not be allowed to hit the player. \par
+\par
+Required parameters:\par
+  value = \i attr_string\i0   OR  value2 = \i attr_string\i0\par
+    Only one of the above parameters can be specified. \i attr_string\i0  \par
+    should be a standard hit attribute string.\par
+\par
+Optional parameters:\par
+  time = \i effective_time\i0  (int)\par
+    Specifies the number of game ticks that these NotHitBy attributes\par
+    should be effective for. Defaults to 1.\par
+\par
+Details:\par
+  The player has two hit attribute slots, which can be set using the   \par
+  "value" or "value2" parameters to the NotHitBy controller. These\par
+  slots can also be set by the HitBy controller. When a slot is set,\par
+  it gets a timer (the effective time) which counts down toward zero. \par
+  If the timer has not yet reached zero, the slot is considered to be\par
+  active. The player can be hit by a HitDef only if that HitDef's\par
+  attribute appears in all currently active slots. \par
+  Using the NotHitBy controller sets the specified slot to contain all \par
+  hit attributes except those specified in the NotHitBy attribute \par
+  string.\par
+\par
+Example:\par
+  ; Not hit by anything\par
+  trigger1 = 1\par
+  type = NotHitBy\par
+  value = SCA\par
+\par
+  ; Not hit by normal attacks, and all projectiles\par
+  trigger1 = 1\par
+  type = NotHitBy\par
+  value = , NA, AP\par
+\par
+\par
+------------------------------------------------------------\par
+Null\par
+------------------------------------------------------------\par
+\par
+Does nothing. This is useful for temporarily disabling state controllers by simply changing their type to Null. \par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Offset\par
+------------------------------------------------------------\par
+\par
+Changes the player's display offset. The player is drawn shifted from his axis by this amount.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  x = \i x_val\i0  (float)\par
+  y = \i y_val\i0  (float)\par
+    Specifies the x and y offsets, respectively. You can specify one \par
+    or both of the optional parameters.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+PalFX\par
+------------------------------------------------------------\par
+\par
+Applies temporary effects the player's palette. These will also affect the palette of any explods and helpers the player has, unless they have specified ownpal = 1.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  time = \i duration \i0 (int)\par
+    Specifies the number of ticks that the palette effects should \par
+    last. Specify -1 to have the palette effects last indefinitely.\par
+    Specify 0 to stop any ongoing palette effects.\par
+\par
+  add = \i add_r\i0 , \i add_g\i0 , \i add_b\i0  (int)\par
+  mul = \i mul_r\i0 , \i mul_g\i0 , \i mul_b\i0  (int)\par
+    Each add component is added to the appropriate component of the \par
+    player's palette, and the result is multiplied by the appropriate \par
+    mul component divided by 256. For instance, if \i pal_r\i0  is the  \par
+    red component of the character's original palette, then the new \par
+    red component is (\i pal_r\i0  + \i add_r\i0 )*\i mul_r\i0 /256. The values for mul\par
+    must be >= 0.\par
+    The defaults for these parameters are for no change:\par
+    add = 0,0,0\par
+    mul = 256,256,256\par
+\par
+  sinadd = \i ampl_r\i0 , \i ampl_g\i0 , \i ampl_b\i0 , \i period\i0  (int)\par
+    Creates an additional sine-wave palette addition effect. Period \par
+    specifies the period of the sine wave in game ticks, and the \par
+    amplitude parameters control the amplitude of the sine wave for \par
+    the respective components. For instance, if t represents the\par
+    number of ticks elapsed since the activation of the PalFX\par
+    controller, and \i pal_r\i0  is the red component of the character's \par
+    original palette, then the red component of the character's \par
+    palette at time t is\par
+    (\i pal_r\i0  + \i add_r\i0  + \i ampl_r\i0 *sin(2*pi*t/\i period\i0 ))*\i mul_r\i0 /256.\par
+\par
+  invertall = \i bvalue\i0  (bool)\par
+    If \i bvalue \i0 is non-zero, then the colors in the palette will be\par
+    inverted, creating a "film negative" effect. Color inversion\par
+    is applied before effects of add and mul. bvalue defaults to 0.\par
+\par
+  color = \i value \i0 (int)\par
+    This affects the color level of the palette. If \i value \i0 is 0,\par
+    the palette will be greyscale. If value is 256, there is no\par
+    change in palette. Values in between will have an intermediate\par
+    effect. This parameter's effects are applied before invertall,\par
+    add and mul. Values must be in range 0 to 256. Default value is\par
+    256.\par
+\par
+Example:\par
+  none  \par
+\par
+\par
+------------------------------------------------------------\par
+ParentVarAdd\par
+------------------------------------------------------------\par
+\par
+If the player is a helper, adds to one of the player's parent's working variables. Either a float variable or an int variable can be added to by this controller. If the player is not a helper, this controller does nothing.\par
+\par
+Required parameters (int version):\par
+  v = \i var_no\i0  (int)\par
+    \i var_no\i0  should evaluate to an integer between 0 and 59.\par
+\par
+  value = \i int_expr\i0  (int)\par
+    \i int_expr\i0  is the value to add to the int variable indicated by \par
+    \i var_no\i0 .\par
+\par
+Required parameters (float version):\par
+  fv = \i var_no\i0  (int)\par
+    \i var_no\i0  should evaluate to an integer between 0 and 39.\par
+\par
+  value = \i float_expr\i0  (float)\par
+    \i float_expr\i0  is the value to add to the float variable indexed by \par
+    \i var_no\i0 .\par
+\par
+Optional parameters:\par
+  none in both cases\par
+\par
+Alternate syntax:\par
+  var(\i var_no\i0 ) = \i int_expr\i0   (int version)\par
+  fvar(\i var_no\i0 ) = \i float_expr\i0  (float version)\par
+\par
+Notes:\par
+  Due to historical reasons, note that the alternate VarAdd \par
+  syntax listed above matches neither the syntax for variable \par
+  assignment within an expression, nor the syntax for variable \par
+  addition within an expression.\par
+  If you have placed P2 in a custom state through a successful hit, do \par
+  not use variable assignment within the custom states. Otherwise, you \par
+  will overwrite P2's parent's variables, which is rather rude.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+\par
+------------------------------------------------------------\par
+ParentVarSet\par
+------------------------------------------------------------\par
+\par
+If the player is a helper, sets one of the parent's working variables. Either a float variable or an int variable can be set by this controller. Does nothing if the player is not a helper.\par
+\par
+Required parameters (int version):\par
+  v = \i var_no\i0  (int)\par
+    \i var_no\i0  should evaluate to an integer between 0 and 59.\par
+\par
+  value = \i int_expr\i0  (int)\par
+    \i int_expr\i0  is the value to assign to the int variable indicated by \par
+    \i var_no\i0 .\par
+\par
+Required parameters (float version):\par
+  fv = \i var_no\i0  (int)\par
+    \i var_no\i0  should evaluate to an integer between 0 and 39.\par
+\par
+  value = \i float_expr\i0  (float)\par
+    \i float_expr\i0  is the value to assign to the float variable indexed by \par
+    \i var_no\i0 .\par
+\par
+Optional parameters:\par
+  none in both cases\par
+\par
+Alternate syntax:\par
+  var(\i var_no\i0 ) = \i int_expr\i0   (int version)\par
+  fvar(\i var_no\i0 ) = \i float_expr\i0  (float version)\par
+\par
+Notes:\par
+  Due to historical reasons, note that the alternate variable \par
+  assignment syntax listed above does not exactly match the syntax for \par
+  variable assignment within an expression.\par
+  If you have placed P2 in a custom state through a successful hit, do \par
+  not use variable assignment within the custom states. Otherwise, you \par
+  will overwrite P2's parent's variables, which is rather rude.\par
+\par
+Example:\par
+  none\par
+\par
+ \par
+------------------------------------------------------------\par
+Pause\par
+------------------------------------------------------------\par
+\par
+Pauses the game for the specified amount of time. Player and background updates are not carried out during this time.\par
+\par
+Required parameters:\par
+  time = \i t \i0 (int)\par
+    This is the number of game ticks to pause for.\par
+    Valid values for \i t \i0 are all positive numbers, starting\par
+    from 0.\par
+\par
+Optional parameters:\par
+  endcmdbuftime = \i bt\i0  (int)\par
+\pard\nowidctlpar\li480\ri4 This is the number of ticks during the end of the pause in which the player's move commands will be buffered. Buffered commands will be detected by the "command" trigger immediately after the pause ends. The buffering applies only to players who are unable to move during the pause (see movetime parameter). Valid values for endcmdbuftime are from 0 to \i t\i0 , where \i t\i0  is the value of the time parameter. Defaults to 0.\par
+\pard\nowidctlpar\par
+  movetime = \i mt \i0 (int)\par
+    This is the number of ticks during the start of the pause in which\par
+    the player is allowed to move. Collision detection is carried out\par
+    during this time, so it is possible to hit other players.\par
+    Valid values for \i mt \i0 are from 0 to \i t\i0 , where \i t\i0  is the value of\par
+    the time parameter. Defaults to 0.\par
+\par
+  pausebg = \i p\i0  (boolean)\par
+\pard\nowidctlpar\li480 If set to 1, the background is stopped during the pause. If 0, the background continues updating during the pause. Defaults to 1.\par
+\pard\nowidctlpar\par
+Notes:\par
+  Executing a Pause controller during the pausetime of another\par
+  will cancel out the effect of the previous Pause controller.\par
+  Executing a Pause during a superpause will delay the effects\par
+  of the pause until after the superpause has ended.\par
+\par
+-Example:\par
+  none\par
+\par
+ \par
+-----------------------------------------------------------\par
+PlayerPush\par
+------------------------------------------------------------\par
+\par
+Disables the player's push checking for one tick. Push checking keeps players from overlapping one another. By temporarily disabling push checking, dodge-type moves in which the player passes through another (but can still be hit) can be implemented.\par
+\par
+Required parameters:\par
+  value = \i push_flag\i0  (int)\par
+    If \i push_flag\i0  is nonzero, then push checking is enabled. If \par
+    \i push_flag\i0  is zero, then push checking is disabled. \par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+PlaySnd\par
+------------------------------------------------------------\par
+\par
+Plays back a sound\par
+\par
+Required parameters:\par
+  value = \i group_no\i0 , \i sound_no\i0\par
+    group_no and sound_no correspond to the identifying pair\par
+    that you assigned each sound in the player's snd file.\par
+    To play back a sound from "common.snd", precede group_no\par
+    with an "F".\par
+\par
+Optional parameters:\par
+  volume = \i volume_level\i0\par
+    \i volume_level\i0  (int) is 0 for normal volume, positive for\par
+    louder, and negative for softer.\par
+  \par
+  channel = \i channel_no\i0\par
+    \i channel_no \i0 (int) specifies which of the player's sound channels \par
+    the sound should play on. Only one voice may play on a particular\par
+    channel at a time. For example, if you play a sound on channel 2,\par
+    then play any sound on the same channel before the first sound is \par
+    done, then by default the first sound is stopped as the second one \par
+    plays. 0 is a special channel reserved for player voices. Channel \par
+    0 voices are stopped when the player is hit. It's recommended you\par
+    play your character's voice sounds on channel 0.\par
+    If omitted, \i channel_no\i0  defaults to -1, meaning the sound will play \par
+    on any free channel.\par
+\par
+  lowpriority = \i pr \i0 (int)\par
+    This is only valid if the channel is not -1. If \i pr \i0 is nonzero,\par
+    then a sound currently playing on this sound's channel (from a\par
+    previous PlaySnd call) cannot be interrupted by this sound.\par
+\par
+  freqmul = \i f\i0  (float)\par
+    The sound frequency will be multiplied by \i f\i0 . For example. \i f \i0 = 1.1\par
+    will result in a higher-pitched sound. Defaults to 1.0 (no change\par
+    in frequency).\par
+  \par
+  loop = \i loop_flag\i0  (int)\par
+    Set \i loop_flag\i0  to a nonzero value to have the sound sample loop\par
+    over and over. Defaults to 0.\par
+  \par
+  pan = \i p\i0  (int)\par
+    (mutually exclusive with abspan)\par
+    This is the positional offset of the sound, measured in pixels.\par
+    If \i p\i0  > 0, then the sound is offset to the front of the player.\par
+    If \i p\i0  < 0, then sound is offset to the back.\par
+    Defaults to 0.\par
+  \par
+  abspan = \i p\i0  (int)\par
+    (mutually exclusive with pan)\par
+    Like pan, except the sound is panned from the center of the \par
+    screen, not from the player's position.\par
+\par
+Example:\par
+  ; Plays back sound 2,0 from the player's SND file\par
+  type = PlaySnd\par
+  value = 2,0\par
+\par
+  ; Plays back sound 5,2 from fight.snd\par
+  type = PlaySnd\par
+  value = F5,2\par
+\par
+\par
+------------------------------------------------------------\par
+PosAdd\par
+------------------------------------------------------------\par
+\par
+Offsets the player's position by the specified amounts. The X coordinate is relative to the player's axis, with positive values moving in the direction that the player is facing. The Y coordinate \par
+is relative to the player's axis, with negative values moving up.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_value \i0 (float)\par
+  y = \i y_value \i0 (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+PosFreeze\par
+------------------------------------------------------------\par
+\par
+Allows you to freeze the player's position temporarily.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  value = \i freeze_flag\i0  (int)\par
+    If freeze_flag is 0, the player's position will not be frozen,\par
+    else it will be. Defaults to 1.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+PosSet\par
+------------------------------------------------------------\par
+\par
+Sets the player's position to the specified coordinates. The X coordinate is relative to the center of the screen, with positive values moving right. The Y coordinate is relative to the floor, with negative values moving up.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_value \i0 (float)\par
+  y = \i y_value \i0 (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+PowerAdd\par
+------------------------------------------------------------\par
+\par
+Adds the specified amount to the player's power.\par
+\par
+Required parameters:\par
+  value = \i add_amt \i0 (int)\par
+    \i add_amt\i0  is the number to add to the player's power.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+  \par
+------------------------------------------------------------\par
+PowerSet\par
+------------------------------------------------------------\par
+\par
+Sets the amount of power that the player has.\par
+\par
+Required parameters:\par
+  value = \i pow_amt\i0  (int)\par
+    \i pow_amt\i0  is the number to set the player's power.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Projectile\par
+------------------------------------------------------------\par
+\par
+Creates a projectile for the player. The Projectile controller takes all the parameters of the HitDef controller, which control the HitDef for the projectile. In addition, Projectile has the following additional parameters:\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  ProjID = \i id_no\i0  (int)\par
+    Specifies an ID number to refer to this projectile by. Should be \par
+    positive, if specified.\par
+\par
+  projanim = \i anim_no\i0  (int)\par
+    Specifies the animation action number to use for the projectile's \par
+    animation. Defaults to 0 if omitted.\par
+\par
+  projhitanim = \i anim_no\i0  (int)\par
+    Specifies the animation action number to play when the projectile \par
+    hits the opponent. Defaults to -1 (no change in animation) if \par
+    omitted.\par
+\par
+  projremanim = \i anim_no\i0  (int)\par
+    Specifies the animation action number to play when the projectile \par
+    is removed (due to its time expiring or hitting the its removal \par
+    boundaries, etc.) If omitted, projhitanim is used instead.\par
+\par
+  projcancelanim = \i anim_no\i0  (int)\par
+    Specifies the animation action number to play when the projectile \par
+    is cancelled by hitting another projectile. If omitted, \par
+    projremanim is used instead.\par
+\par
+  projscale = \i x_scale, y_scale\i0  (float)\par
+    Specifies the scale factor of the projectile. The final scale of\par
+    the projectile is affected by both this parameter and the \par
+    "proj.doscale" parameter in the [Size] group of p1's constants\par
+    file. Defaults to 1,1 (normal size) if omitted.\par
+\par
+  projremove = \i remove_flag\i0  (int)\par
+    Set to a nonzero value to have the projectile be removed after it \par
+    hits, or to 0 to disable this behavior. Defaults to 1.\par
+    \par
+  projremovetime = \i remove_time\i0  (int)\par
+    Specifies the number of ticks after which the projectile should be \par
+    removed from the screen. Defaults to -1 (never time out).\par
+\par
+  velocity = \i x_vel\i0 , \i y_vel\i0  (float)\par
+    Specifies the initial x and y velocities for the projectile to \par
+    travel at. Defaults to 0,0 if omitted.\par
+ \par
+  remvelocity = \i x_vel\i0 , \i y_vel\i0  (float)\par
+    Specifies the x and y velocities at which the projectile should \par
+    travel while being removed. Defaults to 0,0 if omitted.\par
+ \par
+  accel = \i x_accel\i0 , \i y_accel\i0  (float)\par
+    Specifies the acceleration to apply to the projectile in the x and \par
+    y directions. Defaults to 0,0 if omitted.\par
+\par
+  velmul = \i x_mul\i0 , \i y_mul\i0  (float)\par
+    Specifies x and y velocity multipliers. The projectile's velocity \par
+    is multiplied by these multipliers on every tick. The multipliers \par
+    default to 1 if omitted.\par
+\par
+  projhits = \i num_hits\i0  (int)\par
+    Specifies the number of hits that this projectile should be able \par
+    to do before being removed. Defaults to 1.\par
+  \par
+  projmisstime = \i miss_time\i0  (int)\par
+    If the projectile does multiple hits, specifies the least number \par
+    of ticks that must elapse between hits. Defaults to 0, but you \par
+    will most likely need a nonzero value.\par
+\par
+  projpriority = \i proj_priority\i0  (int)\par
+    Specifies the projectile priority. If the projectile collides with\par
+    another projectile of equal priority, they will cancel. If it \par
+    collides with another of lower priority, it will cancel the lower-\par
+    priority projectile, and the higher-priority one will have its\par
+    priority decreased by 1.\par
+    Defaults to 1.\par
+ \par
+  projsprpriority = \i priority \i0 (int)\par
+    Specifies the sprite priority of the projectile. Higher-priority \par
+    sprites are drawn on top of lower-priority sprites. Defaults to 3.\par
+  \par
+  projedgebound = \i value \i0 (int)\par
+    This is the distance (in pixels) off the edge of the screen before \par
+    the projectile is deleted. Defaults to 40. \par
+\par
+  projstagebound = \i value \i0 (int)\par
+    Specifies the greatest distance the projectile can travel off the \par
+    edge of the stage (not screen) before being deleted. Defaults to\par
+    40.\par
+\par
+  projheightbound = \i lowbound\i0 , \i highbound \i0 (int)\par
+    Specifies the least and greatest y values the projectile is \par
+    allowed to reach. If the projectile leaves these boundaries, it is\par
+    removed. Note: since y values decrease with increasing height on\par
+    the screen, \i lowbound \i0 actually specifies the greatest height the \par
+    projectile can attain. These parameters default to -240,1 if \par
+    omitted.\par
+   \par
+  offset = \i off_x\i0 , \i off_y\i0  (int)\par
+    Specifies the x and y offsets at which the projectile should be \par
+    created. Both parameters default to 0 if omitted. The exact \par
+    behavior of the offset parameters is dependent on the postype.\par
+\par
+   postype = \i type_string\i0\par
+\cf0     \i type_string\i0  specifies the postype -- how to interpret the pos\par
+    parameters.\par
+    In all cases, a positive y offset means a downward displacement.\par
+    Valid values for postype are the following:\par
+      - p1\par
+        Interprets pos relative to p1's axis. A positive x offset is\par
+        toward the front of p1. This is the default value for postype.\par
+      - p2\par
+        Interprets pos relative to p2's axis. A positive x offset is\par
+        toward the front of p2.\par
+      - front\par
+        Interprets xpos relative to the edge of the screen that p1 is \par
+        facing toward, and ypos relative to p1's y axis. A positive x\par
+        offset is away from the center of the screen, whereas a \par
+        negative x offset is toward the center.\par
+      - back\par
+        Interprets xpos relative to the edge of the screen that p1 is\par
+        facing away from, and ypos relative to p1's y axis. A positive\par
+        x offset is toward the center of the screen, whereas a \par
+        negative x offset is away from the center.\par
+      - left\par
+        Interprets xpos and ypos relative to the upper-left corner of\par
+        the screen. A positive x offset is toward the right of the \par
+        screen.\par
+      - right\par
+        Interprets xpos and ypos relative to the upper-right corner of\par
+        the screen. A positive x offset is toward the right of the \par
+        screen.\par
+\cf1\par
+  projshadow = \i shad_r\i0 ,\i  shad_g\i0 ,\i  shad_b \i0 (int)\par
+    Specifies the R, G, and B components of the projectile's shadow.\par
+    These components should be integers between 0 and 255, \par
+    inclusive. If \i shad_r\i0  evaluates to -1, then the stage's shadow\par
+    color will be used. The higher a component value, the less of\par
+    that color is displayed in the shadow. So a perfectly black shadow\par
+    is 255,255,255. Defaults to 0,0,0 (no shadow).\par
+\par
+\cf0   supermovetime = \i move_time\i0  (int)\par
+\cf1     Determines the number of ticks that the projectile should be \par
+    "unfrozen" during a SuperPause. Defaults to 0.\par
+\cf0\par
+  pausemovetime = \i move_time\i0  (int)\par
+\cf1     Determines the number of ticks that the projectile should be \par
+    "unfrozen" during a Pause. Defaults to 0.\par
+\par
+  afterimage.time = \i aftimg_time\i0  (int)\par
+  ...\par
+    If included, this adds afterimage effects to the projectile.\par
+    The parameters are the same as in the AfterImage controller,\par
+    except they are all prepended with "afterimage."\par
+\par
+Notes:\par
+  All projectiles created by helpers immediately become owned by the root.\par
+\par
+Example:\par
+  none\par
+\par
+  \par
+\cf0 ------------------------------------------------------------\par
+RemoveExplod\par
+------------------------------------------------------------\par
+\par
+Removes all of a player's explods, or just the explods with a specified ID number.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  ID = \i remove_id\i0  (int)\par
+    \i remove_id\i0  is the ID number of the explods to remove. If omitted,\par
+    removes all explods.\par
+\cf1\par
+\par
+------------------------------------------------------------\par
+ReversalDef\par
+------------------------------------------------------------\par
+\par
+Defines a reversal. If one of P2's Clns1 boxes comes in contact with one of P1's Clsn1 boxes and a ReversalDef is active, then P1 will reverse P2's attack. Use with p1stateno (and optionally p2stateno) for creating reversal attacks.\par
+\par
+ReversalDefs take the HitDef parameters pausetime, sparkno, hitsound, p1stateno, and p2stateno, plus:\par
+\par
+Required parameters:\par
+  reversal.attr = \i attr_string\i0\par
+    \i attr_string\i0  specifies the list of attack attributes that can be \par
+    reversed by this ReversalDef. It is a standard hit attribute \par
+    string. For instance, \par
+      reversal.attr = SA,NA,SA\par
+    means stand+air, normal attack, special attack.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Notes:\par
+  The sparkxy parameter is treated as an offset to P2's hitdef's sparkxy.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+ScreenBound\par
+------------------------------------------------------------\par
+\par
+Determines whether or not the player's movement should be constrained to the screen or not. Also determines whether the camera should move to follow the player or not. The results of this controller are valid for 1 tick.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  value = \i bound_flag\i0  (int)\par
+    If \i bound_flag\i0  is 0, the player will be allowed to move off the \par
+    screen. \par
+\par
+  movecamera = \i move_x_flag\i0 , \i move_y_flag\i0  (int)\par
+    Determines whether the camera should pan to follow the player in \par
+    the x direction and in the y direction, respectively. Defaults to \par
+    0 in both instances if omitted.\par
+\par
+Examples:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+SelfState\par
+------------------------------------------------------------\par
+\par
+Like ChangeState, except that this changes a player back to a state in his own state data. Use this when you have placed a player in a custom state via an attack and wish to restore him to normal.\par
+\par
+\par
+------------------------------------------------------------\par
+SprPriority\par
+------------------------------------------------------------\par
+\par
+Changes the player's sprite priority. Higher-priority sprites are drawn on top of lower-priority sprites. \par
+\par
+Required arguments:\par
+  value = \i priority_level\i0  (int)\par
+    Valid priority levels are -5 to 5.\par
+\par
+Optional arguments:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+StateTypeSet\par
+------------------------------------------------------------\par
+\par
+Changes the current state type and move type. Useful for states that go from the ground into the air, etc.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  statetype = \i state_type\i0  (string)\par
+    \i state_type\i0  should be A for air, C for crouch, S for stand, or L\par
+    for liedown. Defaults to no change.\par
+  movetype = \i move_type\i0  (string)\par
+    \i move_type\i0  should be I for idle, A for attack, or H for gethit. \par
+    Defaults to no change. \par
+  physics = \i physics\i0  (string)\par
+    \i physics\i0  should be A for air, C for crouch, S for stand, or N\par
+    for none. Defaults to no change.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+SndPan\par
+------------------------------------------------------------\par
+\par
+Changes the panning of a currently playing sound. This controller may be continually triggered to smoothly move a sound across the sound field or to have a sound follow the player.\par
+\par
+Required parameters:\par
+  channel = \i chan_no\i0  (int)\par
+    Specifies the channel number of the sound to pan.\par
+  pan = \i p\i0  OR abspan = \i p\i0  (int)\par
+    These parameters cannot both be specified at the same time. \i p\i0  \par
+    determines the sound offset in pixels from the player (in the \par
+    case of pan) or from the center of the screen (in the case of\par
+    abspan). See PlaySnd for a description of the panning parameters.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none  \par
+\par
+\par
+------------------------------------------------------------\par
+StopSnd\par
+------------------------------------------------------------\par
+\par
+Stops any sound which is playing on the specified channel.\par
+\par
+Required parameters:\par
+  channel = \i chan_no\i0  (int)\par
+    Stops playback of any sound on \i chan_no\i0 . If \i chan_no\i0  is -1, then all\par
+    sounds are stopped, including those belonging to other players. Do\par
+    not abuse this feature.\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+SuperPause\par
+------------------------------------------------------------\par
+\par
+Freezes the gameplay and darkens the screen. While each player is frozen, no time passes for them. Use for a dramatic pause during the start of hyper attacks.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+\pard\nowidctlpar\li240 SuperPause accepts all optional parameters that the Pause controller does. In addition, SuperPause also takes the following parameters:\par
+\pard\nowidctlpar\par
+  time = \i pause_time\i0  (int)\par
+    Determines the number of ticks that the pause should last. Default \par
+    is 30 ticks (half a second at default speed).\par
+\par
+  anim = \i anim_no\i0  (int)\par
+    Sets the animation number (from fightfx.air) to play during the \par
+    SuperPause. The default is 30, which is a charging effect. If anim \par
+    is -1, no animation will be played. If you prepend "S" to anim_no,\par
+    the animation used will be from the player's AIR file. For example,\par
+    anim = S10.\par
+\par
+  sound = \i snd_grp\i0 , \i snd_no\i0  (int, int)\par
+    Plays a sound (from common.snd) during SuperPause. The default\par
+    is -1, which means no sound is played. If you prepend "S" to\par
+    snd_grp, then the sound used will be from the player's own SND\par
+    file. For example, sound = S10,0.\par
+\par
+  pos = \i x_pos\i0 , \i y_pos\i0  (float)\par
+    Determines the offset (from the player axis) at which the super \par
+    charge anim should be played. Defaults to 0,0.\par
+\par
+  darken = \i bvalue \i0 (boolean)\par
+    If this is 1, the screen will darken during the SuperPause.\par
+    Set this to 0 to disable this effect. The default value is 1.\par
+\par
+  p2defmul = \i def_mul \i0 (float)\par
+    This is the amount in which to temporarily multiply the defence of\par
+    any targets the player has. This is used to make chaining into\par
+    supers less damaging. Setting this at 1 will make no changes\par
+    to the targets' defence. 0 is a special value that will set the\par
+    defence to the number set in Super.TargetDefenceMul in the [Rules]\par
+    section of mugen.cfg. The default value is 0. Valid values are all\par
+    positive numbers, including zero.    \par
+\par
+  poweradd = \i value\i0  (int)\par
+    This is the amount to add to the player's power. Defaults to 0.\par
+\par
+  unhittable = \i bvalue \i0 (boolean)\par
+    If set to 1, the player cannot be hit during the SuperPause. Set to\par
+    0 to disable this. Defaults to 1.\par
+\par
+Notes:\par
+  If the Pause controller was previously executed, and the action is   \par
+  still paused, executing a SuperPause will preempt the Pause \par
+  controller's effects. During the SuperPause, the time left until\par
+  the Pause controller's effects expires will not count down.\par
+\par
+Example:\par
+  none  \par
+\par
+\par
+------------------------------------------------------------\par
+TargetBind\par
+------------------------------------------------------------\par
+\par
+Binds the player's specified targets to a specified location relative to the player's axis.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  time = \i bind_time\i0  (int)\par
+    Specifies number of ticks that this binding should be in effect. \par
+    Defaults to 1.\par
+  \par
+  ID = \i bind_id\i0  (int)\par
+    Specifies the desired target ID to bind. Only targets with this \par
+    target ID will be bound. Defaults to -1 (bind all targets.)\par
+\par
+  pos = \i x_pos\i0 , \i y_pos\i0  (float)\par
+    Specifies the offset from the player's axis to bind the target to. \par
+    Defaults to 0,0 if omitted.\par
+\par
+\par
+------------------------------------------------------------\par
+TargetDrop\par
+------------------------------------------------------------\par
+\par
+Drops all targets from the player's target list, except possibly for those having a specified target ID number. Useful for applying effects to only certain targets.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  excludeID = \i id_no \i0 (int)\par
+    Any targets with target ID number not equal to id_no will be \par
+    dropped from the player's target list. Defaults to -1 (drop all\par
+    targets).\par
+\par
+  keepone = \i value \i0 (int)\par
+    If value is nonzero, then at most one target is kept on the \par
+    player's target list. If there are multiple targets whose target \par
+    ID number is the same as id_no, one will be picked at random and \par
+    the rest will be dropped. This behavior is useful in throws, to \par
+    keep from throwing multiple opponents simultaneously. If value is\par
+    0, then all targets with the appropriate ID number will be kept. \par
+    keepone defaults to 1.\par
+    \par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+TargetFacing\par
+------------------------------------------------------------\par
+\par
+Turns all targets to face a specified direction relative to the player.\par
+\par
+Required parameters:\par
+  value = \i facing_val\i0  (int)\par
+    If facing_val is positive, all targets will turn to face the same \par
+    direction as the player. If facing_val is negative, all targets \par
+    will turn to face the opposite direction as the player.\par
+\par
+Optional parameters:\par
+  ID = \i target_id\i0  (int)\par
+    Specifies the desired target ID to affect. Only targets with this \par
+    target ID will be affected. Defaults to -1 (affects all targets.)\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+TargetLifeAdd\par
+------------------------------------------------------------\par
+\par
+Adds the specified amount to all targets' life, scaled by the targets' defense multipliers if necessary.\par
+\par
+Required parameters:\par
+  value = \i add_amt\i0  (int)\par
+    \i add_amt\i0  is added toe ach target's life.\par
+\par
+Optional parameters:\par
+  ID = \i target_id\i0  (int)\par
+    Specifies the desired target ID to affect. Only targets with this \par
+    target ID will be affected. Defaults to -1 (affects all targets.)\par
+\par
+  kill = \i kill_flag\i0  (int)\par
+    If \i kill_flag\i0  is 0, then the addition will not take any player \par
+    below 1 life point. Defaults to 1.\par
+  \par
+  absolute = \i abs_flag\i0  (int)\par
+    If \i abs_flag\i0  is 1, then \i add_amt\i0  will not be scaled (attack and \par
+    defense multipliers will be ignored). Defaults to 0.\par
+\par
+Example:\par
+  none\par
+  \par
+\par
+------------------------------------------------------------\par
+TargetPowerAdd\par
+------------------------------------------------------------\par
+\par
+Adds the specified amount to all targets' power.\par
+\par
+Required parameters:\par
+  value = \i add_amt\i0  (int)\par
+    \i add_amt\i0  is added to each target's power.\par
+\par
+Optional parameters:\par
+  ID = \i target_id\i0  (int)\par
+    Specifies the desired target ID to affect. Only targets with this \par
+    target ID will be affected. Defaults to -1 (affects all targets.)\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+TargetState\par
+------------------------------------------------------------\par
+\par
+Makes all targets change to the specified state number.\par
+\par
+Required parameters:\par
+  value = \i state_no\i0  (int)\par
+    Specifies the number of the state to change to.\par
+\par
+Optional parameters:\par
+  ID = \i target_id\i0  (int)\par
+    Specifies the desired target ID to affect. Only targets with this \par
+    target ID will be affected. Defaults to -1 (affects all targets.)\par
+\par
+Examples:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+TargetVelAdd\par
+------------------------------------------------------------\par
+\par
+Adds the specified amounts to all targets' velocities. A positive x velocity is in the direction that the target is facing, while a positive y velocity is downward on the screen.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_value\i0  (float)\par
+  y = \i y_value\i0  (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+  ID = \i target_id\i0  (int)\par
+    Specifies the desired target ID to affect. Only targets with this \par
+    target ID will be affected. Defaults to -1 (affects all targets.)\par
+\par
+Example:\par
+  ; Applies "gravity" to all targets\par
+  type = VelAdd\par
+  y = 0.45\par
+  \par
+\par
+\par
+------------------------------------------------------------\par
+TargetVelSet\par
+------------------------------------------------------------\par
+\par
+Sets all targets' velocities to the specified values. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_value\i0  (float)\par
+  y = \i y_value\i0  (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+  ID = \i target_id\i0  (int)\par
+    Specifies the desired target ID to affect. Only targets with this \par
+    target ID will be affected. Defaults to -1 (affects all targets.)\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Trans\par
+------------------------------------------------------------\par
+\par
+Overrides the player's animation transparency parameters for current game tick. Useful for special effects.\par
+\par
+Required parameters:\par
+  trans = \i trans_type\i0  (string)\par
+    \i trans_type\i0  must be one of the following:\par
+      default  - does nothing\par
+      none     - disables transparency\par
+      add      - draws with full additive transparency\par
+      addalpha - draws with additive transparency (alpha must be specified)\par
+      add1     - draws with additive transparency, with alpha at 256,128\par
+      sub      - draws with full subtractive transparency\par
+\par
+Optional parameters:\par
+  alpha = \i source_alpha\i0 , \i dest_alpha\i0  (int, int)\par
+    These are the source and destination alpha values for the addalpha\par
+    trans type. Valid values are from 0 (low) to 256 (high). If omitted,\par
+    defaults to 256,0.\par
+\par
+Example:\par
+  ; Fades the character in, over 256 ticks.\par
+  type = Trans\par
+  trigger1 = time < 256\par
+  trans = add_alpha\par
+  alpha = time, 256-time\par
+\par
+\par
+------------------------------------------------------------\par
+Turn\par
+------------------------------------------------------------\par
+\par
+Instantly turns the player to face the opposite direction. Does not play a turning animation.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  none\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+VarAdd\par
+------------------------------------------------------------\par
+\par
+Adds to one of the player's working variables. Either a float variable or an int variable can be added to by this controller.\par
+\par
+Required parameters (int version):\par
+  v = \i var_no\i0  (int)\par
+    \i var_no\i0  should evaluate to an integer between 0 and 59.\par
+\par
+  value = \i int_expr \i0 (int)\par
+    \i int_expr \i0 is the value to add to the int variable indicated by \par
+    \i var_no\i0 .\par
+\par
+Required parameters (float version):\par
+  fv = \i var_no \i0 (int)\par
+    \i var_no \i0 should evaluate to an integer between 0 and 39.\par
+\par
+  value = \i float_expr \i0 (float)\par
+    \i float_expr \i0 is the value to add to the float variable indexed by \par
+    \i var_no\i0 .\par
+\par
+Optional parameters:\par
+  none in both cases\par
+\par
+Alternate syntax:\par
+  var(\i var_no\i0 ) = \i int_expr  \i0 (int version)\par
+  fvar(\i var_no\i0 ) = \i float_expr \i0 (float version)\par
+\par
+Notes:\par
+  Due to historical reasons, note that the alternate VarAdd \par
+  syntax listed above matches neither the syntax for variable \par
+  assignment within an expression, nor the syntax for variable \par
+  addition within an expression.\par
+  If you have placed P2 in a custom state through a successful hit, do \par
+  not use variable assignment within the custom states. Otherwise, you \par
+  will overwrite P2's variables, which is rather rude.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+VarRandom\par
+------------------------------------------------------------\par
+\par
+Sets the specified int variable to a random value. Float variables cannot be set by this controller.\par
+\par
+Required parameters:\par
+  v = \i var_no \i0 (int)\par
+    \i var_no \i0 is the index of the int variable to set. It should evaluate \par
+    to an integer between 0 and 59.\par
+\par
+Optional parameters:\par
+  range = \i least_val\i0 ,\i greatest_val \i0 (int)\par
+    \i least_val \i0 and \i greatest_val \i0 specify the least and greatest values \par
+    which can be assigned by this controller, respectively. The value \par
+    assigned to the variable will be a randomly chosen integer from \par
+    this range.\par
+    range defaults to 0,1000. If only one argument is specified, that \par
+    is considered to specify the range 0,(argument).\par
+\par
+Notes:\par
+  If you have placed P2 in a custom state through a successful hit, do \par
+  not use variable assignment within the custom states. Otherwise, you \par
+  will overwrite P2's variables, which is rather rude.\par
+\par
+Example:\par
+  type = VarRandom\par
+  v = 5\par
+  range = 500\par
+   Assigns a random number between 0 and 500 to var(5).\par
+\par
+\par
+------------------------------------------------------------\par
+VarRangeSet\par
+------------------------------------------------------------\par
+\par
+Sets a contiguous range of the player's working variables to the same value. Either float variables or int variables can be set by this controller, but not both at the same time.\par
+\par
+Required parameters (int version):\par
+  value = \i int_expr \i0 (int)\par
+    \i int_expr \i0 is evaluated once to give the value that is assigned to \par
+    all int variables in the range.\par
+\par
+Required parameters (float version):\par
+  fvalue = \i float_expr \i0 (float)\par
+    float_expr is evaluated once to give the value that is assigned to\par
+    all float variables in the range.\par
+\par
+Optional parameters (both versions):\par
+  first = \i first_idx \i0 (int)\par
+    Specifies the lower end of the range of variables to set. Defaults \par
+    to 0 (first variable).\par
+\par
+  last = \i last_idx \i0 (int)\par
+    Specifies the higher end of the range of variables to set. \par
+    Defaults to 59 for int variables, or 39 for float variables (this \par
+    is the last available variable in both cases).\par
+\par
+Notes:\par
+If you have placed P2 in a custom state through a successful hit, do \par
+  not use variable assignment within the custom states. Otherwise, you \par
+  will overwrite P2's variables, which is rather rude.\par
+\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+VarSet\par
+------------------------------------------------------------\par
+\par
+Sets one of the player's working variables. Either a float variable or an int variable can be set by this controller, but not both at the same time.\par
+\par
+Required parameters (int version):\par
+  v = \i var_no \i0 (int)\par
+    \i var_no \i0 should evaluate to an integer between 0 and 59.\par
+\par
+  value = \i int_expr \i0 (int)\par
+    \i int_expr \i0 is the value to assign to the int variable indicated by \par
+    \i var_no\i0 .\par
+\par
+Required parameters (float version):\par
+  fv = \i var_no \i0 (int)\par
+    \i var_no \i0 should evaluate to an integer between 0 and 39.\par
+\par
+  value = \i float_expr \i0 (float)\par
+    \i float_expr \i0 is the value to assign to the float variable indexed by \par
+    \i var_no\i0 .\par
+\par
+Optional parameters:\par
+  none in both cases\par
+\par
+Alternate syntax:\par
+  var(\i var_no\i0 ) = \i int_expr  \i0 (int version)\par
+  fvar(\i var_no\i0 ) = \i float_expr \i0 (float version)\par
+\par
+Notes:\par
+  Due to historical reasons, note that the alternate variable \par
+  assignment syntax listed above does not exactly match the syntax for \par
+  variable assignment within an expression.\par
+  If you have placed P2 in a custom state through a successful hit, do \par
+  not use variable assignment within the custom states. Otherwise, you \par
+  will overwrite P2's variables, which is rather rude.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+VelAdd\par
+------------------------------------------------------------\par
+\par
+Adds the specified amounts to the player's velocity. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_value \i0 (float)\par
+  y = \i y_value \i0 (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+Example:\par
+  ; Applies "gravity" to the player\par
+  type = VelAdd\par
+  y = 0.45\par
+  \par
+\par
+------------------------------------------------------------\par
+VelMul\par
+------------------------------------------------------------\par
+\par
+Multiplies the player's velocity by the specified amounts. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_multiplier \i0 (float)\par
+  y = \i y_multiplier \i0 (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+Example:\par
+  ; Applies "friction" to the player\par
+  type = VelMul\par
+  x = 0.8\par
+\par
+\par
+------------------------------------------------------------\par
+VelSet\par
+------------------------------------------------------------\par
+\par
+Sets the player's velocity to the specified values. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen.\par
+\par
+Required parameters:\par
+  none    \par
+\par
+Optional parameters:\par
+  x = \i x_value \i0 (float)\par
+  y = \i y_value \i0 (float)\par
+    You can specify one or both of the optional parameters\par
+    at a time.\par
+\par
+Example:\par
+  none\par
+\par
+\par
+------------------------------------------------------------\par
+Width\par
+------------------------------------------------------------\par
+\par
+Changes the size of the player's width bar for 1 tick. Useful for controlling the "pushing" behavior when the player makes contact with another.\par
+\par
+Required parameters:\par
+  none\par
+\par
+Optional parameters:\par
+  edge = \i edgewidth_front\i0 , \i edgewidth_back \i0 (int)\par
+    Sets the player's edge width in front and behind. Edge width \par
+    determines how close the player can get to the edge of the screen.\par
+    These parameters default to 0,0 if omitted.\par
+\par
+  player = \i playwidth_front\i0 , \i playwidth_back \i0 (int)\par
+    Sets the player width in front and behind. Player width determines \par
+    how close the player can get to other players. These parameters \par
+    default to 0,0 if omitted.\par
+\par
+Alternate syntax:\par
+  value = \i width_front\i0 , \i width_back \i0 (int)\par
+    This is a shorthand syntax for setting both edge width and player \par
+    width simultaneously. This may only be used if the edge and player \par
+    parameters are not specified.\par
+\par
+Notes:\par
+  When collision box display is enabled, the edge width bar is \par
+  displayed in orange, and the player width bar is displayed in   \par
+  yellow. Where they overlap, the overlapping region is displayed in \par
+  bright yellow.\par
+\par
+Example:\par
+  none\par
+\cf0\par
+}
+ 
