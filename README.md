@@ -3,6 +3,6 @@ openmugen
 
 An opensource MUGEN client 
 
-First things first:
+First things first (TODO):
 
-Compile on Linux/Windows
+Compile on Linux
