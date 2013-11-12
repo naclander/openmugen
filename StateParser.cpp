@@ -895,7 +895,7 @@ int CStateParser::GetControllerType(const char * strType,CTokenizer &tok)
     int i=0;
     while(strControllerTypes[i])
     {
-       if(strcmpi(strType,strControllerTypes[i]) == 0)
+       if(strcmp(strType,strControllerTypes[i]) == 0)
           return i;       
           
        i++;
@@ -911,7 +911,7 @@ int CStateParser::GetTriggerType(const char * strTrigger,CTokenizer &tok)
     int i=0;
     while(strTriggerType[i])
     {
-       if(strcmpi(strTrigger,strTriggerType[i]) == 0)
+       if(strcmp(strTrigger,strTriggerType[i]) == 0)
           return i;
           
           

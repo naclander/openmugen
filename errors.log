@@ -1,0 +1,1329 @@
+AirManager.cpp: In member function ‘ActionElement* CAirManager::GetAction(s32)’:
+AirManager.cpp:171:55: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("No anim block with %i",nActionNumber);           
+                                                       ^
+cmdManager.cpp: In member function ‘void CCmdManager::Update(KEYBOARDDATA*, bool)’:
+cmdManager.cpp:389:52: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                 PrintMessage("%s",m_CurrCommandName);
+                                                    ^
+game.cpp: In member function ‘void CGame::InitGame()’:
+game.cpp:47:55: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("Welcome to OpenMugen Version %s",VER);
+                                                       ^
+game.cpp:49:41: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CGame:Init SDL system");
+                                         ^
+game.cpp:55:45: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CGame:SDL init failed");
+                                             ^
+MemManager.cpp: In member function ‘void CAllocater::ShowMemUsage()’:
+MemManager.cpp:35:64: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("---Memory usage of %s allocater",strAllocName); 
+                                                                ^
+MemManager.cpp:36:62: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("---Allocated memory %i in bytes",nAllocSize);
+                                                              ^
+MemManager.cpp:37:65: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("---Allocated number of Memory %i",nAllocNumber);
+                                                                 ^
+MemManager.cpp:39:20: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("");
+                    ^
+MemManager.cpp: In member function ‘void* CAllocater::Alloc(size_t, int)’:
+MemManager.cpp:66:57: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           PrintMessage("CAllocater::no free block found"); 
+                                                         ^
+MemManager.cpp:72:50: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          PrintMessage("CAllocater::malloc failed");                        
+                                                  ^
+MemManager.cpp: In member function ‘void* CAllocater::Realloc(void*, size_t)’:
+MemManager.cpp:100:65: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      PrintMessage("Realloc failed %x was never allocated",CurMem);        
+                                                                 ^
+MemManager.cpp: In member function ‘void CAllocater::Free(void*)’:
+MemManager.cpp:130:62: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      PrintMessage("free failed %x was never allocated",CurMem);
+                                                              ^
+MemManager.cpp: In member function ‘void CMemManager::InitManager()’:
+MemManager.cpp:174:59: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[MAINMENU]         =new CAllocater("Main Menu");
+                                                           ^
+MemManager.cpp:175:55: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[STAGE]            =new CAllocater("Stage");
+                                                       ^
+MemManager.cpp:176:56: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[ENGINE]           =new CAllocater("Engine");
+                                                        ^
+MemManager.cpp:177:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[P1]               =new CAllocater("Player 1");
+                                                          ^
+MemManager.cpp:178:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[P2]               =new CAllocater("Player 2");
+                                                          ^
+MemManager.cpp:179:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[P3]               =new CAllocater("Player 3");
+                                                          ^
+MemManager.cpp:180:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      lpAlloc[P4]               =new CAllocater("Player 4");
+                                                          ^
+MemManager.cpp:182:40: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      PrintMessage("Init Memory Manager");
+                                        ^
+MemManager.cpp: In member function ‘size_t CMemManager::GetMemUsage()’:
+MemManager.cpp:205:83: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    PrintMessage("======================Memory Manager============================");
+                                                                                   ^
+MemManager.cpp:206:83: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    PrintMessage("|Name:               |Allocated bytes                          |"); 
+                                                                                   ^
+MemManager.cpp:207:83: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    PrintMessage("----------------------------------------------------------------");
+                                                                                   ^
+MemManager.cpp:211:99: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    PrintMessage("|%20s                  |%20i  | ",lpAlloc[i]->GetName(),lpAlloc[i]->GetMemUsage());
+                                                                                                   ^
+MemManager.cpp:213:83: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    PrintMessage("================================================================");  
+                                                                                   ^
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      "unchange"}; 
+                ^
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp:15:16: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+player.cpp: In member function ‘bool CPlayer::LoadPlayer(const char*)’:
+player.cpp:83:40: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_AirManager.OpenAir("kfm/kfm.air");
+                                        ^
+player.cpp: In member function ‘void CPlayer::Debug()’:
+player.cpp:177:88: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                                                                 ,Anim->nCompletAnimTime);
+                                                                                        ^
+player.cpp:181:107: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                                                                                          strState[nPhysic]);
+                                                                                                           ^
+player.cpp:182:61: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_pVideoSystem->DrawText(0,30,"x=%3f,y=%3f",x,y-nGround);
+                                                             ^
+player.cpp:185:90: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                                                                          this->nStateTime);
+                                                                                          ^
+player.cpp: In member function ‘void CPlayer::ChangeState(s32)’:
+player.cpp:233:64: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("TODO:Handel juggle parameter of Statedef");
+                                                                ^
+scale2xSDL.cpp: In function ‘void scale2x(SDL_Surface*, SDL_Surface*)’:
+scale2xSDL.cpp:34:65: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("scale2x:Was not able to lock work surface");
+                                                                 ^
+scale2xSDL.cpp:37:67: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("scale2x:Was not able to lock screen surface");
+                                                                   ^
+SDLManager.cpp: In member function ‘bool CSDLManager::Init()’:
+SDLManager.cpp:40:40: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CSDLManager:: Init()");
+                                        ^
+SDLManager.cpp:45:52: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CSDLManager::SDL_Init Failed");
+                                                    ^
+SDLManager.cpp:46:51: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("SDL error=%s",SDL_GetError());
+                                                   ^
+SDLManager.cpp:49:45: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CSDLManager:: SDL_Init OK");
+                                             ^
+SDLManager.cpp:56:61: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CSDLManager:: VideoSystem Init Failed");
+                                                             ^
+SDLManager.cpp:59:52: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CSDLManager::VideoSystem Init OK");
+                                                    ^
+SDLManager.cpp: In member function ‘void CSDLManager::CleanSDL()’:
+SDLManager.cpp:66:46: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CSDLManager:: Cleaning SDL");
+                                              ^
+SffManager.cpp: In member function ‘bool CSffManager::LoadSffFile(const char*)’:
+SffManager.cpp:46:52: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   PrintMessage("CSffManager::Loading %s",strSffFile);
+                                                    ^
+SffManager.cpp:52:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      PrintMessage("CSffManager::Can't find %s",strSffFile);             
+                                                          ^
+SffManager.cpp:62:65: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CSffManager::%s is not an SFF file",strSffFile);
+                                                                 ^
+SffManager.cpp:66:78: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   PrintMessage("CSffManager::Sff file include %i images",header.NumberOfImage);
+                                                                              ^
+SffManager.cpp: In member function ‘bool CSffManager::LoadActToSff(const char*)’:
+SffManager.cpp:89:67: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      PrintMessage("CSffSpriteManager %s File not found",strActFile);
+                                                                   ^
+SffManager.cpp: In member function ‘u8* CSffManager::DecodePcx(u8*, PCXHEADER)’:
+SffManager.cpp:219:52: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      PrintMessage("24Bit pcx file is not supproted");       
+                                                    ^
+SffManager.cpp: In member function ‘void CSffManager::DecodeSffFile()’:
+SffManager.cpp:369:67: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CSffManager:: %i image are decoded",nTotalImages);
+                                                                   ^
+Stack.cpp: In member function ‘void CStack::Push(float, char*)’:
+Stack.cpp:49:51: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CStack::Push Stack overflow");
+                                                   ^
+Stack.cpp: In member function ‘Stacktype CStack::Pop()’:
+Stack.cpp:66:51: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CStack::Pop Stack underflow");
+                                                   ^
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+ };
+ ^
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp:172:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateManager.cpp: In member function ‘void CStateManager::AddStateDef(s32)’:
+StateManager.cpp:236:60: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("Overwriting StateDef %i",nStateDefNum);                             
+                                                            ^
+StateManager.cpp: In member function ‘void CStateManager::AddInstruction(Uint16, float, const char*)’:
+StateManager.cpp:395:97: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           PrintMessage("AddInstruction = %s %f %s(%i)",strOpCode[nOpCode],value,strValue,nOpCode);
+                                                                                                 ^
+StateManager.cpp: In member function ‘void CStateManager::AddTriggerToState(u8)’:
+StateManager.cpp:418:96: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CStateManager::What the hell are you doing with 100 triggers!!!!(Error)" );
+                                                                                                ^
+StateManager.cpp: In member function ‘PLSTATEDEF* CStateManager::GetStateDef(int)’:
+StateManager.cpp:453:69: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CStateManager::Statedef %i not found",nStateNumber);
+                                                                     ^
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+        };
+        ^
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:97:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+        };
+        ^
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp:211:8: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+StateParser.cpp: In member function ‘void CStateParser::Term(CTokenizer&, CStateManager&)’:
+StateParser.cpp:712:63: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                  PrintMessage("TODO:Handel assign operator :=");
+                                                               ^
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+ };
+ ^
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+tokenizer.cpp:29:1: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+VideoSystem.cpp: In destructor ‘CVideoSystem::~CVideoSystem()’:
+VideoSystem.cpp:39:61: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CVideoSystem::~CVideoSystem() Cleaning Up");
+                                                             ^
+VideoSystem.cpp: In member function ‘bool CVideoSystem::InitSystem()’:
+VideoSystem.cpp:53:46: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     PrintMessage("CVideoSystem::InitSystem()");
+                                              ^
+VideoSystem.cpp: In member function ‘void CVideoSystem::LoadFont()’:
+VideoSystem.cpp:90:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+        PrintMessage("CVideoSystem:: DebugFonts not found");
+                                                          ^
+VideoSystem.cpp:95:42: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("font.txt not found");
+                                          ^
+VideoSystem.cpp: In member function ‘void CVideoSystem::Draw()’:
+VideoSystem.cpp:131:34: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     DrawText(0,0,"%2.2f FPS",nFps);
+                                  ^
+VideoSystem.cpp: In member function ‘SDL_Surface* CVideoSystem::CreateSurface(int, int)’:
+VideoSystem.cpp:276:91: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CVideoSystem::CreateSurfac Create Surfacce Failed %s",SDL_GetError());
+                                                                                           ^
+VM.cpp: In member function ‘void CVirtualMachine::AddOP()’:
+VM.cpp:233:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::SubOP()’:
+VM.cpp:245:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::MulOP()’:
+VM.cpp:257:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::DivOP()’:
+VM.cpp:269:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::EqualOP()’:
+VM.cpp:289:35: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                 m_Stack.Push(1,"#");
+                                   ^
+VM.cpp:292:35: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+                 m_Stack.Push(0,"#");
+                                   ^
+VM.cpp:312:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::NotEqual()’:
+VM.cpp:329:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::Less()’:
+VM.cpp:348:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::Greater()’:
+VM.cpp:367:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::LessEqual()’:
+VM.cpp:384:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::GreaterEqual()’:
+VM.cpp:402:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_pop.Value,"#");
+                                 ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP1()’:
+VM.cpp:422:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP2()’:
+VM.cpp:442:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP3()’:
+VM.cpp:460:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP4()’:
+VM.cpp:477:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP5()’:
+VM.cpp:496:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP6()’:
+VM.cpp:514:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP7()’:
+VM.cpp:532:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::InterValOP8()’:
+VM.cpp:549:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(m_pop.Value,"#");
+                                ^
+VM.cpp: In member function ‘void CVirtualMachine::LogNot()’:
+VM.cpp:563:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1,"#");
+                           ^
+VM.cpp:565:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::LogAnd()’:
+VM.cpp:579:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1,"#");
+                           ^
+VM.cpp:581:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#"); 
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::LogOr()’:
+VM.cpp:593:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1,"#");
+                           ^
+VM.cpp:595:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#"); 
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::LogXor()’:
+VM.cpp:607:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1,"#");
+                           ^
+VM.cpp:609:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1,"#"); 
+                           ^
+VM.cpp:611:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#"); 
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Not()’:
+VM.cpp:622:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::And()’:
+VM.cpp:634:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Or()’:
+VM.cpp:646:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Xor()’:
+VM.cpp:658:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Square()’:
+VM.cpp:671:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Abs()’:
+VM.cpp:680:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Neg()’:
+VM.cpp:690:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Acos()’:
+VM.cpp:700:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Alive()’:
+VM.cpp:707:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(1.0f,"#");
+                           ^
+VM.cpp:709:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0.0f,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Anim()’:
+VM.cpp:715:48: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   m_Stack.Push((float)m_pPlayer1->GetAnim(),"#");
+                                                ^
+VM.cpp: In member function ‘void CVirtualMachine::AnimElem()’:
+VM.cpp:728:54: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push((float)tActionElement->nCurrTime,"#");
+                                                      ^
+VM.cpp:730:60: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push((float)tActionElement->nCurrentImage+1,"#");
+                                                            ^
+VM.cpp: In member function ‘void CVirtualMachine::AnimeElemNo()’:
+VM.cpp:758:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp:769:40: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+             m_Stack.Push((float)i+1,"#");
+                                        ^
+VM.cpp:777:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::AnimeElemTime()’:
+VM.cpp:796:66: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push((float)tActionElement->nCurrentImageTime,"#");
+                                                                  ^
+VM.cpp:802:28: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(-1,"#");    
+                            ^
+VM.cpp: In member function ‘void CVirtualMachine::AnimExist()’:
+VM.cpp:815:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1.0,"#");
+                             ^
+VM.cpp:817:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0.0,"#");
+                             ^
+VM.cpp: In member function ‘void CVirtualMachine::AnimTime()’:
+VM.cpp:831:38: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push((float)nAnimTime,"#");
+                                      ^
+VM.cpp: In member function ‘void CVirtualMachine::Asin()’:
+VM.cpp:841:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Atan()’:
+VM.cpp:851:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::BackEdgeBodyDist()’:
+VM.cpp:865:25: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(123,"#");
+                         ^
+VM.cpp: In member function ‘void CVirtualMachine::BackEdgeDist()’:
+VM.cpp:871:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(123,"#");
+                             ^
+VM.cpp: In member function ‘void CVirtualMachine::CanRecover()’:
+VM.cpp:877:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");    
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::Ceil()’:
+VM.cpp:887:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Const()’:
+VM.cpp:906:81: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push((float)((CPlayer*)m_p1)->myPlayerConst.PlayerData.nLife,"#");
+                                                                                 ^
+VM.cpp:911:70: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nAttack,"#");
+                                                                      ^
+VM.cpp:916:71: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nDefence,"#");
+                                                                       ^
+VM.cpp:922:31: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(temp1,"#");
+                               ^
+VM.cpp:927:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nLieDownTime,"#");
+                                                                           ^
+VM.cpp:932:73: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nAirjuggle,"#");
+                                                                         ^
+VM.cpp:937:71: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nSparkno,"#");
+                                                                       ^
+VM.cpp:942:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nGuardSparkno,"#");
+                                                                            ^
+VM.cpp:947:70: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.bKoEcho,"#");
+                                                                      ^
+VM.cpp:952:79: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nIntPersistIndex,"#");
+                                                                               ^
+VM.cpp:957:81: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerData.nFloatPersistIndex,"#");
+                                                                                 ^
+VM.cpp:962:70: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nXscale,"#");
+                                                                      ^
+VM.cpp:967:70: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nYscale,"#");
+                                                                      ^
+VM.cpp:972:74: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nGroundBack,"#");
+                                                                          ^
+VM.cpp:977:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nGroundFront,"#");
+                                                                           ^
+VM.cpp:982:71: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nAirBack,"#");
+                                                                       ^
+VM.cpp:987:72: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nAirFront,"#");
+                                                                        ^
+VM.cpp:992:78: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nAttackDistance,"#");
+                                                                              ^
+VM.cpp:997:78: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nProjAttackDist,"#");
+                                                                              ^
+VM.cpp:1002:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.bProjDoScale,"#");
+                                                                           ^
+VM.cpp:1007:73: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nHeadPos.x,"#");
+                                                                         ^
+VM.cpp:1012:73: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nHeadPos.y,"#");
+                                                                         ^
+VM.cpp:1017:72: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nMidPos.x,"#");
+                                                                        ^
+VM.cpp:1022:72: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nMidPos.y,"#");
+                                                                        ^
+VM.cpp:1027:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nShadowOffset,"#");
+                                                                            ^
+VM.cpp:1032:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nDrawOffset.x,"#");
+                                                                            ^
+VM.cpp:1037:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerSize.nDrawOffset.x,"#");
+                                                                            ^
+VM.cpp:1042:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.nWalkFwd,"#");
+                                                                           ^
+VM.cpp:1047:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.nWalkBack,"#");
+                                                                            ^
+VM.cpp:1052:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.RunFwd.x,"#");
+                                                                           ^
+VM.cpp:1057:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.RunFwd.y,"#");
+                                                                           ^
+VM.cpp:1062:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.RunBack.x,"#");
+                                                                            ^
+VM.cpp:1067:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.RunBack.y,"#");
+                                                                            ^
+VM.cpp:1072:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.JumpNeu.x,"#");
+                                                                            ^
+VM.cpp:1077:77: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.JumpBack.x,"#");
+                                                                             ^
+VM.cpp:1082:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.JumpFwd.x,"#");
+                                                                            ^
+VM.cpp:1087:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.RunBack.x,"#");
+                                                                            ^
+VM.cpp:1092:75: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.RunFwd.x,"#");
+                                                                           ^
+VM.cpp:1097:79: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.AirjumpNeu.x,"#");
+                                                                               ^
+VM.cpp:1102:80: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.AirjumpBack.x,"#");
+                                                                                ^
+VM.cpp:1107:79: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerVelocity.AirjumpFwd.x,"#");
+                                                                               ^
+VM.cpp:1112:77: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerMovement.AirJumpNum,"#");
+                                                                             ^
+VM.cpp:1117:80: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerMovement.nAirJumpHight,"#");
+                                                                                ^
+VM.cpp:1122:73: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerMovement.yaccel,"#");
+                                                                         ^
+VM.cpp:1127:80: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerMovement.StandFriction,"#");
+                                                                                ^
+VM.cpp:1132:81: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(m_pPlayer1->myPlayerConst.PlayerMovement.CrouchFriction,"#");
+                                                                                 ^
+VM.cpp:1136:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+        m_Stack.Push(0,"#");
+                          ^
+VM.cpp:1140:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+        m_Stack.Push(0,"#");
+                          ^
+VM.cpp:1145:61: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         PrintMessage("CVirtualMachine::Invalide Const Param");    
+                                                             ^
+VM.cpp: In member function ‘void CVirtualMachine::Cos()’:
+VM.cpp:1158:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Ctrl()’:
+VM.cpp:1166:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1.0,"#");
+                             ^
+VM.cpp:1168:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0.0,"#");
+                             ^
+VM.cpp: In member function ‘void CVirtualMachine::DrawGame()’:
+VM.cpp:1174:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   m_Stack.Push(0.0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::Exp()’:
+VM.cpp:1184:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Floor()’:
+VM.cpp:1206:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(temp1,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::FrontEdgeBodyDist()’:
+VM.cpp:1214:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(124,"#");
+                          ^
+VM.cpp: In member function ‘void CVirtualMachine::FrontEdgeDist()’:
+VM.cpp:1221:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(124,"#");
+                          ^
+VM.cpp: In member function ‘void CVirtualMachine::GetHitVar()’:
+VM.cpp:1249:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::HitCount()’:
+VM.cpp:1256:22: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(0,"#");
+                      ^
+VM.cpp: In member function ‘void CVirtualMachine::HitFall()’:
+VM.cpp:1263:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::HitOver()’:
+VM.cpp:1268:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::HitPauseTime()’:
+VM.cpp:1273:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::HitShakeOver()’:
+VM.cpp:1278:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::HitVel()’:
+VM.cpp:1289:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::IfElse()’:
+VM.cpp:1315:31: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(temp2,"#");
+                               ^
+VM.cpp:1317:31: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(temp3,"#");
+                               ^
+VM.cpp: In member function ‘void CVirtualMachine::InGuardDist()’:
+VM.cpp:1328:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::IsHelper()’:
+VM.cpp:1334:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::IsHomeTeam()’:
+VM.cpp:1340:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::LogN()’:
+VM.cpp:1358:41: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(m_Stack.Pop().Value,"#");
+                                         ^
+VM.cpp: In member function ‘void CVirtualMachine::Log()’:
+VM.cpp:1367:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::Lose()’:
+VM.cpp:1376:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");
+                             ^
+VM.cpp:1380:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");
+                             ^
+VM.cpp:1384:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");
+                             ^
+VM.cpp: In member function ‘void CVirtualMachine::MatchNo()’:
+VM.cpp:1394:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(1,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MatchOver()’:
+VM.cpp:1399:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MoveContact()’:
+VM.cpp:1404:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MoveGuarded()’:
+VM.cpp:1409:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MoveHit()’:
+VM.cpp:1414:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MoveType()’:
+VM.cpp:1428:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MoveReversed()’:
+VM.cpp:1435:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::NumEnemy()’:
+VM.cpp:1448:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(1,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::NumExplod()’:
+VM.cpp:1457:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          PrintMessage("NumExplod Paramerter is %i",(int)m_Stack.Pop().Value);
+                                                                            ^
+VM.cpp:1458:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");
+                             ^
+VM.cpp:1463:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::NumHelper()’:
+VM.cpp:1474:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          PrintMessage("NumHelper Paramerter is %i",(int)m_Stack.Pop().Value);
+                                                                            ^
+VM.cpp:1475:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");
+                             ^
+VM.cpp:1480:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::NumPartner()’:
+VM.cpp:1489:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::NumProj()’:
+VM.cpp:1494:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::NumProjID()’:
+VM.cpp:1500:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::NumTarget()’:
+VM.cpp:1508:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          PrintMessage("NumTarget Paramerter is %i",(int)m_Stack.Pop().Value);
+                                                                            ^
+VM.cpp:1509:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");
+                             ^
+VM.cpp:1514:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::P2BodyDist()’:
+VM.cpp:1524:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+            m_Stack.Push(0,"#");
+                              ^
+VM.cpp:1529:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::P2Dist()’:
+VM.cpp:1539:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+            m_Stack.Push(0,"#");
+                              ^
+VM.cpp:1544:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::P2MoveType()’:
+VM.cpp:1557:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::P2StateType()’:
+VM.cpp:1574:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::P3Name()’:
+VM.cpp:1579:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"P3Name");
+                             ^
+VM.cpp: In member function ‘void CVirtualMachine::P4Name()’:
+VM.cpp:1584:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"P4Name");
+                             ^
+VM.cpp: In member function ‘void CVirtualMachine::PalNo()’:
+VM.cpp:1589:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::ParentDist()’:
+VM.cpp:1597:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+            m_Stack.Push(0,"#");
+                              ^
+VM.cpp:1602:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Pi()’:
+VM.cpp:1609:37: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(3.141592653589f,"#");
+                                     ^
+VM.cpp: In member function ‘void CVirtualMachine::PlayerIDExist()’:
+VM.cpp:1616:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::PowerMax()’:
+VM.cpp:1647:25: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    m_Stack.Push(3000,"#");
+                         ^
+VM.cpp: In member function ‘void CVirtualMachine::ProjCancelTime()’:
+VM.cpp:1653:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(1000,"#");
+                          ^
+VM.cpp: In member function ‘void CVirtualMachine::RootDist()’:
+VM.cpp:1667:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+            m_Stack.Push(0,"#");
+                              ^
+VM.cpp:1672:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::RoundNo()’:
+VM.cpp:1679:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(0,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::RoundsExisted()’:
+VM.cpp:1684:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::RoundState()’:
+VM.cpp:1690:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(2,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::Sin()’:
+VM.cpp:1725:46: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(sin(m_Stack.Pop().Value),"#");
+                                              ^
+VM.cpp: In member function ‘void CVirtualMachine::SysFVar()’:
+VM.cpp:1741:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::SysVar()’:
+VM.cpp:1748:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::Tan()’:
+VM.cpp:1754:46: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(tan(m_Stack.Pop().Value),"#");
+                                              ^
+VM.cpp: In member function ‘void CVirtualMachine::TeamMode()’:
+VM.cpp:1759:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::TeamSide()’:
+VM.cpp:1764:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(1,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::TicksPerSecond()’:
+VM.cpp:1769:25: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(60,"#");
+                         ^
+VM.cpp: In member function ‘void CVirtualMachine::UniqHitCount()’:
+VM.cpp:1779:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(1,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::Var()’:
+VM.cpp:1785:24: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+      m_Stack.Push(1,"#");
+                        ^
+VM.cpp: In member function ‘void CVirtualMachine::Win()’:
+VM.cpp:1809:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           m_Stack.Push(0,"#");      
+                             ^
+VM.cpp:1813:28: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          m_Stack.Push(0,"#");
+                            ^
+VM.cpp:1817:28: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          m_Stack.Push(0,"#");
+                            ^
+VM.cpp:1821:28: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+          m_Stack.Push(0,"#");
+                            ^
+VM.cpp: In member function ‘void CVirtualMachine::ProjContact()’:
+VM.cpp:1831:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(1,"#");
+                       ^
+VM.cpp:1832:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(2,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::ProjContactTime()’:
+VM.cpp:1839:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::ProjGuarded()’:
+VM.cpp:1845:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(1,"#");
+                       ^
+VM.cpp:1846:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(2,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::ProjGuardedTime()’:
+VM.cpp:1853:23: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(0,"#");
+                       ^
+VM.cpp: In member function ‘void CVirtualMachine::MODOP()’:
+VM.cpp:1873:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(1,"#");
+                           ^
+VM.cpp:1875:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         m_Stack.Push(0,"#");
+                           ^
+VM.cpp: In member function ‘void CVirtualMachine::Restore()’:
+VM.cpp:1897:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     m_Stack.Push(nSave,"#");
+                           ^
+/tmp/ccwqLEml.o: In function `CGame::CheckSDL()':
+game.cpp:(.text+0x2aa): undefined reference to `SDL_PollEvent'
+/tmp/ccwqLEml.o: In function `CGame::Quit()':
+game.cpp:(.text+0x30f): undefined reference to `SDL_Quit'
+/tmp/cc41Cg6M.o: In function `CInput::ProcessInput(KEYBOARDDATA*, SDL_Event)':
+Input.cpp:(.text+0x2a): undefined reference to `SDL_GetKeyState'
+/tmp/ccheNuXW.o: In function `scale2x(SDL_Surface*, SDL_Surface*)':
+scale2xSDL.cpp:(.text+0x24): undefined reference to `SDL_LockSurface'
+scale2xSDL.cpp:(.text+0x49): undefined reference to `SDL_LockSurface'
+scale2xSDL.cpp:(.text+0xe3d): undefined reference to `SDL_UnlockSurface'
+scale2xSDL.cpp:(.text+0xe4c): undefined reference to `SDL_UnlockSurface'
+/tmp/ccmB8RHb.o: In function `SDL_initFramerate(FPSmanager*)':
+SDL_framerate.cpp:(.text+0x2f): undefined reference to `SDL_GetTicks'
+/tmp/ccmB8RHb.o: In function `SDL_framerateDelay(FPSmanager*)':
+SDL_framerate.cpp:(.text+0xd0): undefined reference to `SDL_GetTicks'
+SDL_framerate.cpp:(.text+0x139): undefined reference to `SDL_Delay'
+SDL_framerate.cpp:(.text+0x14a): undefined reference to `SDL_GetTicks'
+/tmp/ccplEPAq.o: In function `CSDLManager::Init()':
+SDLManager.cpp:(.text+0x55): undefined reference to `SDL_Init'
+SDLManager.cpp:(.text+0x70): undefined reference to `SDL_GetError'
+SDLManager.cpp:(.text+0xa7): undefined reference to `SDL_RWFromFile'
+SDLManager.cpp:(.text+0xb4): undefined reference to `SDL_LoadBMP_RW'
+SDLManager.cpp:(.text+0xc1): undefined reference to `SDL_WM_SetIcon'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::InitSystem()':
+VideoSystem.cpp:(.text+0xad): undefined reference to `SDL_SetVideoMode'
+VideoSystem.cpp:(.text+0x100): undefined reference to `SDL_WM_SetCaption'
+VideoSystem.cpp:(.text+0x140): undefined reference to `SDL_MapRGB'
+VideoSystem.cpp:(.text+0x157): undefined reference to `SDL_FillRect'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::LoadFont()':
+VideoSystem.cpp:(.text+0x1bc): undefined reference to `SDL_RWFromFile'
+VideoSystem.cpp:(.text+0x1c9): undefined reference to `SDL_LoadBMP_RW'
+VideoSystem.cpp:(.text+0x2ff): undefined reference to `SDL_MapRGB'
+VideoSystem.cpp:(.text+0x319): undefined reference to `SDL_SetColorKey'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::Clear()':
+VideoSystem.cpp:(.text+0x354): undefined reference to `SDL_MapRGB'
+VideoSystem.cpp:(.text+0x36f): undefined reference to `SDL_FillRect'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::Draw()':
+VideoSystem.cpp:(.text+0x38e): undefined reference to `SDL_UnlockSurface'
+VideoSystem.cpp:(.text+0x393): undefined reference to `SDL_GetTicks'
+VideoSystem.cpp:(.text+0x499): undefined reference to `SDL_UpperBlit'
+VideoSystem.cpp:(.text+0x4a8): undefined reference to `SDL_Flip'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::DrawText(int, int, char*, ...)':
+VideoSystem.cpp:(.text+0x750): undefined reference to `SDL_UpperBlit'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::CreateSurface(int, int)':
+VideoSystem.cpp:(.text+0x82f): undefined reference to `SDL_CreateRGBSurface'
+VideoSystem.cpp:(.text+0x83f): undefined reference to `SDL_GetError'
+/tmp/ccTjEYUV.o: In function `CVideoSystem::MapRGB(unsigned char, unsigned char, unsigned char)':
+VideoSystem.cpp:(.text+0xe7b): undefined reference to `SDL_MapRGB'
+collect2: error: ld returned 1 exit status
