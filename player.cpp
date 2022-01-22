@@ -79,7 +79,7 @@ bool CPlayer::LoadPlayer(const char* strPlayer)
      m_AirManager.ResetManager();
      
      m_CmdManager.LoadCMDFile("kfm/kfm.cmd");
-     StateParser.ParseStateFile("cns.txt",m_StateManager,m_pAlloc);
+     StateParser.ParseStateFile("CNS.txt",m_StateManager,m_pAlloc);
      m_AirManager.OpenAir("kfm/kfm.air");
 
 
