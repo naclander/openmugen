@@ -4,6 +4,7 @@
 /Makefile
 /CMakeFiles/
 /.cmake/
+build
 
 .idea
 .vscode
