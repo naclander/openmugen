@@ -28,7 +28,7 @@ int main(int argc, char **argv)
       //windows only , change this for other OS 
       //MessageBox(0,e.GetError(),"Error",0 );       
 	  //For linux , obviously incorrect
-	  fprintf(stderr,"Caught error in main\n");
+      fprintf(stderr,"The following error was encountered during execution: %s\n", e.GetError());
     }
  
    return 0;
