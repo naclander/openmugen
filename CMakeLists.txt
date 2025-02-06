@@ -23,6 +23,11 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_L
     message(FATAL_ERROR "Require at least g++-5.1")
 endif ()
 
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+    add_definitions("-g -O0 -Wall -Wextra -Wpedantic -fsanitize=address")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")
+endif ()
+
 # see what platform we are on and set platform defines
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     add_definitions(-DGL_SILENCE_DEPRECATION)
